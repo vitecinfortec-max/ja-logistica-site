@@ -17,7 +17,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -152,12 +152,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   min-height: 74vh;
   display: flex;
   align-items: center;
-  overflow: hidden;
   color: #fff;
 }
 .hero-media {
   position: absolute;
-  inset: 0;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 100vw;
   z-index: 0;
 }
 .hero-media img {
@@ -166,7 +167,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero-overlay {
   position: absolute;
-  inset: 0;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 100vw;
   background:
     linear-gradient(100deg, rgba(11,38,46,.94) 20%, rgba(11,38,46,.8) 55%, rgba(11,38,46,.72) 100%);
 }
