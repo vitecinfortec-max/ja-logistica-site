@@ -247,6 +247,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .whatsapp-float:hover { transform: scale(1.08); }
 .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
 
+/* ---------- Mobile action bar ---------- */
+.mobile-actionbar { display: none; }
+
 /* ---------- Sections ---------- */
 .section { padding: 100px 0; }
 .section-tight { padding: 56px 0; }
@@ -595,6 +598,36 @@ ul { margin: 0; padding: 0; list-style: none; }
   .clients-grid { grid-template-columns: repeat(2, 1fr); }
   .hero { min-height: auto; padding-top: 40px; }
   .section { padding: 64px 0; }
+
+  .whatsapp-float { display: none; }
+  .back-to-top { bottom: 78px; }
+  body { padding-bottom: 60px; }
+
+  .mobile-actionbar {
+    display: flex;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 95;
+    background: var(--navy-deep);
+    box-shadow: 0 -8px 20px -12px rgba(0,0,0,.4);
+  }
+  .mobile-action {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 9px 4px 11px;
+    color: rgba(255,255,255,.85);
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    border-right: 1px solid rgba(255,255,255,.1);
+  }
+  .mobile-action:last-child { border-right: none; }
+  .mobile-action svg { width: 20px; height: 20px; fill: currentColor; }
+  .mobile-action-whatsapp { background: #25d366; color: #fff; }
 }
 
 @media (max-width: 480px) {
