@@ -273,12 +273,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 .service-block-reverse .service-photo { order: 2; }
 .service-block-reverse .service-copy { order: 1; }
 
+.service-photo {
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
 .service-photo img {
   width: 100%;
   height: 340px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  object-fit: contain;
+  display: block;
 }
 .service-copy h3 {
   font-size: 24px;
