@@ -460,6 +460,51 @@ ul { margin: 0; padding: 0; list-style: none; }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
 
+/* ---------- Desktop scale-up ---------- */
+@media (min-width: 981px) {
+  body { font-size: 16.5px; }
+
+  .main-nav a { font-size: 16px; }
+  .btn { font-size: 16px; padding: 15px 30px; }
+  .btn-sm { font-size: 14.5px; }
+
+  .eyebrow { font-size: 14px; }
+  .hero-sub { font-size: 18.5px; max-width: 620px; }
+
+  .card { padding: 34px 30px; }
+  .card-icon { width: 58px; height: 58px; }
+  .card-icon svg { width: 28px; height: 28px; }
+  .card h3 { font-size: 19px; }
+  .card p { font-size: 16px; }
+
+  .panel { padding: 34px 30px; }
+  .panel h3 { font-size: 20px; }
+  .panel p { font-size: 16.5px; }
+  .quality-note p { font-size: 16px; }
+  .quality-note h4 { font-size: 17px; }
+
+  .service-copy h3 { font-size: 26px; }
+  .check-list li { font-size: 16.5px; padding: 11px 0 11px 32px; }
+
+  .logo-item { padding: 20px 22px; }
+  .logo-item img { height: 46px; max-width: 100px; }
+  .logo-item span { font-size: 14px; }
+
+  .client-logo { height: 112px; padding: 20px; }
+  .client-logo img { max-height: 70px; }
+
+  .contact-card { padding: 24px; }
+  .contact-card h4 { font-size: 16px; }
+  .contact-card p { font-size: 15.5px; }
+  .contact-icon { width: 46px; height: 46px; }
+  .contact-icon svg { width: 22px; height: 22px; }
+
+  .gallery-grid figcaption { font-size: 15px; padding: 16px 18px; }
+
+  .footer-brand p { font-size: 14px; }
+  .footer-nav a { font-size: 15px; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
