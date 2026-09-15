@@ -54,11 +54,12 @@
 
   function animateCount(el) {
     var text = el.textContent.trim();
-    var match = text.match(/(\d+)/);
+    var match = text.match(/([\d.,]*\d)/);
     if (!match) return;
-    var target = parseInt(match[1], 10);
+    var raw = match[1];
+    var target = parseInt(raw.replace(/[.,]/g, ''), 10);
     var prefix = text.slice(0, match.index);
-    var suffix = text.slice(match.index + match[1].length);
+    var suffix = text.slice(match.index + raw.length);
     var duration = 800;
     var start = null;
 
@@ -67,11 +68,11 @@
       var progress = Math.min((timestamp - start) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
       var current = Math.round(eased * target);
-      el.textContent = prefix + current + suffix;
+      el.textContent = prefix + current.toLocaleString('pt-BR') + suffix;
       if (progress < 1) {
         window.requestAnimationFrame(step);
       } else {
-        el.textContent = prefix + target + suffix;
+        el.textContent = prefix + target.toLocaleString('pt-BR') + suffix;
       }
     }
     window.requestAnimationFrame(step);
