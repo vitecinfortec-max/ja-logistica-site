@@ -406,17 +406,17 @@ ul { margin: 0; padding: 0; list-style: none; }
   gap: 20px;
 }
 .logo-item {
-  flex: 1 1 220px;
-  max-width: 260px;
+  flex: 1 1 240px;
+  max-width: 300px;
   display: flex;
   align-items: center;
   gap: 16px;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 16px 20px;
 }
-.logo-item img { height: 48px; width: auto; max-width: 110px; object-fit: contain; }
+.logo-item img { height: 44px; width: auto; max-width: 100px; object-fit: contain; flex-shrink: 0; }
 .logo-item span { font-size: 13px; font-weight: 600; color: var(--navy); }
 
 .clients-grid {
@@ -546,8 +546,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   .service-copy h3 { font-size: 26px; }
   .check-list li { font-size: 16.5px; padding: 11px 0 11px 32px; }
 
-  .logo-item { padding: 20px 22px; }
-  .logo-item img { height: 60px; max-width: 140px; }
+  .logo-item { padding: 22px 26px; }
+  .logo-item img { height: 54px; max-width: 120px; }
   .logo-item span { font-size: 14px; }
 
   .client-logo { height: 150px; padding: 18px; }
