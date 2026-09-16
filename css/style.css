@@ -46,17 +46,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 0 24px;
 }
 
-/* ---------- Top alert bar ---------- */
-.top-alert {
-  background: var(--navy-deep);
-  color: rgba(255,255,255,.85);
-  font-size: 13px;
-  text-align: center;
-  padding: 8px 16px;
-  letter-spacing: .2px;
-}
-.top-alert .dot { margin: 0 10px; opacity: .5; }
-
 /* ---------- Header ---------- */
 .site-header {
   position: sticky;
@@ -581,8 +570,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 760px) {
   :root { --header-h: 84px; }
   .brand-logo { height: 60px; }
-  .top-alert { font-size: 11px; }
-  .top-alert .dot { margin: 0 6px; }
   .main-nav {
     position: fixed;
     top: var(--header-h); left: 0; right: 0;
