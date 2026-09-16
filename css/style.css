@@ -403,21 +403,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
 }
 .logo-item {
-  flex: 1 1 240px;
-  max-width: 300px;
+  flex: 1 1 220px;
+  max-width: 265px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 16px 20px;
+  padding: 18px 18px;
 }
-.logo-item img { height: 44px; width: auto; max-width: 100px; object-fit: contain; flex-shrink: 0; }
-.logo-item span { font-size: 13px; font-weight: 600; color: var(--navy); }
+.logo-item img { height: 40px; width: auto; max-width: 88px; object-fit: contain; flex-shrink: 0; }
+.logo-item span { font-size: 12.5px; font-weight: 600; color: var(--navy); }
 
 .clients-grid {
   display: grid;
@@ -546,9 +546,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .service-copy h3 { font-size: 26px; }
   .check-list li { font-size: 16.5px; padding: 11px 0 11px 32px; }
 
-  .logo-item { padding: 22px 26px; }
-  .logo-item img { height: 54px; max-width: 120px; }
-  .logo-item span { font-size: 14px; }
+  .logo-item { padding: 20px 22px; }
+  .logo-item img { height: 46px; max-width: 98px; }
+  .logo-item span { font-size: 13.5px; }
 
   .client-logo { height: 150px; padding: 18px; }
   .client-logo img { max-height: 114px; }
