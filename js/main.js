@@ -1,4 +1,14 @@
 (function () {
+  var heroSlides = document.querySelectorAll('.hero-slide');
+  if (heroSlides.length > 1) {
+    var currentSlide = 0;
+    setInterval(function () {
+      heroSlides[currentSlide].classList.remove('is-active');
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      heroSlides[currentSlide].classList.add('is-active');
+    }, 3000);
+  }
+
   var header = document.getElementById('siteHeader');
   var nav = document.getElementById('mainNav');
   var navToggle = document.getElementById('navToggle');
