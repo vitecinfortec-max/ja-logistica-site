@@ -416,7 +416,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-radius: var(--radius);
   padding: 16px 18px;
 }
-.logo-item img { height: 40px; width: auto; max-width: 90px; object-fit: contain; }
+.logo-item img { height: 48px; width: auto; max-width: 110px; object-fit: contain; }
 .logo-item span { font-size: 13px; font-weight: 600; color: var(--navy); }
 
 .clients-grid {
@@ -547,7 +547,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .check-list li { font-size: 16.5px; padding: 11px 0 11px 32px; }
 
   .logo-item { padding: 20px 22px; }
-  .logo-item img { height: 46px; max-width: 100px; }
+  .logo-item img { height: 60px; max-width: 140px; }
   .logo-item span { font-size: 14px; }
 
   .client-logo { height: 150px; padding: 18px; }
