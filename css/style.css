@@ -764,3 +764,7 @@ main:focus { outline: none; }
 .eyebrow { color: #8c4300; }
 .eyebrow-light { color: #ffcb90; }
 @media (max-width: 600px) { .hero .eyebrow { font-size: 12px; letter-spacing: 1.3px; } }
+
+/* Preserve the complete view of the coils operation. */
+.gallery-grid .gallery-photo-full { object-fit: contain; background: var(--bg-alt); }
+.gallery-grid figure:hover .gallery-photo-full { transform: none; }
