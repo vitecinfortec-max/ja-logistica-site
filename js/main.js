@@ -33,13 +33,13 @@
       toggle.textContent = paused ? 'Reproduzir fotos' : 'Pausar fotos';
       toggle.setAttribute('aria-pressed', String(paused));
     }
-    if (paused || document.hidden || slides.length < 2) return;
+    if (paused || document.hidden || document.querySelector("dialog[open]") || slides.length < 2) return;
     timer = window.setInterval(function () {
       if (advancing) return;
       advancing = true;
       var next = (active + 1) % slides.length;
       prepareSlide(slides[next]).then(function () {
-        if (paused || document.hidden) return;
+        if (paused || document.hidden || document.querySelector("dialog[open]")) return;
         slides[active].classList.remove('is-active');
         slides[next].classList.add('is-active');
         active = next;
@@ -52,6 +52,7 @@
     toggle.hidden = false;
     toggle.addEventListener('click', function () { paused = !paused; syncCarousel(); });
     document.addEventListener('visibilitychange', syncCarousel);
+    document.addEventListener('gallery:visibility', syncCarousel);
     reducedMotion.addEventListener('change', function (event) { paused = event.matches; syncCarousel(); });
     syncCarousel();
   }
