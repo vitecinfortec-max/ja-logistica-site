@@ -484,8 +484,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding-bottom: 36px;
   border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-brand { display: flex; align-items: center; gap: 14px; }
-.footer-brand img { height: 42px; filter: brightness(0) invert(1); opacity: .9; }
+.footer-brand { display: flex; align-items: center; gap: 20px; min-width: 0; max-width: 100%; }
+.footer-brand img { width: 112px; height: auto; object-fit: contain; flex-shrink: 0; filter: brightness(0) invert(1); opacity: .9; }
 .footer-brand p { margin: 0; font-size: 13px; color: rgba(255,255,255,.55); }
 .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
 .footer-nav a { font-size: 14px; color: rgba(255,255,255,.75); }
@@ -745,7 +745,8 @@ main:focus { outline: none; }
   .hero-title { font-size: clamp(2.15rem, 8.5vw, 3rem); }
   .hero { padding-top: 24px; }
   .quote-banner .btn { width: 100%; }
-  .footer-brand { align-items: flex-start; }
+  .footer-brand { align-items: center; }
+  .footer-brand img { width: 88px; }
   .footer-brand p { overflow-wrap: anywhere; }
   .footer-bottom { padding: 22px 20px; }
   .logo-item { max-width: none; }
