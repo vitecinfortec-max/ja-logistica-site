@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260922-presentation3">
+<link rel="stylesheet" href="css/style.css?v=20260923-clients1">
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -250,25 +250,32 @@
 
   <!-- CLIENTES -->
   <section id="clientes" class="section section-alt">
-    <div class="container">
-      <p class="eyebrow">Quem confia na J.A Logística</p>
-      <h2 class="section-title">Alguns de Nossos Clientes</h2>
-
-      <div class="clients-grid reveal-group">
-        <div class="client-logo reveal"><img src="assets/logos/cliente-ecb.jpg" alt="ECB Rochas Ornamentais do Brasil" width="355" height="96" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-brother.jpg" alt="Brother Motopeças" width="366" height="138" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-opcao.jpg" alt="Opção Distribuidora" width="700" height="282" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-manuport.svg" alt="Manuport Logistics"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-apm-terminals.jpg" alt="APM Terminals" width="700" height="179" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-grendene.jpg" alt="Grendene" width="491" height="104" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-ourofertil.jpg" alt="Ourofertil" width="420" height="212" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-rejuntamix.jpg" alt="Rejuntamix" width="421" height="135" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-lotus-containers.jpg" alt="Lotus Containers" width="728" height="449" decoding="async" loading="lazy"></div>
-        <div class="client-logo reveal"><img src="assets/logos/cliente-caru-containers.jpg" alt="CARU Containers" width="800" height="320" decoding="async" loading="lazy"></div>
+    <div class="container clients-carousel" data-clients-carousel>
+      <div class="clients-heading">
+        <div><p class="eyebrow">Empresas que atendemos</p><h2 id="clientsTitle" class="section-title">Clientes que confiam na <span class="no-wrap">J.A Logística</span></h2></div>
+        <div class="clients-controls" aria-label="Controles dos logos" hidden>
+          <button class="clients-control" type="button" data-clients-prev aria-label="Ver cliente anterior" aria-controls="clientsViewport"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg></button>
+          <button class="clients-control" type="button" data-clients-toggle aria-label="Pausar movimento dos logos" aria-pressed="false" aria-controls="clientsViewport"><svg data-clients-pause aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg><svg data-clients-play aria-hidden="true" focusable="false" viewBox="0 0 24 24" hidden><path d="m8 5 11 7-11 7z"/></svg></button>
+          <button class="clients-control" type="button" data-clients-next aria-label="Ver próximo cliente" aria-controls="clientsViewport"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></svg></button>
+        </div>
       </div>
+      <div id="clientsViewport" class="clients-viewport">
+        <div class="clients-grid" role="list" aria-label="Clientes da J.A Logística">
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-ecb.jpg" alt="ECB Rochas Ornamentais do Brasil" width="355" height="96" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-brother.jpg" alt="Brother Motopeças" width="366" height="138" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-opcao.jpg" alt="Opção Distribuidora" width="700" height="282" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-manuport.svg" alt="Manuport Logistics"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-apm-terminals.jpg" alt="APM Terminals" width="700" height="179" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-grendene.jpg" alt="Grendene" width="491" height="104" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-ourofertil.jpg" alt="Ourofertil" width="420" height="212" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-rejuntamix.jpg" alt="Rejuntamix" width="421" height="135" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-lotus-containers.jpg" alt="Lotus Containers" width="728" height="449" decoding="async" loading="lazy"></div>
+        <div class="client-logo" role="listitem"><img src="assets/logos/cliente-caru-containers.jpg" alt="CARU Containers" width="800" height="320" decoding="async" loading="lazy"></div>
+        </div>
+      </div>
+      <p class="clients-hint" hidden>Arraste para conhecer nossos clientes</p>
     </div>
   </section>
-
   <section id="duvidas" class="section faq-section">
     <div class="container faq-layout">
       <div><p class="eyebrow">Antes de contratar</p><h2 class="section-title">Dúvidas frequentes</h2><p>Informações para ajudar no planejamento da sua operação.</p></div>
@@ -414,5 +421,6 @@
 </dialog>
 <script src="js/main.js?v=20260922-carousel2"></script>
 <script src="js/interactions.js?v=20260922-cotacao1"></script>
+<script src="js/clients.js?v=20260923-clients1"></script>
 </body>
 </html>
