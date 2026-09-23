@@ -9,9 +9,6 @@
   if (originals.length < 2) return;
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var controls = root.querySelector('.clients-controls');
-  var toggle = root.querySelector('[data-clients-toggle]');
-  var userPaused = reducedMotion.matches;
   var hovered = false;
   var focusPaused = false;
   var dragging = false;
@@ -51,8 +48,6 @@
   viewport.tabIndex = 0;
   viewport.setAttribute('role', 'group');
   viewport.setAttribute('aria-label', 'Logos dos clientes. Use as setas do teclado para navegar.');
-  controls.hidden = false;
-  root.querySelector('.clients-hint').hidden = false;
 
   function writePosition(value) {
     position = value;
@@ -73,7 +68,7 @@
   }
   function canMove() {
     return cycle > 0 && visible && imagesReady && !document.hidden &&
-      !userPaused && !hovered && !focusPaused && !dragging && !touching &&
+      !reducedMotion.matches && !hovered && !focusPaused && !dragging && !touching &&
       performance.now() >= resumeAt && !document.querySelector('dialog[open]');
   }
   function tick(time) {
@@ -90,12 +85,6 @@
     window.cancelAnimationFrame(frame);
     frame = 0;
     previousTime = 0;
-    toggle.setAttribute('aria-pressed', String(userPaused));
-    var label = userPaused ? 'Reproduzir movimento dos logos' : 'Pausar movimento dos logos';
-    toggle.setAttribute('aria-label', label);
-    toggle.title = label;
-    toggle.querySelector('[data-clients-pause]').toggleAttribute('hidden', userPaused);
-    toggle.querySelector('[data-clients-play]').toggleAttribute('hidden', !userPaused);
     if (canMove()) frame = window.requestAnimationFrame(tick);
   }
   function hold() {
@@ -184,17 +173,7 @@
       writePosition(event.key === 'Home' ? cycle : cycle + (originals.length - 1) * cardStep);
     }
   });
-  root.querySelector('[data-clients-prev]').addEventListener('click', function () { move(-1); });
-  root.querySelector('[data-clients-next]').addEventListener('click', function () { move(1); });
-  toggle.addEventListener('click', function () {
-    userPaused = !userPaused;
-    if (!userPaused) { focusPaused = false; resumeAt = 0; }
-    sync();
-  });
-  reducedMotion.addEventListener('change', function (event) {
-    userPaused = event.matches;
-    sync();
-  });
+  reducedMotion.addEventListener('change', sync);
   document.addEventListener('visibilitychange', sync);
   document.addEventListener('gallery:visibility', sync);
 
