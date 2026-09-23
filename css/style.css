@@ -275,23 +275,51 @@ ul { margin: 0; padding: 0; list-style: none; }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 
-.card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 30px 26px;
-  box-shadow: var(--shadow);
+/* ---------- Operational advantages ---------- */
+.section.advantages-section { padding: 84px 0; background: var(--bg-alt); }
+.advantages-heading { margin-bottom: 36px; }
+.advantages-heading .section-title { max-width: none; margin-bottom: 14px; }
+.advantages-heading > p:last-child { margin: 0; font-size: 17px; line-height: 1.7; color: #5f717a; }
+.advantages-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.advantage-card { min-width: 0; padding: 30px; border: 1px solid #dfe7eb; border-radius: 20px; background: #fff; box-shadow: 0 12px 28px -24px rgba(16,51,61,.28); }
+.advantage-header { display: flex; align-items: center; gap: 20px; min-height: 70px; margin-bottom: 20px; }
+.advantage-header > div { min-width: 0; }
+.advantage-icon { display: flex; align-items: center; justify-content: center; flex: 0 0 62px; width: 62px; height: 62px; border: 1px solid #dcebed; border-radius: 16px; background: #f0f7f8; color: #267a88; }
+.advantage-icon svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.advantage-label { margin: 0 0 6px; color: #617780; font-size: 11px; font-weight: 600; line-height: 1.5; letter-spacing: 1.2px; text-transform: uppercase; }
+.advantage-card h3 { margin: 0; font-size: clamp(20px, 1.65vw, 23px); line-height: 1.35; }
+.advantage-number { color: #a45100; font-weight: 800; white-space: nowrap; }
+.advantage-description { margin: 0; font-size: 16px; line-height: 1.75; color: #5f717a; }
+.advantage-description strong { color: var(--navy); font-weight: 600; }
+.advantage-card-featured { background: var(--navy); border-color: var(--navy); box-shadow: 0 16px 30px -24px rgba(11,38,46,.65); }
+.advantage-card-featured .advantage-icon { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.15); color: #ffb25d; }
+.advantage-card-featured .advantage-label { color: #b9cdd2; }
+.advantage-card-featured h3 { color: #fff; }
+.advantage-card-featured .advantage-number { color: #ffb25d; }
+.advantage-card-featured .advantage-description { color: #d4e2e6; }
+@media (max-width: 980px) {
+  .advantage-card { padding: 26px; }
+  .advantage-header { gap: 16px; }
+  .advantage-icon { flex-basis: 54px; width: 54px; height: 54px; border-radius: 14px; }
 }
-.card-icon {
-  width: 52px; height: 52px;
-  border-radius: 12px;
-  background: rgba(240,128,15,.12);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
+@media (max-width: 700px) {
+  .section.advantages-section { padding: 56px 0; }
+  .advantages-heading { margin-bottom: 28px; }
+  .advantages-heading .section-title { font-size: 28px; line-height: 1.3; }
+  .advantages-heading > p:last-child { font-size: 16px; }
+  .advantages-grid { grid-template-columns: 1fr; gap: 16px; }
+  .advantage-card { padding: 24px; border-radius: 16px; }
+  .advantage-header { min-height: 0; margin-bottom: 18px; gap: 16px; }
+  .advantage-card h3 { font-size: 20px; }
+  .advantage-label { font-size: 10px; letter-spacing: .9px; }
+  .advantage-description { font-size: 15px; line-height: 1.7; }
 }
-.card-icon svg { width: 26px; height: 26px; fill: var(--orange); }
-.card h3 { font-size: 18px; margin-bottom: 10px; }
-.card p { font-size: 14.5px; margin: 0; }
+@media (max-width: 360px) {
+  .advantage-card { padding: 22px 20px; }
+  .advantage-header { gap: 12px; }
+  .advantage-icon { flex-basis: 46px; width: 46px; height: 46px; border-radius: 12px; }
+  .advantage-icon svg { width: 28px; height: 28px; }
+}
 
 .panel {
   background: rgba(255,255,255,.06);
@@ -533,11 +561,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   .eyebrow { font-size: 14px; }
   .hero-sub { font-size: 18.5px; max-width: 620px; }
 
-  .card { padding: 34px 30px; }
-  .card-icon { width: 58px; height: 58px; }
-  .card-icon svg { width: 28px; height: 28px; }
-  .card h3 { font-size: 19px; }
-  .card p { font-size: 16px; }
 
   .panel { padding: 34px 30px; }
   .panel h3 { font-size: 20px; }
@@ -706,9 +729,8 @@ main:focus { outline: none; }
 .quote-banner .btn { flex-shrink: 0; }
 .contact-commercial { border-color: rgba(255,203,144,.5); }
 .contact-action { display: inline-block; color: #ffcb90; font-size: 14px; margin-top: 8px; text-decoration: underline; text-underline-offset: 4px; }
-.card, .panel, .client-logo, .contact-card { min-width: 0; }
-.card h3, .card p, .panel p, .contact-card p { overflow-wrap: anywhere; }
-.card h3 { line-height: 1.4; }
+.panel, .client-logo, .contact-card { min-width: 0; }
+.panel p, .contact-card p { overflow-wrap: anywhere; }
 .contact-card > div:last-child { min-width: 0; }
 .mobile-action-whatsapp { color: var(--navy-deep); }
 @media (max-width: 980px) {
@@ -729,12 +751,8 @@ main:focus { outline: none; }
 }
 @media (max-width: 600px) {
   .container { padding-left: 20px; padding-right: 20px; }
-  #diferenciais .grid-4, .services-overview, .gallery-grid { grid-template-columns: 1fr; }
+  .services-overview, .gallery-grid { grid-template-columns: 1fr; }
   .grid { gap: 18px; }
-  .card { padding: 26px; }
-  .card p { font-size: 16px; }
-  .card h3 { font-size: 19px; }
-  .card-icon { margin-bottom: 16px; }
   .service-card > picture img { height: 220px; }
   .hero-content { padding-top: 24px; padding-bottom: 36px; }
   .hero-sub { font-size: 17px; }
