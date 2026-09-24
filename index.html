@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260923-quote2">
+<link rel="stylesheet" href="css/style.css?v=20260923-hero1">
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -59,7 +59,7 @@
 <main id="topo" tabindex="-1">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" aria-labelledby="heroTitle">
     <div class="hero-media">
       <picture class="hero-slide is-active" aria-hidden="true"><source type="image/webp" srcset="assets/img/hero-containers-640.webp 640w, assets/img/hero-containers-922.webp 922w" sizes="100vw"><img src="assets/img/hero-containers.jpg" alt="" width="922" height="692" decoding="async" fetchpriority="high"></picture>
       <picture class="hero-slide" aria-hidden="true"><source type="image/webp" data-srcset="assets/img/hero-porto-1-640.webp 640w, assets/img/hero-porto-1-1280.webp 1280w, assets/img/hero-porto-1-1600.webp 1600w" sizes="100vw"><img data-src="assets/img/hero-porto-1.jpg" alt="" width="1600" height="1067" decoding="async"></picture>
@@ -68,22 +68,22 @@
       <div class="hero-overlay"></div>
     </div>
     <div class="container hero-content">
-      <p class="eyebrow eyebrow-light">Logística e armazenagem <span class="hero-location">· Caucaia–CE</span></p>
-      <h1 class="hero-title">
+      <p class="eyebrow hero-eyebrow"><span>Logística e armazenagem</span><span class="hero-location"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Caucaia–CE</span></p>
+      <h1 id="heroTitle" class="hero-title">
         Sua carga.<br>
         Do jeito certo,<br>
         <span class="text-accent">do início ao fim.</span>
       </h1>
       <p class="hero-sub">Transporte de cargas especiais, contêineres e armazenagem em <span class="no-wrap">Caucaia–CE.</span> Frota própria, rastreamento e suporte em cada etapa da operação.</p>
       <div class="hero-ctas">
-        <a href="#cotacao" class="btn btn-primary">Solicitar cotação</a>
-        <a href="#servicos" class="btn btn-ghost">Conheça nossos serviços</a>
+        <a href="#cotacao" class="btn btn-primary"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
+        <a href="#servicos" class="btn btn-ghost"><span>Conheça nossos serviços</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="stats-band">
+  <section class="stats-band" aria-label="J.A Logística em números">
     <div class="container stats-grid">
       <div class="stat-item">
         <span class="stat-number">+20</span>
