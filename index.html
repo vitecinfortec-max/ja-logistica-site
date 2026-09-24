@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260923-gallery1">
+<link rel="stylesheet" href="css/style.css?v=20260923-quote2">
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -341,16 +341,40 @@
     </div>
   </section>
 
-  <section id="cotacao" class="section quote-section">
+  <section id="cotacao" class="section quote-section" aria-labelledby="quoteTitle">
     <div class="container quote-layout">
-      <div class="quote-intro"><p class="eyebrow">Atendimento comercial</p><h2>Conte o que sua operação precisa.</h2><p>Preencha os dados da carga para preparar sua solicitação. Você revisa a mensagem e conclui o envio pelo WhatsApp.</p><div class="quote-person"><strong>Luiz Antonio</strong><span>Comercial · (85) 9 9175-3831</span><a href="https://wa.me/5585991753831" target="_blank" rel="noopener">Prefere conversar diretamente? Abrir WhatsApp ↗</a></div><p class="quote-privacy">Os dados deste formulário não são armazenados pelo site. Ao continuar, eles são incluídos na mensagem aberta no WhatsApp.</p></div>
-      <form id="quoteForm" class="quote-form" hidden>
-        <p class="form-intro">Serviço e descrição da carga são obrigatórios.</p>
-        <div class="form-field"><label for="quoteService">Qual serviço você precisa?</label><select id="quoteService" name="service" required><option value="">Selecione um serviço</option><option>Cargas especiais</option><option>Contêineres e carga geral</option><option>Armazenagem</option><option>Movimentação de cargas</option><option>Transporte de bobinas</option><option>Outra operação</option></select></div>
-        <div class="form-field"><label for="quoteName">Seu nome <span>(opcional)</span></label><input id="quoteName" name="name" autocomplete="name" maxlength="80"></div>
-        <div class="form-row"><div class="form-field"><label for="quoteOrigin"><span id="quoteOriginLabel">Origem</span> <span>(opcional)</span></label><input id="quoteOrigin" name="origin" maxlength="100" placeholder="Cidade / UF"></div><div class="form-field" id="quoteDestinationField"><label for="quoteDestination">Destino <span>(opcional)</span></label><input id="quoteDestination" name="destination" maxlength="100" placeholder="Cidade / UF"></div></div>
-        <div class="form-field"><label for="quoteCargo">Descreva sua carga</label><textarea id="quoteCargo" name="cargo" rows="3" maxlength="1000" required aria-describedby="quoteCargoHint"></textarea><p id="quoteCargoHint" class="field-hint">Tipo de carga, peso, dimensões e data desejada, se disponíveis. Para armazenagem, informe também o período.</p></div>
-        <button class="btn btn-primary quote-submit" type="submit">Continuar no WhatsApp <span aria-hidden="true">↗</span></button>
+      <div class="quote-intro">
+        <p class="eyebrow">Atendimento comercial</p>
+        <h2 id="quoteTitle">Conte o que sua operação precisa.</h2>
+        <p class="quote-lead">Informe o serviço e os detalhes da carga. Você revisa a mensagem e conclui o envio pelo WhatsApp.</p>
+        <div class="quote-person">
+          <div class="quote-person-heading">
+            <span class="quote-person-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v2M4 12H3v6h4v-6H4Zm16 0h1v6h-4v-6h3ZM20 18c0 3-3 3-6 3"/><path d="M11 21h3"/></svg></span>
+            <div><span class="quote-person-role">Seu contato comercial</span><strong>Luiz Antonio</strong></div>
+          </div>
+          <a class="quote-phone" href="tel:+5585991753831">(85) 9 9175-3831</a>
+          <a class="quote-direct" href="https://wa.me/5585991753831" target="_blank" rel="noopener"><span>Conversar diretamente</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        </div>
+        <ol class="quote-steps" aria-label="Como solicitar sua cotação">
+          <li><span aria-hidden="true">1</span>Preencha os dados da operação</li>
+          <li><span aria-hidden="true">2</span>Revise a mensagem no WhatsApp</li>
+          <li><span aria-hidden="true">3</span>Envie para o nosso comercial</li>
+        </ol>
+      </div>
+      <form id="quoteForm" class="quote-form" aria-labelledby="quoteFormTitle" aria-describedby="quoteFormInfo" hidden>
+        <div class="quote-form-heading">
+          <span class="quote-form-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5ZM14 3v5h5M8 12h8M8 16h5"/></svg></span>
+          <div><h3 id="quoteFormTitle">Solicite sua cotação</h3><p id="quoteFormInfo">Os campos com * são obrigatórios.</p></div>
+        </div>
+        <div class="form-field"><label for="quoteService">Qual serviço você precisa? <span class="field-required" aria-hidden="true">*</span></label><select id="quoteService" name="service" required><option value="">Selecione um serviço</option><option>Cargas especiais</option><option>Contêineres e carga geral</option><option>Armazenagem</option><option>Movimentação de cargas</option><option>Transporte de bobinas</option><option>Outra operação</option></select></div>
+        <div class="form-field"><label for="quoteName">Seu nome <span>(opcional)</span></label><input id="quoteName" name="name" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?"></div>
+        <div class="form-row" id="quoteRouteRow">
+          <div class="form-field"><label for="quoteOrigin"><span id="quoteOriginLabel">Origem</span> <span>(opcional)</span></label><input id="quoteOrigin" name="origin" maxlength="100" placeholder="Cidade / UF"></div>
+          <div class="form-field" id="quoteDestinationField"><label for="quoteDestination">Destino <span>(opcional)</span></label><input id="quoteDestination" name="destination" maxlength="100" placeholder="Cidade / UF"></div>
+        </div>
+        <div class="form-field"><label for="quoteCargo">Descreva sua carga <span class="field-required" aria-hidden="true">*</span></label><textarea id="quoteCargo" name="cargo" rows="4" maxlength="1000" required aria-describedby="quoteCargoHint" placeholder="O que você precisa transportar, armazenar ou movimentar?"></textarea><p id="quoteCargoHint" class="field-hint">Tipo de carga, peso, dimensões e data desejada, se disponíveis. Para armazenagem, informe também o período.</p></div>
+        <button class="quote-submit" type="submit"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-4.7A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 7.5c0 4.5 3.5 8 8 8l1-2.5-3-1-1 1a8 8 0 0 1-2.5-2.5l1-1-1-3L8 7.5Z"/></svg><span>Continuar no WhatsApp</span></button>
+        <p class="quote-privacy">Os dados deste formulário não são armazenados pelo site. Ao continuar, eles são incluídos na mensagem aberta no WhatsApp.</p>
         <div id="quoteResult" class="quote-result" role="status" hidden><p>Mensagem preparada. Revise e conclua o envio no WhatsApp.</p><a id="quoteFallback" target="_blank" rel="noopener noreferrer">Abrir a mensagem no WhatsApp ↗</a></div>
       </form>
     </div>
@@ -471,7 +495,7 @@
   <div class="gallery-dialog-bottom"><div class="gallery-description"><h2 id="galleryTitle"></h2><p id="galleryDescription"></p><a id="galleryOriginal" target="_blank" rel="noopener">Abrir imagem original ↗</a></div><div class="gallery-navigation"><button id="galleryPrev" class="gallery-control" type="button" aria-label="Foto anterior">←</button><span id="galleryCounter" aria-live="polite" aria-atomic="true"></span><button id="galleryNext" class="gallery-control" type="button" aria-label="Próxima foto">→</button></div></div>
 </dialog>
 <script src="js/main.js?v=20260922-carousel2"></script>
-<script src="js/interactions.js?v=20260922-cotacao1"></script>
+<script src="js/interactions.js?v=20260923-quote2"></script>
 <script src="js/clients.js?v=20260923-clients2"></script>
 </body>
 </html>

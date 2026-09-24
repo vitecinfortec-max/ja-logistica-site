@@ -7,11 +7,13 @@
     var cargo = document.getElementById('quoteCargo');
     var destination = document.getElementById('quoteDestination');
     var result = document.getElementById('quoteResult');
+    var routeRow = document.getElementById('quoteRouteRow');
     function syncService() {
       var local = service.value === 'Armazenagem' || service.value === 'Movimentação de cargas';
       document.getElementById('quoteOriginLabel').textContent = local ? 'Local da operação' : 'Origem';
       document.getElementById('quoteDestinationField').hidden = local;
       destination.disabled = local;
+      if (routeRow) routeRow.classList.toggle('form-row-local', local);
       result.hidden = true;
     }
     service.addEventListener('change', syncService);
