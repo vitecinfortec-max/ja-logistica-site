@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260923-contact1">
+<link rel="stylesheet" href="css/style.css?v=20260924-footer1">
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -452,18 +452,33 @@
   <div class="container footer-inner">
     <div class="footer-brand">
       <img src="assets/logos/logo-jalogistica.png" alt="J.A Logística" width="431" height="349" decoding="async" loading="lazy">
-      <p>J.A LOGISTICA LTDA — CNPJ 58.180.321/0001-03</p>
+      <div><p class="footer-company">J.A LOGISTICA LTDA</p><p>CNPJ 58.180.321/0001-03</p></div>
     </div>
-    <nav class="footer-nav">
+    <div class="footer-contact" aria-labelledby="footerEmailsTitle">
+      <h2 id="footerEmailsTitle">E-mails por setor</h2>
+      <ul class="footer-emails">
+        <li><span>Comercial</span><a href="mailto:luis.antonio@jalogisticas.com">luis.antonio@jalogisticas.com</a></li>
+        <li><span>Operacional</span><a href="mailto:operacional@jalogisticas.com">operacional@jalogisticas.com</a></li>
+        <li><span>Financeiro</span><a href="mailto:larissa.gaspar@jalogisticas.com">larissa.gaspar@jalogisticas.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-hours" aria-labelledby="footerHoursTitle">
+      <h2 id="footerHoursTitle">Horário de funcionamento</h2>
+      <dl>
+        <div><dt>Segunda a sexta</dt><dd><time datetime="08:00">08:00</time> às <time datetime="17:00">17:00</time></dd></div>
+        <div><dt>Sábado</dt><dd><time datetime="08:00">08:00</time> às <time datetime="11:00">11:00</time></dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <nav class="footer-nav" aria-label="Navegação do rodapé">
       <a href="#diferenciais">Diferenciais</a>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#clientes">Clientes</a>
       <a href="#contato">Contato</a>
     </nav>
-  </div>
-  <div class="container footer-bottom">
-    <p>&copy; <span id="year"></span> J.A Logística — Logística e Armazenagem. Todos os direitos reservados.</p>
+    <p>&copy; <span id="year"></span> J.A Logística — Logística e Armazenagem.<br>Todos os direitos reservados.</p>
   </div>
 </footer>
 
