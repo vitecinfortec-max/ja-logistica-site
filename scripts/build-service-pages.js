@@ -67,10 +67,9 @@ for (const service of services) {
       {'@type':'ListItem',position:3,name:service.name,item:url}
     ]}
   ]};
-  head = head.replace(/<link rel="stylesheet" href="css\/home\.css[^\"]*">\n?/, '');
   head = rebase(head.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '</script>'))
-    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20260926-refine1">\n</head>');
+    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20260925-services1">\n</head>');
   const actions = sharedActions.replace('href="#cotacao"', 'href="' + quote + '"')
     .replace(/href="https:\/\/wa\.me\/5585991753831\?text=[^"]*"/g, 'href="' + escape(whatsapp) + '"');
   const html = [

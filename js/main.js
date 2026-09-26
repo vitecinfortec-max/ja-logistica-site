@@ -2,6 +2,53 @@
 (function () {
   'use strict';
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var slides = Array.from(document.querySelectorAll('.hero-slide'));
+  var active = 0;
+  var timer = null;
+  var advancing = false;
+
+  function prepareSlide(slide) {
+    var source = slide.querySelector('source');
+    var img = slide.querySelector('img');
+    if (source && source.dataset.srcset) {
+      source.srcset = source.dataset.srcset;
+      delete source.dataset.srcset;
+    }
+    if (img.dataset.src) {
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+    }
+    return img.decode ? img.decode() : new Promise(function (resolve, reject) {
+      if (img.complete && img.naturalWidth) return resolve();
+      img.addEventListener('load', resolve, { once: true });
+      img.addEventListener('error', reject, { once: true });
+    });
+  }
+  function syncCarousel() {
+    window.clearInterval(timer);
+    timer = null;
+    if (reducedMotion.matches || document.hidden || document.querySelector("dialog[open]") || slides.length < 2) return;
+    timer = window.setInterval(function () {
+      if (advancing) return;
+      advancing = true;
+      var next = (active + 1) % slides.length;
+      prepareSlide(slides[next]).then(function () {
+        if (reducedMotion.matches || document.hidden || document.querySelector("dialog[open]")) return;
+        slides[active].classList.remove('is-active');
+        slides[next].classList.add('is-active');
+        active = next;
+      }).catch(function () {
+        // Keep the current photo if the next one cannot be loaded.
+      }).finally(function () { advancing = false; });
+    }, 3000);
+  }
+  if (slides.length > 1) {
+    document.addEventListener('visibilitychange', syncCarousel);
+    document.addEventListener('gallery:visibility', syncCarousel);
+    reducedMotion.addEventListener('change', syncCarousel);
+    syncCarousel();
+  }
+
   var header = document.getElementById('siteHeader');
   var nav = document.getElementById('mainNav');
   var navToggle = document.getElementById('navToggle');
