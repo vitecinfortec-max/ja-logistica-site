@@ -27,9 +27,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260925-services1">
+<link rel="stylesheet" href="css/tokens.css?v=20260926-refine1">
+<link rel="stylesheet" href="css/style.css?v=20260926-refine1">
+<link rel="stylesheet" href="css/home.css?v=20260926-refine1">
 </head>
-<body>
+<body class="home-page">
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
 
 <div id="topAlert" class="top-alert"></div>
@@ -41,9 +43,9 @@
     </a>
 
     <nav id="mainNav" class="main-nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
       <a href="#diferenciais">Diferenciais</a>
       <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
       <a href="#clientes">Clientes</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -58,31 +60,19 @@
 
 <main id="topo" tabindex="-1">
 
-  <!-- HERO -->
   <section class="hero" aria-labelledby="heroTitle">
-    <div class="hero-media">
-      <picture class="hero-slide is-active" aria-hidden="true"><source type="image/webp" srcset="assets/img/hero-containers-640.webp 640w, assets/img/hero-containers-922.webp 922w" sizes="100vw"><img src="assets/img/hero-containers.jpg" alt="" width="922" height="692" decoding="async" fetchpriority="high"></picture>
-      <picture class="hero-slide" aria-hidden="true"><source type="image/webp" data-srcset="assets/img/hero-porto-1-640.webp 640w, assets/img/hero-porto-1-1280.webp 1280w, assets/img/hero-porto-1-1600.webp 1600w" sizes="100vw"><img data-src="assets/img/hero-porto-1.jpg" alt="" width="1600" height="1067" decoding="async"></picture>
-      <picture class="hero-slide" aria-hidden="true"><source type="image/webp" data-srcset="assets/img/hero-porto-2-640.webp 640w, assets/img/hero-porto-2-1280.webp 1280w, assets/img/hero-porto-2-1600.webp 1600w" sizes="100vw"><img data-src="assets/img/hero-porto-2.jpg" alt="" width="1600" height="900" decoding="async"></picture>
-      <picture class="hero-slide" aria-hidden="true"><source type="image/webp" data-srcset="assets/img/hero-porto-3-640.webp 640w, assets/img/hero-porto-3-1280.webp 1280w, assets/img/hero-porto-3-1600.webp 1600w" sizes="100vw"><img data-src="assets/img/hero-porto-3.jpg" alt="" width="1600" height="1066" decoding="async"></picture>
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="container hero-content">
-      <p class="eyebrow hero-eyebrow"><span>Logística e armazenagem</span><span class="hero-location"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Caucaia–CE</span></p>
-      <h1 id="heroTitle" class="hero-title">
-        Sua carga.<br>
-        Do jeito certo,<br>
-        <span class="text-accent">do início ao fim.</span>
-      </h1>
-      <p class="hero-sub">Transporte de cargas especiais, contêineres e armazenagem em <span class="no-wrap">Caucaia–CE.</span> Frota própria, rastreamento e suporte em cada etapa da operação.</p>
-      <div class="hero-ctas">
-        <a href="#cotacao" class="btn btn-primary"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
-        <a href="#servicos" class="btn btn-ghost"><span>Conheça nossos serviços</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+    <div class="container hero-layout">
+      <div class="hero-copy">
+        <p class="eyebrow hero-eyebrow">Logística e armazenagem <span>Caucaia–CE</span></p>
+        <h1 id="heroTitle" class="hero-title">Sua carga.<br>Do jeito certo,<br><span class="text-accent">do início ao fim.</span></h1>
+        <p class="hero-sub">Transporte de cargas especiais, contêineres e armazenagem. Frota própria e suporte em cada etapa da sua operação.</p>
+        <div class="hero-ctas"><a href="#cotacao" class="btn btn-primary"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a href="#servicos" class="btn btn-ghost"><span>Conheça os serviços</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+        <p class="hero-coverage"><span aria-hidden="true"></span>Atendimento no Nordeste e em parte do Norte</p>
       </div>
+      <figure class="hero-fleet"><picture><source type="image/webp" srcset="assets/img/bobinas-aco-640.webp 640w, assets/img/bobinas-aco-950.webp 950w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1200px) 50vw, 610px"><img src="assets/img/bobinas-aco.jpg" alt="Caminhões da frota própria da J.A Logística no terminal em Caucaia" width="950" height="495" decoding="async" fetchpriority="high"></picture><figcaption><span class="hero-photo-label">Nossa frota</span><span>Estrutura própria para sua operação</span></figcaption></figure>
     </div>
   </section>
 
-  <!-- STATS -->
   <section class="stats-band" aria-label="J.A Logística em números">
     <div class="container stats-grid">
       <div class="stat-item">
@@ -104,40 +94,74 @@
     </div>
   </section>
 
-  <!-- DIFERENCIAIS -->
-  <section id="diferenciais" class="section advantages-section" aria-labelledby="advantagesTitle">
+  <section id="servicos" class="section services-section" aria-labelledby="servicesTitle">
     <div class="container">
+      <div class="services-heading">
+        <p class="eyebrow">O que fazemos</p>
+        <h2 id="servicesTitle" class="section-title">Nossos Serviços</h2>
+        <p>Do transporte à movimentação no terminal, encontre o serviço para sua carga.</p>
+      </div>
+      <div class="services-overview">
+        <!-- SERVICE_CARDS_START -->
+        <article class="service-card">
+          <a class="service-card-media" href="/servicos/cargas-especiais" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/carregamento-caminhao-640.webp 640w, assets/img/carregamento-caminhao-950.webp 950w" sizes="(max-width: 600px) 100px, (max-width: 1100px) 45vw, 280px"><img src="assets/img/carregamento-caminhao.jpg" alt="" width="950" height="534" loading="lazy" decoding="async"></picture></a>
+          <div class="service-card-copy"><p class="service-category">Transporte rodoviário</p><h3><a href="/servicos/cargas-especiais">Cargas especiais</a></h3><p class="service-excerpt">Transporte de cargas especiais e siderúrgicos, com apoio a AET e escolta.</p></div>
+          <div class="service-card-actions"><a class="service-page-link" href="/servicos/cargas-especiais" aria-label="Conhecer o serviço: Cargas especiais">Ver serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-quote" href="#cotacao" data-quote-service="Cargas especiais" aria-label="Solicitar cotação: Cargas especiais">Cotar <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+        </article>
+        <article class="service-card">
+          <a class="service-card-media" href="/servicos/conteineres" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/bobinas-aco-640.webp 640w, assets/img/bobinas-aco-950.webp 950w" sizes="(max-width: 600px) 100px, (max-width: 1100px) 45vw, 280px"><img src="assets/img/bobinas-aco.jpg" alt="" width="950" height="495" loading="lazy" decoding="async"></picture></a>
+          <div class="service-card-copy"><p class="service-category">Transporte rodoviário</p><h3><a href="/servicos/conteineres">Contêineres e carga geral</a></h3><p class="service-excerpt">Frota própria para contêineres e carga geral com lotação completa.</p></div>
+          <div class="service-card-actions"><a class="service-page-link" href="/servicos/conteineres" aria-label="Conhecer o serviço: Contêineres e carga geral">Ver serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-quote" href="#cotacao" data-quote-service="Contêineres e carga geral" aria-label="Solicitar cotação: Contêineres e carga geral">Cotar <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+        </article>
+        <article class="service-card">
+          <a class="service-card-media" href="/servicos/armazenagem" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/armazem-paletes-640.webp 640w, assets/img/armazem-paletes-950.webp 950w" sizes="(max-width: 600px) 100px, (max-width: 1100px) 45vw, 280px"><img src="assets/img/armazem-paletes.jpg" alt="" width="950" height="712" loading="lazy" decoding="async"></picture></a>
+          <div class="service-card-copy"><p class="service-category">Estrutura de terminal</p><h3><a href="/servicos/armazenagem">Armazenagem</a></h3><p class="service-excerpt">Armazém coberto, carga geral e depot de contêineres vazios.</p></div>
+          <div class="service-card-actions"><a class="service-page-link" href="/servicos/armazenagem" aria-label="Conhecer o serviço: Armazenagem">Ver serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-quote" href="#cotacao" data-quote-service="Armazenagem" aria-label="Solicitar cotação: Armazenagem">Cotar <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+        </article>
+        <article class="service-card">
+          <a class="service-card-media" href="/servicos/movimentacao-de-cargas" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/img/container-carga-640.webp 640w, assets/img/container-carga-803.webp 803w" sizes="(max-width: 600px) 100px, (max-width: 1100px) 45vw, 280px"><img src="assets/img/container-carga.jpg" alt="" width="803" height="492" loading="lazy" decoding="async"></picture></a>
+          <div class="service-card-copy"><p class="service-category">Operações no terminal</p><h3><a href="/servicos/movimentacao-de-cargas">Movimentação de cargas</a></h3><p class="service-excerpt">Carga, descarga e preparação com equipamentos próprios no terminal.</p></div>
+          <div class="service-card-actions"><a class="service-page-link" href="/servicos/movimentacao-de-cargas" aria-label="Conhecer o serviço: Movimentação de cargas">Ver serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-quote" href="#cotacao" data-quote-service="Movimentação de cargas" aria-label="Solicitar cotação: Movimentação de cargas">Cotar <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+        </article>
+        <!-- SERVICE_CARDS_END -->
+      </div>
+      <div class="coverage-note"><div><p class="eyebrow">Área de atuação</p><h3>Nordeste e parte da região Norte</h3></div><p>Informe origem e destino para consultar o atendimento à sua rota.</p></div>
+    </div>
+  </section>
+
+  <section id="diferenciais" class="section advantages-section" aria-labelledby="advantagesTitle">
+    <div class="container advantages-layout">
       <div class="advantages-heading">
         <p class="eyebrow">Por que nos contratar</p>
         <h2 id="advantagesTitle" class="section-title">O que nos torna diferentes</h2>
         <p>Estrutura própria e cuidado com a carga, da coleta à entrega.</p>
       </div>
       <div class="advantages-grid">
-        <article class="advantage-card advantage-card-featured">
+        <article class="advantage-card">
           <div class="advantage-header">
             <span class="advantage-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><path d="M3 8h16v15H3zM19 13h6l4 5v5h-3M19 23h2M8 23h10"/><circle cx="8" cy="24" r="3"/><circle cx="24" cy="24" r="3"/><path d="M22 14v5h6"/></svg></span>
-            <div><p class="advantage-label">Frota própria</p><h3><span class="advantage-number">+20</span> equipamentos</h3></div>
+            <div><h3>Frota própria</h3></div>
           </div>
-          <p class="advantage-description">Cavalos tocos e trucados, carretas porta-contêiner (LS, Vanderleia e Rodo-Trem) e carretas para cargas dimensionadas e bobinas de ferro.</p>
+          <p class="advantage-description">Mais de 20 equipamentos, com carretas para contêineres, cargas especiais e bobinas.</p>
         </article>
         <article class="advantage-card">
           <div class="advantage-header">
             <span class="advantage-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><path d="M4 21V11h9v10M13 8h7v16M24 5v21h6M20 21h4M5 16h8"/><circle cx="8" cy="25" r="3"/><circle cx="18" cy="25" r="3"/></svg></span>
-            <div><p class="advantage-label">Estrutura no terminal</p><h3>Empilhadeiras próprias</h3></div>
+            <div><h3>Empilhadeiras próprias</h3></div>
           </div>
-          <p class="advantage-description">Equipamentos de <strong>2,5 e 7 toneladas</strong> para movimentação de cargas dentro do nosso terminal, agilizando cada operação.</p>
+          <p class="advantage-description">Equipamentos de <strong>2,5 e 7 toneladas</strong> para movimentar cargas dentro do terminal.</p>
         </article>
         <article class="advantage-card">
           <div class="advantage-header">
             <span class="advantage-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><path d="m16 3 11 4v9c0 6-5 10-11 13C10 26 5 22 5 16V7l11-4Z"/><path d="m11 16 4 4 7-8"/></svg></span>
-            <div><p class="advantage-label">Da coleta à entrega</p><h3><span class="advantage-number">100%</span> rastreado e segurado</h3></div>
+            <div><h3>Rastreamento e seguro</h3></div>
           </div>
-          <p class="advantage-description">Frota totalmente rastreada e cargas seguradas em todo o percurso, da coleta à finalização da entrega.</p>
+          <p class="advantage-description">Frota rastreada e cargas seguradas durante todo o percurso, da coleta à entrega.</p>
         </article>
         <article class="advantage-card">
           <div class="advantage-header">
             <span class="advantage-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><path d="M4 28V12l12-8 12 8v16M2 28h28M11 28V16h10v12M11 20h10M11 24h10"/><path d="M14 10h4"/></svg></span>
-            <div><p class="advantage-label">Transporte e armazenagem</p><h3>Experiência consolidada</h3></div>
+            <div><h3>Experiência consolidada</h3></div>
           </div>
           <p class="advantage-description">Atuação no transporte de cargas dimensionadas e contêineres, armazenagem, carregamento e descarregamento.</p>
         </article>
@@ -145,52 +169,50 @@
     </div>
   </section>
 
-  <!-- SOBRE / MISSÃO / VISÃO / VALORES -->
+  <section id="galeria" class="section operations-section" aria-labelledby="operationsTitle">
+    <div class="container"><div class="operations-heading"><p class="eyebrow">Nossa operação</p><h2 id="operationsTitle" class="section-title">Estrutura em movimento</h2><p>Um olhar de perto sobre a frota, o terminal e as cargas que passam por aqui.</p></div>
+      <div class="operations-showcase">
+<figure class="operation-feature"><a class="gallery-open" href="assets/img/transporte-bobinas.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Transporte de bobinas"><picture><source type="image/webp" srcset="assets/img/transporte-bobinas-640.webp 640w, assets/img/transporte-bobinas-1280.webp 1280w, assets/img/transporte-bobinas-1600.webp 1600w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1200px) 60vw, 750px"><img src="assets/img/transporte-bobinas.jpg" alt="Carreta carregada com bobinas de aço em operação no terminal" width="1600" height="900" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
+          <figcaption><span class="gallery-category">Transporte de cargas</span><strong>Transporte de bobinas</strong>
+            <p>Transporte de bobinas em carretas adequadas à carga, com foco na segurança da operação e na qualidade do serviço.</p></figcaption></figure>
+<figure><a class="gallery-open" href="assets/img/armazem-noturno.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Amplo armazém fechado"><picture><source type="image/webp" srcset="assets/img/armazem-noturno-640.webp 640w, assets/img/armazem-noturno-950.webp 950w" sizes="(max-width: 600px) calc(100vw - 40px), 380px"><img src="assets/img/armazem-noturno.jpg" alt="Amplo armazém fechado" width="950" height="534" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
+          <figcaption><span class="gallery-category">Estrutura do terminal</span><strong>Amplo armazém fechado</strong>
+            <p>Espaço coberto para armazenagem e atendimento das cargas.</p></figcaption></figure>
+<figure><a class="gallery-open" href="assets/img/carregamento-portuario.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Carregamentos portuários"><picture><source type="image/webp" srcset="assets/img/carregamento-portuario-640.webp 640w, assets/img/carregamento-portuario-950.webp 950w" sizes="(max-width: 600px) calc(100vw - 40px), 380px"><img src="assets/img/carregamento-portuario.jpg" alt="Carregamentos portuários" width="950" height="534" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
+          <figcaption><span class="gallery-category">Operações portuárias</span><strong>Carregamentos portuários</strong>
+            <p>Atendimento a operações de carregamento ligadas ao transporte portuário.</p></figcaption></figure>
+      </div>
+      <details class="operations-more"><summary><span>Ver mais fotos da operação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="disclosure-plus" d="M12 5v14"/></svg></summary><div class="operations-collection">
+<figure><a class="gallery-open" href="assets/img/container-carga.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Carregamento de container"><picture><source type="image/webp" srcset="assets/img/container-carga-640.webp 640w, assets/img/container-carga-803.webp 803w" sizes="(max-width: 600px) calc(100vw - 40px), 380px"><img src="assets/img/container-carga.jpg" alt="Container sendo carregado com carga paletizada" width="803" height="492" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
+          <figcaption><span class="gallery-category">Movimentação no terminal</span><strong>Carregamento de container</strong>
+            <p>Preparação e carregamento de cargas para o transporte em contêineres.</p></figcaption></figure>
+<figure><a class="gallery-open" href="assets/img/armazem-granel.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Armazenagem de granéis"><picture><source type="image/webp" srcset="assets/img/armazem-granel-640.webp 640w, assets/img/armazem-granel-900.webp 900w" sizes="(max-width: 600px) calc(100vw - 40px), 380px"><img src="assets/img/armazem-granel.jpg" alt="Armazenagem de carga a granel" width="900" height="900" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
+          <figcaption><span class="gallery-category">Armazenagem</span><strong>Armazenagem de granéis</strong>
+            <p>Armazenagem de carga a granel como parte dos serviços do terminal.</p></figcaption></figure>
+<figure><a class="gallery-open" href="assets/img/hero-containers.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Espaço para Depot de containers"><picture><source type="image/webp" srcset="assets/img/hero-containers-640.webp 640w, assets/img/hero-containers-922.webp 922w" sizes="(max-width: 600px) calc(100vw - 40px), 380px"><img src="assets/img/hero-containers.jpg" alt="Espaço para Depot de containers" width="922" height="692" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
+          <figcaption><span class="gallery-category">Depot de contêineres</span><strong>Espaço para Depot de containers</strong>
+            <p>Área destinada à armazenagem e ao posicionamento de contêineres vazios.</p></figcaption></figure>
+      </div></details>
+    </div>
+  </section>
+
   <section id="sobre" class="section section-dark about-section" aria-labelledby="aboutTitle">
-    <div class="container">
-      <div class="about-heading">
-        <p class="eyebrow eyebrow-light">Sobre a J.A Logística</p>
-        <h2 id="aboutTitle" class="section-title section-title-light">Estrutura para acompanhar sua operação</h2>
+    <div class="container"><div class="about-overview">
+      <div class="about-heading"><p class="eyebrow eyebrow-light">Sobre a J.A Logística</p><h2 id="aboutTitle" class="section-title section-title-light">Estrutura para acompanhar sua operação</h2>
+        <p>Reunimos transporte rodoviário, armazenagem e movimentação de cargas em uma estrutura própria no <strong>Distrito Industrial de Caucaia, na Rodovia CE 155.</strong></p>
+        <p>Da coleta à entrega, nossa equipe atende às necessidades de cada carga, com frota própria e equipamentos no terminal.</p>
       </div>
-      <div class="about-summary">
-        <p>A J.A Logística atua no transporte rodoviário de cargas especiais, contêineres e produtos siderúrgicos, além de armazenagem e movimentação de cargas. Nosso terminal está localizado no <strong>Distrito Industrial de Caucaia, na Rodovia CE 155.</strong></p>
-        <p>Com <strong>mais de 20 equipamentos na frota</strong> e <strong>empilhadeiras próprias de 2,5 e 7 toneladas</strong>, reunimos estrutura para o transporte e para o atendimento das cargas dentro do terminal.</p>
-      </div>
-      <div class="about-principles">
-        <article class="principle-card">
-          <div class="principle-header">
-            <span class="principle-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><circle cx="15" cy="17" r="11"/><circle cx="15" cy="17" r="6"/><path d="m15 17 12-12M21 5h6v6"/></svg></span>
-            <h3>Missão</h3>
-          </div>
-          <p>Executar serviços de qualidade com uma logística eficiente e pontual, com colaboradores capacitados, treinados, e comprometimento com a responsabilidade socioambiental.</p>
-        </article>
-        <article class="principle-card">
-          <div class="principle-header">
-            <span class="principle-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><path d="M2 16s5-9 14-9 14 9 14 9-5 9-14 9S2 16 2 16Z"/><circle cx="16" cy="16" r="4"/></svg></span>
-            <h3>Visão</h3>
-          </div>
-          <p>Ser referência nacional no segmento de Transporte e Logística, superando as expectativas de nossos clientes, colaboradores e parceiros.</p>
-        </article>
-        <article class="principle-card">
-          <div class="principle-header">
-            <span class="principle-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><path d="M16 27S4 19 4 11a6 6 0 0 1 12-1 6 6 0 0 1 12 1c0 8-12 16-12 16Z"/><path d="m11 16 3 3 7-7"/></svg></span>
-            <h3>Valores</h3>
-          </div>
-          <ul class="principle-values">
+      <div class="about-principles" aria-label="Princípios da J.A Logística">
+        <details class="principle-detail"><summary><span>Missão</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="disclosure-plus" d="M12 5v14"/></svg></summary><div class="principle-content"><p>Executar serviços de qualidade com uma logística eficiente e pontual, com colaboradores capacitados, treinados, e comprometimento com a responsabilidade socioambiental.</p></div></details>
+        <details class="principle-detail"><summary><span>Visão</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="disclosure-plus" d="M12 5v14"/></svg></summary><div class="principle-content"><p>Ser referência nacional no segmento de Transporte e Logística, superando as expectativas de nossos clientes, colaboradores e parceiros.</p></div></details>
+        <details class="principle-detail"><summary><span>Valores</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="disclosure-plus" d="M12 5v14"/></svg></summary><div class="principle-content"><ul class="principle-values">
             <li>Segurança nas operações</li>
             <li>Compromisso com prazos</li>
             <li>Respeito às pessoas</li>
             <li>Responsabilidade socioambiental</li>
-          </ul>
-        </article>
-        <article class="principle-card principle-card-quality">
-          <div class="principle-header">
-            <span class="principle-icon"><svg aria-hidden="true" focusable="false" viewBox="0 0 32 32"><path d="M27 13A11 11 0 0 0 8 8L4 12M4 5v7h7M5 19a11 11 0 0 0 19 5l4-4M28 27v-7h-7"/><path d="m11 16 4 4 7-8"/></svg></span>
-            <h3>Política de Qualidade</h3>
-          </div>
-          <p>Executar e garantir de forma eficaz todos os serviços de nossos clientes e parceiros com a melhoria contínua de seus processos e a preservação do meio ambiente, atendendo à legislação aplicável, buscando a satisfação de nossos clientes, colaboradores e parceiros.</p>
-        </article>
-      </div>
+          </ul></div></details>
+        <details class="principle-detail"><summary><span>Política de Qualidade</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="disclosure-plus" d="M12 5v14"/></svg></summary><div class="principle-content"><p>Executar e garantir de forma eficaz todos os serviços de nossos clientes e parceiros com a melhoria contínua de seus processos e a preservação do meio ambiente, atendendo à legislação aplicável, buscando a satisfação de nossos clientes, colaboradores e parceiros.</p></div></details>
+      </div></div>
       <article class="resource-card" aria-labelledby="presentationTitle">
         <a class="resource-preview" href="assets/docs/apresentacao-ja-logistica.pdf?v=20260922-layout2" target="_blank" rel="noopener" aria-label="Visualizar a apresentação da J.A Logística em PDF (abre em uma nova aba)">
           <img src="assets/img/apresentacao-capa-v2.webp" alt="" width="480" height="679" loading="lazy" decoding="async">
@@ -211,72 +233,6 @@
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos" class="section services-section" aria-labelledby="servicesTitle">
-    <div class="container">
-      <div class="services-heading">
-        <p class="eyebrow">O que fazemos</p>
-        <h2 id="servicesTitle" class="section-title">Nossos Serviços</h2>
-        <p>Encontre o serviço para sua carga e converse diretamente com nosso comercial.</p>
-      </div>
-      <div class="services-overview">
-        <article class="service-card"><picture><source type="image/webp" srcset="assets/img/carregamento-caminhao-640.webp 640w, assets/img/carregamento-caminhao-950.webp 950w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/carregamento-caminhao.jpg" alt="Transporte de carga especial em carreta" width="950" height="534" decoding="async" loading="lazy"></picture>
-          <div class="service-card-copy"><span class="service-category">Transporte rodoviário</span><h3>Cargas especiais</h3>
-            <p>Transporte de cargas com peso e dimensões especiais, com apoio às licenças e à escolta rodoviária.</p>
-            <a class="service-page-link" href="/servicos/cargas-especiais" aria-label="Conhecer o serviço: Cargas especiais"><span>Conhecer o serviço</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
-            <a class="service-quote" href="#cotacao" data-quote-service="Cargas especiais" aria-label="Solicitar cotação: Cargas especiais"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></article>
-        <article class="service-card"><picture><source type="image/webp" srcset="assets/img/bobinas-aco-640.webp 640w, assets/img/bobinas-aco-950.webp 950w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/bobinas-aco.jpg" alt="Caminhões da J.A Logística no terminal" width="950" height="495" decoding="async" loading="lazy"></picture>
-          <div class="service-card-copy"><span class="service-category">Transporte rodoviário</span><h3>Contêineres e carga geral</h3>
-            <p>Frota própria para o transporte de contêineres e de carga geral com lotação completa.</p>
-            <a class="service-page-link" href="/servicos/conteineres" aria-label="Conhecer o serviço: Contêineres e carga geral"><span>Conhecer o serviço</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
-            <a class="service-quote" href="#cotacao" data-quote-service="Contêineres e carga geral" aria-label="Solicitar cotação: Contêineres e carga geral"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></article>
-        <article class="service-card"><picture><source type="image/webp" srcset="assets/img/armazem-paletes-640.webp 640w, assets/img/armazem-paletes-950.webp 950w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/armazem-paletes.jpg" alt="Carga paletizada em armazém coberto" width="950" height="712" decoding="async" loading="lazy"></picture>
-          <div class="service-card-copy"><span class="service-category">Armazenagem no terminal</span><h3>Armazenagem</h3>
-            <p>Armazém coberto para cargas e espaço para depot de contêineres vazios.</p>
-            <a class="service-page-link" href="/servicos/armazenagem" aria-label="Conhecer o serviço: Armazenagem"><span>Conhecer o serviço</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
-            <a class="service-quote" href="#cotacao" data-quote-service="Armazenagem" aria-label="Solicitar cotação: Armazenagem"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></article>
-        <article class="service-card"><picture><source type="image/webp" srcset="assets/img/container-carga-640.webp 640w, assets/img/container-carga-803.webp 803w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/container-carga.jpg" alt="Carregamento de contêiner com carga paletizada" width="803" height="492" decoding="async" loading="lazy"></picture>
-          <div class="service-card-copy"><span class="service-category">Movimentação no terminal</span><h3>Movimentação de cargas</h3>
-            <p>Carregamento, descarregamento e preparação de cargas, com empilhadeiras próprias no terminal.</p>
-            <a class="service-page-link" href="/servicos/movimentacao-de-cargas" aria-label="Conhecer o serviço: Movimentação de cargas"><span>Conhecer o serviço</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
-            <a class="service-quote" href="#cotacao" data-quote-service="Movimentação de cargas" aria-label="Solicitar cotação: Movimentação de cargas"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></article>
-      </div>
-      <div class="coverage-note"><div><p class="eyebrow">Área de atuação</p><h3>Nordeste e parte da região Norte</h3></div><p>Nosso terminal fica em Caucaia, no Ceará. Informe a origem e o destino para consultar a disponibilidade de atendimento para sua rota com o comercial.</p></div>
-    </div>
-  </section>
-
-  <!-- GALERIA -->
-  <section id="galeria" class="section section-alt operations-section" aria-labelledby="operationsTitle">
-    <div class="container">
-      <div class="operations-heading">
-        <p class="eyebrow">Nossa operação</p>
-        <h2 id="operationsTitle" class="section-title">Estrutura e Operação</h2>
-        <p>Conheça de perto nossa estrutura e algumas das operações realizadas.</p>
-      </div>
-      <div class="gallery-grid">
-        <figure><a class="gallery-open" href="assets/img/transporte-bobinas.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Transporte de bobinas"><picture><source type="image/webp" srcset="assets/img/transporte-bobinas-640.webp 640w, assets/img/transporte-bobinas-1280.webp 1280w, assets/img/transporte-bobinas-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/transporte-bobinas.jpg" alt="Carreta carregada com bobinas de aço em operação no terminal" width="1600" height="900" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true">Ampliar foto<svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
-          <figcaption><span class="gallery-category">Transporte de cargas</span><strong>Transporte de bobinas</strong>
-            <p>Transporte de bobinas em carretas adequadas à carga, com foco na segurança da operação e na qualidade do serviço.</p></figcaption></figure>
-        <figure><a class="gallery-open" href="assets/img/container-carga.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Carregamento de container"><picture><source type="image/webp" srcset="assets/img/container-carga-640.webp 640w, assets/img/container-carga-803.webp 803w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/container-carga.jpg" alt="Container sendo carregado com carga paletizada" width="803" height="492" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true">Ampliar foto<svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
-          <figcaption><span class="gallery-category">Movimentação no terminal</span><strong>Carregamento de container</strong>
-            <p>Preparação e carregamento de cargas para o transporte em contêineres.</p></figcaption></figure>
-        <figure><a class="gallery-open" href="assets/img/armazem-granel.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Armazenagem de granéis"><picture><source type="image/webp" srcset="assets/img/armazem-granel-640.webp 640w, assets/img/armazem-granel-900.webp 900w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/armazem-granel.jpg" alt="Armazenagem de carga a granel" width="900" height="900" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true">Ampliar foto<svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
-          <figcaption><span class="gallery-category">Armazenagem</span><strong>Armazenagem de granéis</strong>
-            <p>Armazenagem de carga a granel como parte dos serviços do terminal.</p></figcaption></figure>
-        <figure><a class="gallery-open" href="assets/img/armazem-noturno.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Amplo armazém fechado"><picture><source type="image/webp" srcset="assets/img/armazem-noturno-640.webp 640w, assets/img/armazem-noturno-950.webp 950w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/armazem-noturno.jpg" alt="Amplo armazém fechado" width="950" height="534" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true">Ampliar foto<svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
-          <figcaption><span class="gallery-category">Estrutura do terminal</span><strong>Amplo armazém fechado</strong>
-            <p>Espaço coberto para armazenagem e atendimento das cargas.</p></figcaption></figure>
-        <figure><a class="gallery-open" href="assets/img/hero-containers.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Espaço para Depot de containers"><picture><source type="image/webp" srcset="assets/img/hero-containers-640.webp 640w, assets/img/hero-containers-922.webp 922w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/hero-containers.jpg" alt="Espaço para Depot de containers" width="922" height="692" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true">Ampliar foto<svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
-          <figcaption><span class="gallery-category">Depot de contêineres</span><strong>Espaço para Depot de containers</strong>
-            <p>Área destinada à armazenagem e ao posicionamento de contêineres vazios.</p></figcaption></figure>
-        <figure><a class="gallery-open" href="assets/img/carregamento-portuario.jpg" target="_blank" rel="noopener" aria-label="Ampliar foto: Carregamentos portuários"><picture><source type="image/webp" srcset="assets/img/carregamento-portuario-640.webp 640w, assets/img/carregamento-portuario-950.webp 950w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 980px) calc(50vw - 60px), 530px"><img src="assets/img/carregamento-portuario.jpg" alt="Carregamentos portuários" width="950" height="534" decoding="async" loading="lazy"></picture><span class="gallery-open-label" aria-hidden="true">Ampliar foto<svg viewBox="0 0 24 24" focusable="false"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span></a>
-          <figcaption><span class="gallery-category">Operações portuárias</span><strong>Carregamentos portuários</strong>
-            <p>Atendimento a operações de carregamento ligadas ao transporte portuário.</p></figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARCEIROS -->
   <section id="parceiros" class="section partners-section" aria-labelledby="partnersTitle">
     <div class="container">
       <div class="partners-heading">
@@ -305,7 +261,6 @@
     </div>
   </section>
 
-  <!-- CLIENTES -->
   <section id="clientes" class="section section-alt">
     <div class="container clients-carousel" data-clients-carousel>
       <div class="clients-heading">
@@ -327,6 +282,7 @@
       </div>
     </div>
   </section>
+
   <section id="duvidas" class="section faq-section" aria-labelledby="faqTitle">
     <div class="container faq-layout">
       <div class="faq-intro">
@@ -388,7 +344,7 @@
       </form>
     </div>
   </section>
-  <!-- CONTATO -->
+
   <section id="contato" class="section section-dark contact-section" aria-labelledby="contactTitle">
     <div class="container">
       <div class="contact-heading">
@@ -473,9 +429,9 @@
   </div>
   <div class="container footer-bottom">
     <nav class="footer-nav" aria-label="Navegação do rodapé">
+      <a href="#servicos">Serviços</a>
       <a href="#diferenciais">Diferenciais</a>
       <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
       <a href="#clientes">Clientes</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -511,7 +467,7 @@
   <div class="gallery-stage"><img id="galleryImage" alt="" hidden><p id="galleryLoadStatus" role="status">Carregando foto…</p></div>
   <div class="gallery-dialog-bottom"><div class="gallery-description"><h2 id="galleryTitle"></h2><p id="galleryDescription"></p><a id="galleryOriginal" target="_blank" rel="noopener">Abrir imagem original ↗</a></div><div class="gallery-navigation"><button id="galleryPrev" class="gallery-control" type="button" aria-label="Foto anterior">←</button><span id="galleryCounter" aria-live="polite" aria-atomic="true"></span><button id="galleryNext" class="gallery-control" type="button" aria-label="Próxima foto">→</button></div></div>
 </dialog>
-<script src="js/main.js?v=20260922-carousel2"></script>
+<script src="js/main.js?v=20260926-refine1"></script>
 <script src="js/interactions.js?v=20260925-services1"></script>
 <script src="js/clients.js?v=20260923-clients2"></script>
 </body>

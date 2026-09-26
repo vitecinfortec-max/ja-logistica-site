@@ -80,7 +80,8 @@
         "Quais regiões são atendidas?",
         "Atendemos o Nordeste e parte da região Norte. Envie origem e destino para consultar a disponibilidade da sua rota com Luiz Antonio."
       ]
-    ]
+    ],
+    "homeDescription": "Transporte de cargas especiais e siderúrgicos, com apoio a AET e escolta."
   },
   {
     "slug": "conteineres",
@@ -158,7 +159,8 @@
         "Como confirmar se minha rota é atendida?",
         "Atendemos o Nordeste e parte da região Norte. Envie as cidades de origem e destino, o tipo de carga e a data desejada para análise do comercial."
       ]
-    ]
+    ],
+    "homeDescription": "Frota própria para contêineres e carga geral com lotação completa."
   },
   {
     "slug": "armazenagem",
@@ -236,7 +238,8 @@
         "Posso contratar movimentação junto à armazenagem?",
         "Sim. Oferecemos serviços de movimentação, carregamento e descarregamento no terminal. Informe as etapas necessárias para que façam parte da proposta."
       ]
-    ]
+    ],
+    "homeDescription": "Armazém coberto, carga geral e depot de contêineres vazios."
   },
   {
     "slug": "movimentacao-de-cargas",
@@ -314,6 +317,7 @@
         "É possível receber fotos dos serviços?",
         "Sim. Oferecemos envio de relatórios fotográficos dos serviços. Informe essa necessidade ao comercial para definir o registro junto ao escopo da operação."
       ]
-    ]
+    ],
+    "homeDescription": "Carga, descarga e preparação com equipamentos próprios no terminal."
   }
 ]
