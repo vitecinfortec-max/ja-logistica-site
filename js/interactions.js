@@ -16,6 +16,17 @@
       if (routeRow) routeRow.classList.toggle('form-row-local', local);
       result.hidden = true;
     }
+    // Accept only known service URLs; never reflect an arbitrary query value.
+    var requestedService = new URLSearchParams(window.location.search).get('servico');
+    var serviceFromPage = {
+      'cargas-especiais': 'Cargas especiais',
+      'conteineres': 'Contêineres e carga geral',
+      'armazenagem': 'Armazenagem',
+      'movimentacao-de-cargas': 'Movimentação de cargas'
+    };
+    if (Object.prototype.hasOwnProperty.call(serviceFromPage, requestedService)) {
+      service.value = serviceFromPage[requestedService];
+    }
     service.addEventListener('change', syncService);
     form.addEventListener('input', function () {
       cargo.setCustomValidity('');

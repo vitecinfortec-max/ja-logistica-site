@@ -1,0 +1,319 @@
+[
+  {
+    "slug": "cargas-especiais",
+    "name": "Cargas especiais",
+    "title": "Transporte de cargas especiais",
+    "category": "Transporte rodoviário",
+    "metaTitle": "Transporte de cargas especiais | J.A Logística",
+    "description": "Transporte de cargas especiais e produtos siderúrgicos, com apoio a AET e escolta rodoviária. J.A Logística em Caucaia–CE. Consulte sua rota e solicite cotação.",
+    "intro": "Cargas com peso e dimensões especiais exigem atenção ao veículo, ao percurso e à preparação da operação. Conte com nossa estrutura para planejar o transporte junto ao comercial.",
+    "tag": "Nordeste e parte da região Norte",
+    "hero": {
+      "file": "carregamento-caminhao",
+      "width": 950,
+      "height": 534,
+      "alt": "Carreta da J.A Logística transportando uma estrutura metálica",
+      "caption": "Transporte de carga especial com equipamentos da nossa frota."
+    },
+    "detailPhoto": {
+      "file": "transporte-bobinas",
+      "width": 1600,
+      "height": 900,
+      "variants": [
+        640,
+        1280,
+        1600
+      ],
+      "alt": "Bobinas de aço sobre carreta durante operação de carregamento",
+      "caption": "Transporte de bobinas em carretas adequadas à carga."
+    },
+    "includesTitle": "Estrutura para cargas que exigem atenção especial",
+    "includesIntro": "A preparação considera as características da carga e as necessidades do trajeto. Estes são os serviços que podemos reunir na sua operação:",
+    "includes": [
+      [
+        "Cargas especiais",
+        "Transporte de cargas com peso e dimensões especiais, com avaliação das informações da carga para definir a operação."
+      ],
+      [
+        "Produtos siderúrgicos",
+        "Transporte de bobinas e outros produtos siderúrgicos em carretas adequadas às características da carga."
+      ],
+      [
+        "Licenças rodoviárias",
+        "Requisição de Autorização Especial de Trânsito (AET), conforme as necessidades identificadas para o transporte."
+      ],
+      [
+        "Escolta rodoviária",
+        "Apoio com batedores para operações de cargas especiais que necessitem de escolta."
+      ]
+    ],
+    "planningTitle": "Uma boa cotação começa pelos dados da carga",
+    "planningIntro": "Envie o que já tiver disponível. O comercial avalia a rota e orienta sobre as informações necessárias para preparar a proposta.",
+    "checklist": [
+      [
+        "Carga e quantidade",
+        "Descreva o material ou equipamento e informe o número de volumes."
+      ],
+      [
+        "Peso e dimensões",
+        "Informe peso, comprimento, largura e altura, incluindo a embalagem, se houver."
+      ],
+      [
+        "Origem e destino",
+        "Indique as cidades e os locais de coleta e entrega."
+      ],
+      [
+        "Data e condições de acesso",
+        "Informe a data desejada e particularidades dos locais de carregamento e descarga."
+      ]
+    ],
+    "faqs": [
+      [
+        "Vocês transportam bobinas?",
+        "Sim. Realizamos transporte de bobinas em carretas adequadas à carga. Informe quantidade, peso, dimensões e trajeto para avaliarmos a operação."
+      ],
+      [
+        "O serviço pode incluir AET e escolta?",
+        "Oferecemos requisição de AET e escolta rodoviária para cargas especiais. As necessidades da operação e o escopo da contratação são alinhados com o comercial."
+      ],
+      [
+        "Quais regiões são atendidas?",
+        "Atendemos o Nordeste e parte da região Norte. Envie origem e destino para consultar a disponibilidade da sua rota com Luiz Antonio."
+      ]
+    ]
+  },
+  {
+    "slug": "conteineres",
+    "name": "Contêineres e carga geral",
+    "title": "Transporte de contêineres e carga geral",
+    "category": "Transporte rodoviário",
+    "metaTitle": "Transporte de contêineres e carga geral | J.A Logística",
+    "description": "Transporte de contêineres e carga geral com lotação completa e frota própria. Atendimento no Nordeste e parte do Norte. Solicite cotação com a J.A Logística.",
+    "intro": "Frota própria para conectar os pontos da sua operação. Realizamos transporte de contêineres e de carga geral com lotação completa, com atendimento a partir de Caucaia–CE.",
+    "tag": "Nordeste e parte da região Norte",
+    "hero": {
+      "file": "bobinas-aco",
+      "width": 950,
+      "height": 495,
+      "alt": "Caminhões da frota da J.A Logística no terminal",
+      "caption": "Frota própria para o transporte rodoviário de cargas."
+    },
+    "detailPhoto": {
+      "file": "hero-containers",
+      "width": 922,
+      "height": 692,
+      "alt": "Contêineres empilhados no pátio do terminal",
+      "caption": "Estrutura de terminal com depot de contêineres vazios."
+    },
+    "includesTitle": "Transporte conectado à sua operação",
+    "includesIntro": "Informe o tipo de carga e o trajeto para encontrar a modalidade adequada. Nossa estrutura reúne:",
+    "includes": [
+      [
+        "Transporte de contêineres",
+        "Movimentação rodoviária de contêineres entre os locais de coleta e entrega, conforme a rota e o agendamento alinhados com o comercial."
+      ],
+      [
+        "Contêiner próprio tipo baú",
+        "Transporte com contêiner próprio tipo baú. A adequação à carga e a disponibilidade são avaliadas na cotação."
+      ],
+      [
+        "Carga geral em lotação",
+        "Transporte de carga geral com lotação completa, considerando as características dos volumes e as necessidades de coleta e entrega."
+      ],
+      [
+        "Apoio no terminal",
+        "Também oferecemos depot de contêineres vazios e serviços de movimentação. Consulte a composição desses serviços com o transporte."
+      ]
+    ],
+    "planningTitle": "Informe a carga e o trajeto",
+    "planningIntro": "Com os dados da coleta e da entrega, o comercial consegue avaliar o atendimento e preparar a proposta para o seu transporte.",
+    "checklist": [
+      [
+        "Tipo de operação",
+        "Informe se precisa transportar contêiner ou carga geral com lotação completa."
+      ],
+      [
+        "Características da carga",
+        "Indique tipo e tamanho do contêiner, se aplicável, além de quantidade, peso e dimensões dos volumes."
+      ],
+      [
+        "Coleta e entrega",
+        "Informe origem, destino e os locais de carregamento e descarregamento."
+      ],
+      [
+        "Programação",
+        "Envie a data desejada e os horários ou agendamentos que precisam ser considerados."
+      ]
+    ],
+    "faqs": [
+      [
+        "O transporte de carga geral é por lotação?",
+        "Sim. Nosso serviço de carga geral é realizado com lotação completa. Informe os volumes e o trajeto para consultar a disponibilidade."
+      ],
+      [
+        "Vocês também armazenam contêineres vazios?",
+        "Sim. Oferecemos depot de contêineres vazios no terminal em Caucaia–CE. Esse serviço pode ser consultado com o comercial junto às necessidades de transporte."
+      ],
+      [
+        "Como confirmar se minha rota é atendida?",
+        "Atendemos o Nordeste e parte da região Norte. Envie as cidades de origem e destino, o tipo de carga e a data desejada para análise do comercial."
+      ]
+    ]
+  },
+  {
+    "slug": "armazenagem",
+    "name": "Armazenagem",
+    "title": "Armazenagem em Caucaia–CE",
+    "category": "Estrutura de terminal",
+    "metaTitle": "Armazenagem e depot em Caucaia–CE | J.A Logística",
+    "description": "Armazém coberto, armazenagem de carga geral e granéis e depot de contêineres vazios em Caucaia–CE. Conheça a estrutura e solicite cotação com a J.A Logística.",
+    "intro": "Espaço para receber sua carga e apoiar a programação da operação. Nosso terminal reúne armazém coberto, armazenagem de carga geral e depot de contêineres vazios.",
+    "tag": "Terminal no Distrito Industrial de Caucaia",
+    "hero": {
+      "file": "armazem-paletes",
+      "width": 950,
+      "height": 712,
+      "alt": "Carga paletizada armazenada no armazém coberto da J.A Logística",
+      "caption": "Armazém coberto para receber e organizar cargas."
+    },
+    "detailPhoto": {
+      "file": "armazem-granel",
+      "width": 900,
+      "height": 900,
+      "alt": "Carga a granel armazenada no interior de um galpão",
+      "caption": "Armazenagem de granéis como parte dos serviços do terminal."
+    },
+    "includesTitle": "Espaço e apoio para sua carga",
+    "includesIntro": "A escolha da armazenagem depende do material, da quantidade e do período necessário. Conheça os serviços do terminal:",
+    "includes": [
+      [
+        "Armazém coberto",
+        "Armazenagem de cargas em espaço coberto, conforme as características do material e a disponibilidade do terminal."
+      ],
+      [
+        "Carga geral e granéis",
+        "Atendimento a cargas gerais e a granel. Informe a composição, a embalagem e o volume para avaliarmos as condições de recebimento."
+      ],
+      [
+        "Depot de contêineres vazios",
+        "Espaço para armazenagem de contêineres vazios. Quantidade, dimensões e período são alinhados na cotação."
+      ],
+      [
+        "Movimentação no terminal",
+        "Serviços de carregamento, descarregamento e movimentação podem compor a operação. O terminal conta com empilhadeiras próprias de 2,5 e 7 toneladas."
+      ]
+    ],
+    "planningTitle": "Planeje a entrada, a permanência e a saída",
+    "planningIntro": "O período de armazenagem e as características do material ajudam a definir o atendimento. Envie esses dados para o comercial:",
+    "checklist": [
+      [
+        "Material e embalagem",
+        "Descreva a carga e como ela está acondicionada: paletes, volumes ou granel, por exemplo."
+      ],
+      [
+        "Quantidade e dimensões",
+        "Informe quantidade, peso e dimensões. Para contêineres vazios, indique também o tamanho."
+      ],
+      [
+        "Período de armazenagem",
+        "Informe a data prevista de entrada, o tempo de permanência e a previsão de retirada."
+      ],
+      [
+        "Serviços de apoio",
+        "Indique se precisará de carga, descarga, movimentação ou transporte."
+      ]
+    ],
+    "faqs": [
+      [
+        "Onde fica o armazém?",
+        "Nosso terminal fica na Rodovia CE 155, 16.226, no Distrito Industrial de Caucaia–CE, em frente à fábrica do Cimento Apodi. O mapa e as instruções de chegada estão na área de contato do site."
+      ],
+      [
+        "Quais informações são necessárias para consultar espaço?",
+        "Informe o tipo de material, a forma de acondicionamento, a quantidade, o peso, as dimensões e o período desejado. O comercial confirma a disponibilidade e as condições de atendimento."
+      ],
+      [
+        "Posso contratar movimentação junto à armazenagem?",
+        "Sim. Oferecemos serviços de movimentação, carregamento e descarregamento no terminal. Informe as etapas necessárias para que façam parte da proposta."
+      ]
+    ]
+  },
+  {
+    "slug": "movimentacao-de-cargas",
+    "name": "Movimentação de cargas",
+    "title": "Movimentação de cargas no terminal",
+    "category": "Operações no terminal",
+    "metaTitle": "Movimentação de cargas em Caucaia–CE | J.A Logística",
+    "description": "Desova, ovação, paletização e movimentação de cargas com empilhadeiras próprias no terminal em Caucaia–CE. Conheça os serviços da J.A Logística e solicite cotação.",
+    "intro": "Da retirada do contêiner à preparação para o próximo transporte, atendemos as etapas de movimentação da carga no terminal, com empilhadeiras próprias de 2,5 e 7 toneladas.",
+    "tag": "Terminal no Distrito Industrial de Caucaia",
+    "hero": {
+      "file": "container-carga",
+      "width": 803,
+      "height": 492,
+      "alt": "Contêiner aberto com carga preparada e acondicionada para transporte",
+      "caption": "Preparação e carregamento de cargas em contêineres."
+    },
+    "detailPhoto": {
+      "file": "carregamento-portuario",
+      "width": 950,
+      "height": 534,
+      "alt": "Carreta carregada com volumes acondicionados para transporte",
+      "caption": "Carregamento e preparação para a próxima etapa da operação."
+    },
+    "includesTitle": "Cada etapa da movimentação, bem definida",
+    "includesIntro": "Conte o que precisa ser feito e como a carga deve ser preparada. O escopo pode reunir os seguintes serviços:",
+    "includes": [
+      [
+        "Desova e ovação",
+        "Retirada de cargas do contêiner (desova) e carregamento no contêiner (ovação), além de carga e descarga para o transporte."
+      ],
+      [
+        "Empilhadeiras e movimentação",
+        "Movimentação de cargas e serviços de empilhadeira no terminal. Também realizamos posicionamento de contêineres, conforme o planejamento da operação."
+      ],
+      [
+        "Paletização e preparação",
+        "Paletização e preparação de cargas conforme as instruções recebidas, para organizar os volumes para a próxima etapa."
+      ],
+      [
+        "Registro da operação",
+        "Envio de relatórios fotográficos dos serviços realizados, conforme o atendimento alinhado com o comercial."
+      ]
+    ],
+    "planningTitle": "Conte quais etapas sua carga precisa",
+    "planningIntro": "Detalhar o serviço e os volumes ajuda a preparar a equipe e os equipamentos necessários para a operação.",
+    "checklist": [
+      [
+        "Serviço desejado",
+        "Indique se precisa de desova, ovação, carregamento, descarregamento, paletização ou outra movimentação."
+      ],
+      [
+        "Dados dos volumes",
+        "Informe o material, a quantidade, o peso por volume, as dimensões e o tipo de embalagem."
+      ],
+      [
+        "Instruções de preparação",
+        "Descreva como a carga deve ser organizada e se precisa de registro fotográfico dos serviços."
+      ],
+      [
+        "Data e integração",
+        "Envie a data desejada e informe se haverá armazenagem ou transporte junto à movimentação."
+      ]
+    ],
+    "faqs": [
+      [
+        "O que são desova e ovação?",
+        "Desova é a retirada da carga de um contêiner. Ovação é o carregamento da carga no contêiner. Realizamos ambos os serviços no terminal."
+      ],
+      [
+        "O terminal tem equipamentos próprios?",
+        "Sim. Contamos com empilhadeiras próprias de 2,5 e 7 toneladas. A adequação do equipamento é avaliada conforme o peso, as dimensões e as características de cada carga."
+      ],
+      [
+        "É possível receber fotos dos serviços?",
+        "Sim. Oferecemos envio de relatórios fotográficos dos serviços. Informe essa necessidade ao comercial para definir o registro junto ao escopo da operação."
+      ]
+    ]
+  }
+]
