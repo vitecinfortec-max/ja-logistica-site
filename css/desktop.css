@@ -82,7 +82,16 @@
   .service-page .service-photo-hero img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
   .service-page .service-planning-grid { gap: clamp(48px, 5vw, 96px); }
   .service-page .service-planning-copy > p { max-width: 72ch; }
+  .service-page .service-planning-copy > p:not(.eyebrow) { font-size: 20px; }
+  .service-page .service-planning-copy > .service-primary { font-size: 18.75px; }
   .service-page .service-checklist { max-width: 76ch; }
+  .service-page .service-checklist strong { font-size: 18.75px; }
+  .service-page .service-checklist p { font-size: 17.5px; }
+  .service-page .service-location-note > strong { font-size: 18.75px; }
+  .service-page .service-location-note p, .service-page .service-location-note a { font-size: 16.25px; }
+  .service-page .service-planning-visual .service-photo figcaption { font-size: 15px; }
+  .service-page .service-planning-visual .service-photo picture { width: 100%; }
+  .service-page .service-planning-visual .service-photo img { object-position: center; }
 }
 @media (min-width: 1360px) and (hover: hover) and (pointer: fine) {
   .services-overview, .advantages-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
