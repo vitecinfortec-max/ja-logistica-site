@@ -18,11 +18,15 @@
   .advantages-grid, .services-overview, .gallery-grid, .partners-grid { gap: clamp(24px, 1.8vw, 32px); }
   .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .gallery-grid figcaption { padding: 24px; }
+  .gallery-grid figcaption p { font-size: 20px; }
+  .service-card-copy > p { font-size: 20px; }
+  .service-page-link { font-size: 17.5px; }
+  .service-quote { font-size: 18.75px; }
   .partner-role { font-size: 17.5px; min-height: 85px; }
   .partner-role svg { flex-basis: 25px; width: 25px; height: 25px; }
 
   .about-summary { gap: clamp(40px, 5vw, 88px); }
-  .about-summary p { max-width: 76ch; }
+  .about-summary p { max-width: 76ch; font-size: 20px; }
   .about-principles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   .principle-card-quality {
     grid-column: 1 / -1; display: grid;
@@ -30,6 +34,7 @@
   }
   .principle-card-quality .principle-header { margin-bottom: 0; }
   .principle-card-quality > p { max-width: 90ch; }
+  .principle-card > p, .principle-values { font-size: 20px; }
 
   .resource-card {
     grid-template-columns: 140px minmax(0, .9fr) minmax(0, 1.1fr) 250px;
@@ -38,9 +43,13 @@
   }
   .resource-preview { width: 116px; }
   .resource-heading h3 { max-width: 14ch; }
-  .resource-description > p { max-width: 48ch; }
+  .resource-description > p { max-width: 48ch; font-size: 18.75px; }
+  .resource-heading .resource-eyebrow { font-size: 12.5px; }
+  .resource-meta { font-size: 15px; }
+  .resource-download { font-size: 17.5px; }
+  .resource-view { font-size: 16.25px; }
   .coverage-note { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; }
-  .coverage-note > p { max-width: 85ch; }
+  .coverage-note > p { max-width: 85ch; font-size: 20px; }
 
   .faq-layout { grid-template-columns: minmax(300px, .7fr) minmax(0, 1.3fr); gap: clamp(40px, 4vw, 72px); }
   .faq-intro > p:last-of-type, .faq-help { max-width: 460px; }
@@ -71,8 +80,8 @@
   .services-overview, .advantages-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .service-card-copy { padding: 22px; }
   .service-card h3 { font-size: 22px; min-height: 2.7em; }
-  .service-card-copy > p { font-size: 15px; }
-  .service-page-link, .service-quote { padding: 12px 14px; font-size: 14px; gap: 10px; }
+  .service-card-copy > p { font-size: 18.75px; }
+  .service-page-link, .service-quote { padding: 12px 14px; font-size: 17.5px; gap: 10px; }
   .advantage-card { padding: 24px; }
   .advantage-header { gap: 14px; min-height: 116px; align-items: flex-start; margin-bottom: 16px; }
   .advantage-icon { flex-basis: 48px; width: 48px; height: 48px; border-radius: 13px; }
@@ -85,6 +94,7 @@
   .faq-list { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
   .faq-list summary { min-height: 108px; }
   .service-card-copy { padding: 26px; }
-  .service-card-copy > p, .advantage-description { font-size: 16px; }
+  .service-card-copy > p { font-size: 20px; }
+  .advantage-description { font-size: 16px; }
   .advantage-header { min-height: 96px; }
 }
