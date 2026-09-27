@@ -35,6 +35,18 @@ function picture(photo, eager = false) {
     '.jpg" alt="' + escape(photo.alt) + '" width="' + photo.width + '" height="' + photo.height +
     '" decoding="async" ' + (eager ? 'fetchpriority="high"' : 'loading="lazy"') + '></picture>';
 }
+function heroMedia(service) {
+  const photos = [service.hero, ...(service.heroGallery || [])];
+  if (photos.length < 2) return '<figure class="service-photo service-photo-hero">' + picture(service.hero, true) + '<figcaption>' + escape(service.hero.caption) + '</figcaption></figure>';
+  return '<figure class="service-photo service-photo-hero service-photo-carousel" data-service-carousel role="group" aria-roledescription="carrossel" aria-label="Fotos de ' + escape(service.name) + '">' +
+    '<div class="service-carousel-stage" style="--service-photo-ratio:' + service.hero.width + ' / ' + service.hero.height + '">' +
+    photos.map((photo, i) => '<div class="service-carousel-slide' + (i === 0 ? ' is-active' : '') + '" data-carousel-slide role="group" aria-roledescription="slide" aria-label="Foto ' + (i + 1) + ' de ' + photos.length + '" aria-hidden="' + (i !== 0) + '"' + (i === 0 ? '' : ' hidden') + '>' + picture(photo, i === 0) + '</div>').join('') +
+    '<div class="service-carousel-controls" role="group" aria-label="Escolher foto" hidden>' +
+    photos.map((photo, i) => '<button type="button" class="service-carousel-dot" data-carousel-index="' + i + '" aria-pressed="' + (i === 0) + '" aria-label="Mostrar foto ' + (i + 1) + ' de ' + photos.length + ': ' + escape(photo.caption) + '"></button>').join('') +
+    '</div></div><figcaption class="service-carousel-captions" aria-live="off">' +
+    photos.map((photo, i) => '<span class="service-carousel-caption' + (i === 0 ? ' is-active' : '') + '" data-carousel-caption aria-hidden="' + (i !== 0) + '">' + escape(photo.caption) + '</span>').join('') +
+    '</figcaption></figure>';
+}
 const servicePath = service => '/servicos/' + service.slug;
 fs.mkdirSync(path.join(root, 'servicos'), {recursive: true});
 for (const service of services) {
@@ -69,7 +81,7 @@ for (const service of services) {
   ]};
   head = rebase(head.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '</script>'))
-    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20260925-services1">\n</head>');
+    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20260927-carousel1">\n</head>');
   const actions = sharedActions.replace('href="#cotacao"', 'href="' + quote + '"')
     .replace(/href="https:\/\/wa\.me\/5585991753831\?text=[^"]*"/g, 'href="' + escape(whatsapp) + '"');
   const html = [
@@ -84,7 +96,7 @@ for (const service of services) {
     '      <p class="service-lead">' + escape(service.intro) + '</p>',
     '      <div class="service-page-actions"><a class="service-primary" href="' + quote + '" aria-label="Solicitar cotação: ' + escape(service.name) + '"><span>Solicitar cotação</span>' + arrow + '</a><a class="service-text-link" href="#detalhes">Conhecer o serviço <span aria-hidden="true">↓</span></a></div>',
     '      <p class="service-location"><span aria-hidden="true"></span>' + escape(service.tag) + '</p></div>',
-    '      <figure class="service-photo service-photo-hero">' + picture(service.hero, true) + '<figcaption>' + escape(service.hero.caption) + '</figcaption></figure>',
+    '      ' + heroMedia(service),
     '    </div></div></section>',
     '  <section id="detalhes" class="service-content-section" aria-labelledby="includesTitle"><div class="container">',
     '    <div class="service-section-heading"><p class="eyebrow">Como podemos ajudar</p><h2 id="includesTitle">' + escape(service.includesTitle) + '</h2><p>' + escape(service.includesIntro) + '</p></div>',
@@ -107,7 +119,7 @@ for (const service of services) {
     '  <section class="service-related service-content-section" aria-labelledby="relatedTitle"><div class="container">',
     '    <div class="service-section-heading"><p class="eyebrow">Conheça também</p><h2 id="relatedTitle">Outros serviços para sua operação</h2></div>',
     '    <div class="service-related-grid">' + services.filter(other => other.slug !== service.slug).map(other => '<a class="service-related-link" href="' + servicePath(other) + '"><div><span>' + escape(other.category) + '</span><h3>' + escape(other.name) + '</h3></div>' + arrow + '</a>').join('') + '</div>',
-    '  </div></section>', '</main>', sharedFooter, actions, sharedMainScript, '</body>', '</html>', ''
+    '  </div></section>', '</main>', sharedFooter, actions, sharedMainScript, ...(service.heroGallery && service.heroGallery.length ? ['<script src="/js/service-carousel.js?v=20260927-1" defer></script>'] : []), '</body>', '</html>', ''
   ].join('\n');
   write('servicos/' + service.slug + '.html', html);
   console.log('Gerado: ' + servicePath(service));

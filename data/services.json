@@ -158,6 +158,20 @@
         "Como confirmar se minha rota é atendida?",
         "Atendemos o Nordeste e parte da região Norte. Envie as cidades de origem e destino, o tipo de carga e a data desejada para análise do comercial."
       ]
+    ],
+    "heroGallery": [
+      {
+        "file": "transporte-conteiner-carreta",
+        "width": 1600,
+        "height": 900,
+        "variants": [
+          640,
+          1280,
+          1600
+        ],
+        "alt": "Caminhão com contêiner vermelho sobre carreta durante uma operação de transporte",
+        "caption": "Transporte de contêiner em carreta da nossa frota."
+      }
     ]
   },
   {

@@ -94,3 +94,25 @@
 @media (prefers-reduced-motion: reduce) {
   .service-primary, .service-related-link { transition: none; }
 }
+
+/* Opt-in service photo carousel. Image proportions stay intact on every screen. */
+.service-carousel-stage { position: relative; width: 100%; aspect-ratio: var(--service-photo-ratio); overflow: hidden; isolation: isolate; border-radius: 12px; background: #edf2f4; touch-action: pan-y pinch-zoom; }
+.service-carousel-slide { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .8s ease; }
+.service-carousel-slide.is-active { opacity: 1; z-index: 1; }
+.service-page .service-photo-carousel .service-carousel-slide picture { width: 100%; height: 100%; aspect-ratio: auto; max-height: none; border-radius: 0; }
+.service-page .service-photo-carousel .service-carousel-slide img { width: 100%; height: 100%; object-fit: contain; object-position: center; user-select: none; }
+.service-carousel-controls { position: absolute; right: 10px; bottom: 10px; z-index: 2; display: flex; padding: 0 2px; border: 1px solid rgba(255,255,255,.25); border-radius: 28px; background: rgba(10,37,46,.88); }
+.service-carousel-controls[hidden] { display: none; }
+.service-carousel-dot { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.service-carousel-dot::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #d7e3e7; transition: background .2s ease, transform .2s ease; }
+.service-carousel-dot[aria-pressed="true"]::after { background: #ff9c38; transform: scale(1.35); }
+.service-carousel-dot:focus-visible { outline: 2px solid #ffbf7b; outline-offset: -4px; }
+.service-carousel-captions { display: grid; }
+.service-carousel-caption { grid-area: 1 / 1; visibility: hidden; }
+.service-carousel-caption.is-active { visibility: visible; }
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  .service-carousel-stage { aspect-ratio: 16 / 10; max-height: 520px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-carousel-slide, .service-carousel-dot::after { transition: none; }
+}
