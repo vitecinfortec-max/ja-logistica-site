@@ -28,6 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=20260925-services1">
+<link rel="stylesheet" href="css/cities.css?v=20260926-1">
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -378,8 +379,8 @@
         <div class="form-field"><label for="quoteService">Qual serviço você precisa? <span class="field-required" aria-hidden="true">*</span></label><select id="quoteService" name="service" required><option value="">Selecione um serviço</option><option>Cargas especiais</option><option>Contêineres e carga geral</option><option>Armazenagem</option><option>Movimentação de cargas</option><option>Transporte de bobinas</option><option>Outra operação</option></select></div>
         <div class="form-field"><label for="quoteName">Seu nome <span>(opcional)</span></label><input id="quoteName" name="name" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?"></div>
         <div class="form-row" id="quoteRouteRow">
-          <div class="form-field"><label for="quoteOrigin"><span id="quoteOriginLabel">Origem</span> <span>(opcional)</span></label><input id="quoteOrigin" name="origin" maxlength="100" placeholder="Cidade / UF"></div>
-          <div class="form-field" id="quoteDestinationField"><label for="quoteDestination">Destino <span>(opcional)</span></label><input id="quoteDestination" name="destination" maxlength="100" placeholder="Cidade / UF"></div>
+          <div class="form-field"><label for="quoteOrigin"><span id="quoteOriginLabel">Origem</span> <span>(opcional)</span></label><input id="quoteOrigin" name="origin" data-city-search maxlength="100" placeholder="Cidade / UF"></div>
+          <div class="form-field" id="quoteDestinationField"><label for="quoteDestination">Destino <span>(opcional)</span></label><input id="quoteDestination" name="destination" data-city-search maxlength="100" placeholder="Cidade / UF"></div>
         </div>
         <div class="form-field"><label for="quoteCargo">Descreva sua carga <span class="field-required" aria-hidden="true">*</span></label><textarea id="quoteCargo" name="cargo" rows="4" maxlength="1000" required aria-describedby="quoteCargoHint" placeholder="O que você precisa transportar, armazenar ou movimentar?"></textarea><p id="quoteCargoHint" class="field-hint">Tipo de carga, peso, dimensões e data desejada, se disponíveis. Para armazenagem, informe também o período.</p></div>
         <button class="quote-submit" type="submit"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-4.7A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 7.5c0 4.5 3.5 8 8 8l1-2.5-3-1-1 1a8 8 0 0 1-2.5-2.5l1-1-1-3L8 7.5Z"/></svg><span>Continuar no WhatsApp</span></button>
@@ -513,6 +514,7 @@
 </dialog>
 <script src="js/main.js?v=20260922-carousel2"></script>
 <script src="js/interactions.js?v=20260925-services1"></script>
+<script src="js/cities.js?v=20260926-1"></script>
 <script src="js/clients.js?v=20260923-clients2"></script>
 </body>
 </html>
