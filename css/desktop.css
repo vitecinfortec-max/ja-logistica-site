@@ -1,0 +1,81 @@
+/* Desktop composition. Touch layouts keep the approved mobile/tablet rules. */
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  :root { --container: min(92vw, 1920px); }
+  .container { width: var(--container); max-width: none; padding-left: 0; padding-right: 0; }
+  .main-nav { gap: clamp(32px, 2.6vw, 60px); }
+
+  /* Align the opening with the rest of the page, leaving the right side to the photos. */
+  .hero { min-height: clamp(580px, 68vh, 740px); }
+  .hero-media { left: 38%; width: 62%; }
+  .hero-content { padding-top: 64px; padding-bottom: 64px; }
+  .hero-title { max-width: 49%; font-size: clamp(48px, 4vw, 76px); }
+  .hero-sub { max-width: min(43vw, 640px); }
+  .hero-ctas { max-width: 720px; }
+  .stats-grid { gap: clamp(20px, 1.8vw, 32px); }
+  .stat-item { padding: 24px 28px; }
+
+  .advantages-grid, .services-overview, .gallery-grid, .partners-grid { gap: clamp(24px, 1.8vw, 32px); }
+  .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery-grid figcaption { padding: 24px; }
+
+  .about-summary { gap: clamp(40px, 5vw, 88px); }
+  .about-summary p { max-width: 76ch; }
+  .about-principles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .principle-card-quality {
+    grid-column: 1 / -1; display: grid;
+    grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr); gap: 32px; align-items: center;
+  }
+  .principle-card-quality .principle-header { margin-bottom: 0; }
+  .principle-card-quality > p { max-width: 90ch; }
+
+  .resource-card {
+    grid-template-columns: 140px minmax(0, .9fr) minmax(0, 1.1fr) 250px;
+    grid-template-areas: "preview heading description actions"; gap: 28px;
+    padding: 30px 34px;
+  }
+  .resource-preview { width: 116px; }
+  .resource-heading h3 { max-width: 14ch; }
+  .resource-description > p { max-width: 48ch; }
+  .coverage-note { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; }
+  .coverage-note > p { max-width: 85ch; }
+
+  .faq-layout { grid-template-columns: minmax(300px, .7fr) minmax(0, 1.3fr); gap: clamp(40px, 4vw, 72px); }
+  .faq-intro > p:last-of-type, .faq-help { max-width: 460px; }
+  .quote-layout { gap: clamp(32px, 4vw, 72px); align-items: stretch; }
+  .quote-intro { display: flex; flex-direction: column; padding: clamp(32px, 3vw, 48px); }
+  .quote-lead { max-width: 60ch; }
+  .quote-steps { margin-top: auto; padding-top: 28px; }
+  .quote-form { padding: clamp(32px, 3vw, 48px); }
+  .contact-layout { grid-template-columns: minmax(400px, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 3vw, 56px); }
+
+  /* Service detail pages share the same wide alignment, with readable text measures. */
+  .service-page .service-intro-grid { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(48px, 4.5vw, 88px); }
+  .service-page .service-intro h1 { max-width: 20ch; font-size: clamp(44px, 3.4vw, 62px); }
+  .service-page .service-lead { max-width: 64ch; }
+  .service-page .service-photo-hero picture { aspect-ratio: 16 / 10; max-height: 520px; }
+  .service-page .service-photo-hero img { width: 100%; height: 100%; object-fit: contain; }
+  .service-page .service-planning-grid { gap: clamp(48px, 5vw, 96px); }
+  .service-page .service-planning-copy > p { max-width: 72ch; }
+  .service-page .service-checklist { max-width: 76ch; }
+}
+@media (min-width: 1360px) and (hover: hover) and (pointer: fine) {
+  .services-overview, .advantages-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .service-card-copy { padding: 22px; }
+  .service-card h3 { font-size: 22px; min-height: 2.7em; }
+  .service-card-copy > p { font-size: 15px; }
+  .service-page-link, .service-quote { padding: 12px 14px; font-size: 14px; gap: 10px; }
+  .advantage-card { padding: 24px; }
+  .advantage-header { gap: 14px; min-height: 116px; align-items: flex-start; margin-bottom: 16px; }
+  .advantage-icon { flex-basis: 48px; width: 48px; height: 48px; border-radius: 13px; }
+  .advantage-icon svg { width: 28px; height: 28px; }
+  .advantage-card h3 { font-size: 22px; }
+  .advantage-description { font-size: 15px; }
+}
+@media (min-width: 1600px) and (hover: hover) and (pointer: fine) {
+  .clients-carousel.is-ready .client-logo { flex-basis: calc((100% - 5 * var(--clients-gap)) / 6); }
+  .faq-list { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
+  .faq-list summary { min-height: 108px; }
+  .service-card-copy { padding: 26px; }
+  .service-card-copy > p, .advantage-description { font-size: 16px; }
+  .advantage-header { min-height: 96px; }
+}

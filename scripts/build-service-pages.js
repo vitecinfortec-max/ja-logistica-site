@@ -31,7 +31,7 @@ function picture(photo, eager = false) {
     if (!fs.existsSync(path.join(root, 'assets/img', file))) throw new Error('Foto ausente: ' + file);
   }
   return '<picture><source type="image/webp" srcset="' + variants.map(width => '/assets/img/' + photo.file + '-' + width + '.webp ' + width + 'w').join(', ') +
-    '" sizes="(max-width: 800px) calc(100vw - 64px), 560px"><img src="/assets/img/' + photo.file +
+    '" sizes="(min-width: 1200px) and (hover: hover) and (pointer: fine) min(50vw, 1000px), (max-width: 800px) calc(100vw - 64px), 560px"><img src="/assets/img/' + photo.file +
     '.jpg" alt="' + escape(photo.alt) + '" width="' + photo.width + '" height="' + photo.height +
     '" decoding="async" ' + (eager ? 'fetchpriority="high"' : 'loading="lazy"') + '></picture>';
 }
