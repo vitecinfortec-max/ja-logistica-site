@@ -69,7 +69,7 @@
   /* Service detail pages share the same wide alignment, with readable text measures. */
   .service-page .service-intro-grid { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(48px, 4.5vw, 88px); }
   .service-page .service-intro h1 { max-width: 20ch; font-size: clamp(44px, 3.4vw, 62px); }
-  .service-page .service-breadcrumb { font-size: 15px; }
+  .service-page .service-breadcrumb { font-size: 18.75px; }
   .service-page .service-lead { max-width: 64ch; font-size: 21.25px; }
   .service-page .service-page-actions .service-primary { font-size: 18.75px; }
   .service-page .service-text-link { font-size: 17.5px; }
