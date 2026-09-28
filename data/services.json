@@ -250,6 +250,20 @@
         "Posso contratar movimentação junto à armazenagem?",
         "Sim. Oferecemos serviços de movimentação, carregamento e descarregamento no terminal. Informe as etapas necessárias para que façam parte da proposta."
       ]
+    ],
+    "heroGallery": [
+      {
+        "file": "armazenagem-big-bags",
+        "width": 1600,
+        "height": 1200,
+        "variants": [
+          640,
+          1280,
+          1600
+        ],
+        "alt": "Big bags organizados sobre paletes no interior do armazém coberto",
+        "caption": "Armazenagem de cargas em big bags no galpão."
+      }
     ]
   },
   {
