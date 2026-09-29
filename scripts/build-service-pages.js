@@ -24,6 +24,7 @@ const sharedHeader = rebase(extract(/<a class="skip-link"[\s\S]*?<\/header>/, 'c
   .replace('href="#topo" class="brand"', 'href="/" class="brand"');
 const sharedFooter = rebase(extract(/<footer class="site-footer">[\s\S]*?<\/footer>/, 'rodapé'));
 const sharedActions = rebase(home.slice(home.indexOf('</footer>') + 9, home.indexOf('<dialog id="galleryDialog"')));
+const sharedContainerSales = rebase(extract(/<aside id="venda-conteineres"[\s\S]*?<\/aside>/, 'venda de contêineres'));
 const sharedMainScript = rebase(extract(/<script src="js\/main\.js[^"]*"><\/script>/, 'script principal'));
 function picture(photo, eager = false) {
   const variants = photo.variants || [640, photo.width];
@@ -103,6 +104,7 @@ for (const service of services) {
     '    <div class="service-capabilities">',
     ...service.includes.map(([title, text], index) => '      <article class="service-capability"><span class="service-capability-number" aria-hidden="true">' + String(index + 1).padStart(2,'0') + '</span><h3>' + escape(title) + '</h3><p>' + escape(text) + '</p></article>'),
     '    </div></div></section>',
+    ...(service.slug === 'conteineres' ? ['  <div class="container service-sales-section">' + sharedContainerSales + '</div>'] : []),
     '  <section class="service-planning service-content-section" aria-labelledby="planningTitle"><div class="container service-planning-grid">',
     '    <div class="service-planning-visual"><figure class="service-photo">' + picture(service.detailPhoto) + '<figcaption>' + escape(service.detailPhoto.caption) + '</figcaption></figure>',
     '      <div class="service-location-note"><strong>Nosso terminal</strong><p>Rodovia CE 155, 16.226 · Distrito Industrial<br>Caucaia–CE, em frente à fábrica do Cimento Apodi.</p><a href="/#contato">Ver localização e contatos <span aria-hidden="true">↗</span></a></div></div>',

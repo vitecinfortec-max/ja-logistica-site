@@ -39,3 +39,7 @@ Após alterações no link ou na versão desse CSS, execute `node scripts/build-
 Para adicionar fotos ao destaque de um serviço, preencha `heroGallery` em `data/services.json` com os mesmos campos de `hero` (arquivo, dimensões, variantes, texto alternativo e legenda). A foto de `hero` continua sendo a primeira. Execute o gerador após cada alteração. Só as páginas com fotos adicionais carregam `js/service-carousel.js`.
 
 O carrossel troca a foto a cada cinco segundos, permite escolher pelos indicadores, pelas setas do teclado e por gesto de deslizar, e pausa durante interação, fora da tela ou com redução de movimento ativada. As imagens mantêm a proporção e a primeira foto continua visível sem JavaScript. Ao alterar o CSS ou o script, atualize sua versão no gerador antes de publicar.
+
+## Venda de contêineres
+
+O destaque de venda fica em `index.html`, no bloco `#venda-conteineres`, e é reaproveitado pelo gerador na página de contêineres. O WhatsApp específico de vendas é `5585991751472`; o comercial dos serviços continua em `5585991753831`. Para alterar o destaque ou seu contato, edite esse bloco e execute `node scripts/build-service-pages.js`.
