@@ -50,6 +50,6 @@ O destaque de venda fica em `index.html`, no bloco `#venda-conteineres`, e é re
 
 As entradas usam Web Animations e IntersectionObserver: o conteúdo permanece visível sem JavaScript, com falha de execução ou com redução de movimento. O título e a primeira foto da abertura ficam disponíveis imediatamente. As animações de entrada acontecem uma vez; a sequência de cada linha é limitada a 195 ms. Focar um controle encerra sua animação de entrada. Perguntas mantêm o elemento nativo `details` como alternativa sem animação.
 
-A abertura troca de foto a cada seis segundos, pausando fora da tela, durante interação, com a aba oculta ou redução de movimento ativada. No computador, os indicadores permitem escolher por clique ou teclado; uma escolha manual interrompe a rotação automática durante a visita. Nenhuma biblioteca externa de animação é carregada.
+A abertura mantém a apresentação original, com as fotos integradas ao fundo, sem moldura nem indicadores e com troca a cada três segundos. A rotação pausa fora da tela, durante interação, com a aba oculta ou redução de movimento ativada. As animações de entrada e o acabamento das demais seções continuam ativos. Nenhuma biblioteca externa de animação é carregada.
 
 Referências de direção visual: [Motion](https://motion.dev/) (transições e gestos), [Anime.js](https://animejs.com/) (sequências), [GSAP](https://gsap.com/) (ritmo durante a navegação) e [Three.js](https://threejs.org/) (profundidade visual). O refinamento usa CSS e APIs nativas, mantendo as fotografias reais e a identidade da empresa.

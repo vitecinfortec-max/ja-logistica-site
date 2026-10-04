@@ -69,15 +69,13 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  // Slow, decoded crossfades stop when the photo area cannot be seen.
+  // Original background slideshow, paused when hidden or during interaction.
   var hero = document.querySelector('.hero');
   var slides = Array.from(document.querySelectorAll('.hero-slide'));
-  var controls = document.querySelector('.hero-photo-controls');
-  var dots = Array.from(document.querySelectorAll('.hero-photo-dot'));
   var active = 0, timer = null, request = 0;
-  var heroVisible = true, hovering = false, focused = false, manuallySelected = false;
+  var heroVisible = true, hovering = false, focused = false;
   function canRotate() {
-    return !reducedMotion.matches && !document.hidden && heroVisible && !hovering && !focused && !manuallySelected && !document.querySelector('dialog[open]');
+    return !reducedMotion.matches && !document.hidden && heroVisible && !hovering && !focused && !document.querySelector('dialog[open]');
   }
   function prepareSlide(slide) {
     var source = slide.querySelector('source'), img = slide.querySelector('img');
@@ -92,36 +90,21 @@
   function syncCarousel() {
     window.clearTimeout(timer);
     timer = null;
-    if (slides.length > 1 && canRotate()) timer = window.setTimeout(function () { showSlide((active + 1) % slides.length, false); }, 6000);
+    if (slides.length > 1 && canRotate()) timer = window.setTimeout(function () { showSlide((active + 1) % slides.length); }, 3000);
   }
-  function showSlide(index, manual) {
+  function showSlide(index) {
     var ticket = ++request;
-    if (manual) manuallySelected = true;
     window.clearTimeout(timer);
     prepareSlide(slides[index]).then(function () {
-      if (ticket !== request || (!manual && !canRotate())) return;
+      if (ticket !== request || !canRotate()) return;
       slides[active].classList.remove('is-active');
       slides[index].classList.add('is-active');
       active = index;
-      dots.forEach(function (dot, i) { dot.setAttribute('aria-pressed', String(i === active)); });
     }).catch(function () {
-      // Leave the current photo and its selected indicator intact on failure.
+      // Leave the current photo intact on failure.
     }).finally(function () { if (ticket === request) syncCarousel(); });
   }
   if (slides.length > 1) {
-    if (controls) controls.hidden = false;
-    dots.forEach(function (dot, index) {
-      dot.addEventListener('click', function () { showSlide(index, true); });
-      dot.addEventListener('keydown', function (event) {
-        var next;
-        if (event.key === 'ArrowRight') next = (index + 1) % dots.length;
-        if (event.key === 'ArrowLeft') next = (index + dots.length - 1) % dots.length;
-        if (event.key === 'Home') next = 0;
-        if (event.key === 'End') next = dots.length - 1;
-        if (next === undefined) return;
-        event.preventDefault(); dots[next].focus(); showSlide(next, true);
-      });
-    });
     hero.addEventListener('pointerenter', function (event) { if (event.pointerType === 'mouse') { hovering = true; syncCarousel(); } });
     hero.addEventListener('pointerleave', function () { hovering = false; syncCarousel(); });
     hero.addEventListener('focusin', function () { focused = true; syncCarousel(); });
@@ -164,7 +147,7 @@
     });
   }
   if (!reducedMotion.matches) {
-    document.querySelectorAll('.hero-eyebrow, .hero-sub, .hero-ctas, .service-intro-copy .eyebrow, .service-lead, .service-page-actions').forEach(function (el, index) {
+    document.querySelectorAll('.service-intro-copy .eyebrow, .service-lead, .service-page-actions').forEach(function (el, index) {
       animate(el, [{ opacity: .5, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
         { duration: 480, delay: Math.min(index * 60, 120), easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
     });
