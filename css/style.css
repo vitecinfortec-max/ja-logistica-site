@@ -610,11 +610,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .back-to-top svg { width: 20px; height: 20px; fill: #fff; }
 
-/* ---------- Reveal animation ---------- */
-.reveal { opacity: 1; }
-.motion-ready .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-.motion-ready .reveal.in-view { opacity: 1; transform: translateY(0); }
-
 /* ---------- Desktop scale-up ---------- */
 @media (min-width: 981px) {
   body { font-size: 16.5px; }
@@ -801,7 +796,6 @@ main:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .motion-ready .reveal { opacity: 1; transform: none; }
 }
 
 /* Keep short location labels together on narrow screens. */
