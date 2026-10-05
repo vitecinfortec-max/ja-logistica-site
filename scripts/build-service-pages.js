@@ -25,6 +25,7 @@ const sharedHeader = rebase(extract(/<a class="skip-link"[\s\S]*?<\/header>/, 'c
 const sharedFooter = rebase(extract(/<footer class="site-footer">[\s\S]*?<\/footer>/, 'rodapé'));
 const sharedActions = rebase(home.slice(home.indexOf('</footer>') + 9, home.indexOf('<dialog id="galleryDialog"')));
 const sharedContainerSales = rebase(extract(/<aside id="venda-conteineres"[\s\S]*?<\/aside>/, 'venda de contêineres'));
+const sharedContainerViewer = rebase(extract(/<script src="js\/container-viewer\.js[^\"]*"[^>]*><\/script>/, 'visualização de contêiner'));
 const sharedMainScript = rebase(extract(/<script src="js\/main\.js[^"]*"><\/script>/, 'script principal'));
 function picture(photo, eager = false) {
   const variants = photo.variants || [640, photo.width];
@@ -121,7 +122,7 @@ for (const service of services) {
     '  <section class="service-related service-content-section" aria-labelledby="relatedTitle"><div class="container">',
     '    <div class="service-section-heading"><p class="eyebrow">Conheça também</p><h2 id="relatedTitle">Outros serviços para sua operação</h2></div>',
     '    <div class="service-related-grid">' + services.filter(other => other.slug !== service.slug).map(other => '<a class="service-related-link" href="' + servicePath(other) + '"><div><span>' + escape(other.category) + '</span><h3>' + escape(other.name) + '</h3></div>' + arrow + '</a>').join('') + '</div>',
-    '  </div></section>', '</main>', sharedFooter, actions, sharedMainScript, ...(service.heroGallery && service.heroGallery.length ? ['<script src="/js/service-carousel.js?v=20260927-1" defer></script>'] : []), '</body>', '</html>', ''
+    '  </div></section>', '</main>', sharedFooter, actions, sharedMainScript, ...(service.slug === 'conteineres' ? [sharedContainerViewer] : []), ...(service.heroGallery && service.heroGallery.length ? ['<script src="/js/service-carousel.js?v=20260927-1" defer></script>'] : []), '</body>', '</html>', ''
   ].join('\n');
   write('servicos/' + service.slug + '.html', html);
   console.log('Gerado: ' + servicePath(service));

@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="css/cities.css?v=20260926-1">
 <link rel="stylesheet" href="css/desktop.css?v=20260927-10">
 <link rel="stylesheet" href="css/experience.css?v=20261004-2">
+<link rel="stylesheet" href="css/features.css?v=20261005-1">
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -256,10 +257,20 @@
             <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.4 1.2-2 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.9.1.2.1.4 0 .6-.1.2-.2.3-.4.5l-.5.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.5.3.1.2.1.9-.1 1.5z"/></svg>
             <span>Consultar pelo WhatsApp</span>
           </a>
+          <button type="button" class="container-preview-trigger" data-container-preview hidden aria-haspopup="dialog"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5M7 5l9 5v7"/></svg>Explorar contêiner em 3D</button>
           <p class="container-sales-phone">(85) 9 9175-1472</p>
         </div>
       </aside>
       <div class="coverage-note"><div><p class="eyebrow">Área de atuação</p><h3>Nordeste e parte da região Norte</h3></div><p>Nosso terminal fica em Caucaia, no Ceará. Informe a origem e o destino para consultar a disponibilidade de atendimento para sua rota com o comercial.</p></div>
+      <div class="operation-journey" aria-labelledby="journeyTitle">
+        <p class="eyebrow">Como funciona</p><h3 id="journeyTitle">Do primeiro contato à conclusão</h3>
+        <ol class="journey-steps">
+          <li><span class="journey-number" aria-hidden="true">01</span><h4>Solicitação</h4><p>Você informa o serviço e as características da carga.</p></li>
+          <li><span class="journey-number" aria-hidden="true">02</span><h4>Planejamento</h4><p>Alinhamos a viabilidade, as condições e a programação.</p></li>
+          <li><span class="journey-number" aria-hidden="true">03</span><h4>Operação</h4><p>Realizamos o serviço conforme o que foi combinado.</p></li>
+          <li><span class="journey-number" aria-hidden="true">04</span><h4>Conclusão</h4><p>Concluímos o atendimento e alinhamos as informações finais.</p></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -402,6 +413,16 @@
           <div class="form-field" id="quoteDestinationField"><label for="quoteDestination">Destino <span>(opcional)</span></label><input id="quoteDestination" name="destination" data-city-search maxlength="100" placeholder="Cidade / UF"></div>
         </div>
         <div class="form-field"><label for="quoteCargo">Descreva sua carga <span class="field-required" aria-hidden="true">*</span></label><textarea id="quoteCargo" name="cargo" rows="4" maxlength="1000" required aria-describedby="quoteCargoHint" placeholder="O que você precisa transportar, armazenar ou movimentar?"></textarea><p id="quoteCargoHint" class="field-hint">Tipo de carga, peso, dimensões e data desejada, se disponíveis. Para armazenagem, informe também o período.</p></div>
+        <section class="quote-preview" aria-labelledby="quotePreviewTitle" hidden>
+          <div class="quote-preview-heading"><h4 id="quotePreviewTitle">Resumo da sua solicitação</h4><p id="quotePreviewStatus" class="quote-preview-status" role="status"></p></div>
+          <dl>
+            <div><dt>Serviço</dt><dd data-preview="service"></dd></div>
+            <div data-preview-row="name" hidden><dt>Nome</dt><dd data-preview="name"></dd></div>
+            <div data-preview-row="origin" hidden><dt id="quotePreviewOriginLabel">Origem</dt><dd data-preview="origin"></dd></div>
+            <div data-preview-row="destination" hidden><dt>Destino</dt><dd data-preview="destination"></dd></div>
+            <div><dt>Carga</dt><dd data-preview="cargo"></dd></div>
+          </dl>
+        </section>
         <button class="quote-submit" type="submit"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-4.7A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 7.5c0 4.5 3.5 8 8 8l1-2.5-3-1-1 1a8 8 0 0 1-2.5-2.5l1-1-1-3L8 7.5Z"/></svg><span>Continuar no WhatsApp</span></button>
         <p class="quote-privacy">Os dados deste formulário não são armazenados pelo site. Ao continuar, eles são incluídos na mensagem aberta no WhatsApp.</p>
         <div id="quoteResult" class="quote-result" role="status" hidden><p>Mensagem preparada. Revise e conclua o envio no WhatsApp.</p><a id="quoteFallback" target="_blank" rel="noopener noreferrer">Abrir a mensagem no WhatsApp ↗</a></div>
@@ -529,11 +550,13 @@
 <dialog id="galleryDialog" class="gallery-dialog" aria-labelledby="galleryTitle">
   <div class="gallery-dialog-top"><p>Estrutura e operação</p><button id="galleryClose" class="gallery-control" type="button" autofocus aria-label="Fechar foto ampliada">Fechar <span aria-hidden="true">×</span></button></div>
   <div class="gallery-stage"><img id="galleryImage" alt="" hidden><p id="galleryLoadStatus" role="status">Carregando foto…</p></div>
+  <div id="galleryThumbnails" class="gallery-thumbnails" role="group" aria-label="Escolher foto"></div>
   <div class="gallery-dialog-bottom"><div class="gallery-description"><h2 id="galleryTitle"></h2><p id="galleryDescription"></p><a id="galleryOriginal" target="_blank" rel="noopener">Abrir imagem original ↗</a></div><div class="gallery-navigation"><button id="galleryPrev" class="gallery-control" type="button" aria-label="Foto anterior">←</button><span id="galleryCounter" aria-live="polite" aria-atomic="true"></span><button id="galleryNext" class="gallery-control" type="button" aria-label="Próxima foto">→</button></div></div>
 </dialog>
 <script src="js/main.js?v=20261004-2"></script>
-<script src="js/interactions.js?v=20260925-services1"></script>
+<script src="js/interactions.js?v=20261005-1"></script>
 <script src="js/cities.js?v=20260926-1"></script>
 <script src="js/clients.js?v=20260923-clients2"></script>
+<script src="js/container-viewer.js?v=20261005-1" defer></script>
 </body>
 </html>
