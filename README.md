@@ -63,12 +63,12 @@ Os estilos dessas interações ficam em `css/features.css`, com comportamento em
 - O resumo da cotação acompanha os campos preenchidos e usa a mesma função de leitura de dados que prepara a mensagem do WhatsApp. Campos opcionais vazios são omitidos; armazenagem e movimentação mostram o local da operação e não incluem destino. Valores são inseridos como texto, sem HTML e sem armazenamento dos dados do visitante.
 - As quatro etapas da operação ficam no final da seção de serviços. O conteúdo permanece visível sem JavaScript; apenas a linha de conexão anima uma vez, respeitando a preferência por redução de movimento.
 
-## Visualização ilustrativa do contêiner
+## Modelos de contêineres em 3D
 
-O botão “Explorar contêiner em 3D” fica no destaque de venda, na página inicial e na página de contêineres. Execute o gerador depois de alterar esse bloco, os estilos compartilhados ou os scripts incluídos no HTML.
+O botão “Explorar modelos em 3D” fica no destaque de venda da página inicial e da página de contêineres. O catálogo oferece Dry Box de 20 e 40 pés, High Cube de 40 pés, Open Top de 20 e 40 pés e Reefer HC de 20 e 40 pés. A seleção mostra nome, descrição, medidas externas de referência e prepara o link de WhatsApp com o modelo escolhido.
 
-`js/container-viewer.js` prepara o diálogo, mas só importa `js/container-scene.js` após o clique. Esse módulo carrega a cópia local de Three.js 0.180.0 em `js/vendor/three-0.180.0/`; a licença MIT e a origem dos arquivos acompanham a distribuição. Não há download da biblioteca na abertura do site nem dependência de CDN durante o uso.
+O visitante pode girar por arraste, botões ou teclado, aproximar e afastar e voltar à vista inicial. O carregamento de Three.js 0.180.0 e dos modelos acontece somente ao abrir. A cena é renderizada apenas ao interagir ou redimensionar, e os recursos gráficos são liberados nas trocas e no fechamento. Sem WebGL ou em caso de falha de rede, as informações e a consulta por WhatsApp permanecem disponíveis.
 
-O modelo é uma representação ilustrativa construída por código, sem afirmar estoque, medidas ou condições de venda. Permite arraste horizontal, botões de rotação, setas do teclado e retorno à vista inicial. Só renderiza ao interagir ou redimensionar; fechar libera os recursos gráficos. Em navegadores sem WebGL, falha no carregamento ou perda do contexto gráfico, o diálogo mantém uma mensagem explicativa e o contato de vendas. Sem suporte ao diálogo, o botão fica oculto e o WhatsApp original continua disponível.
+As referências técnicas, diferenças de geometria, arquivos responsáveis e orientações de atualização estão em [docs/container-models.md](docs/container-models.md). A licença MIT e a origem da biblioteca acompanham `js/vendor/three-0.180.0/`. Não há dependência de CDN durante o uso.
 
-A ação de consulta usa o mesmo link do destaque de venda (final 1472), separado do contato para cotação de serviços (final 3831). O carregamento 3D não envia mensagens. Ao atualizar o módulo, altere sua versão no carregador; ao atualizar o carregador ou os estilos, altere as versões no HTML e execute o gerador.
+O contato de venda de contêineres permanece no final 1472; a cotação dos serviços continua no final 3831. Nenhuma mensagem é enviada automaticamente.
