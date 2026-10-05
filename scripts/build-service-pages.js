@@ -57,6 +57,8 @@ for (const service of services) {
   const whatsapp = 'https://wa.me/5585991753831?text=' + encodeURIComponent(
     'Olá, Luiz Antonio! Vim pelo site da J.A Logística e gostaria de uma cotação.\n\nServiço: ' + service.name + '\n');
   let head = home.slice(home.indexOf('<head>'), home.indexOf('</head>') + 7);
+  // Coverage map and gallery filters are only present on the home page.
+  head = head.replace(/\s*<link rel="stylesheet" href="css\/explore\.css[^"]*">/, '');
   head = head.replace(/<title>[\s\S]*?<\/title>/, '<title>' + escape(service.metaTitle) + '</title>')
     .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="' + escape(service.description) + '">')
     .replace(/<link rel="canonical"[^>]*>/, '<link rel="canonical" href="' + url + '">')

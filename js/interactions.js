@@ -102,7 +102,8 @@
   }
 
   var dialog = document.getElementById('galleryDialog');
-  var links = Array.from(document.querySelectorAll('.gallery-open'));
+  var allLinks = Array.from(document.querySelectorAll('.gallery-open'));
+  var links = allLinks;
   if (!dialog || typeof dialog.showModal !== 'function' || !links.length) return;
   var current = 0;
   var opener;
@@ -112,7 +113,9 @@
   var thumbnailStrip = document.getElementById('galleryThumbnails');
   var thumbnails = [];
   function prepareThumbnails() {
-    if (!thumbnailStrip || thumbnails.length) return;
+    if (!thumbnailStrip) return;
+    thumbnailStrip.replaceChildren();
+    thumbnails = [];
     links.forEach(function (link, index) {
       var button = document.createElement('button');
       button.type = 'button';
@@ -171,11 +174,14 @@
     };
     loader.src = link.href;
   }
-  links.forEach(function (link, index) {
+  allLinks.forEach(function (link) {
     link.setAttribute('aria-haspopup', 'dialog');
     link.addEventListener('click', function (event) {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
+      links = allLinks.filter(function (item) { return !item.closest('figure').hidden; });
+      var index = links.indexOf(link);
+      if (index < 0) return;
       opener = link;
       prepareThumbnails();
       dialog.showModal();

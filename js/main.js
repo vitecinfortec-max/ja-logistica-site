@@ -129,6 +129,7 @@
         revealObserver.unobserve(entry.target);
         if (seen.has(entry.target)) return;
         seen.add(entry.target);
+        if (entry.target.matches('.gallery-grid > figure') && entry.target.parentElement.dataset.filtering === 'true') return;
         var top = entry.boundingClientRect.top;
         rowIndex = Math.abs(top - previousTop) < 24 ? rowIndex + 1 : 0;
         previousTop = top;
