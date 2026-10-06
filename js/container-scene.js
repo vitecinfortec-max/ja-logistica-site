@@ -2,18 +2,18 @@ import * as THREE from './vendor/three-0.180.0/three.module.min.js';
 import { createContainerModel } from './container-geometry.js?v=20261005-2';
 
 // The renderer is reused when changing models and only draws on interaction or resize.
-export function createContainerScene(host, onUnavailable, initialModel) {
+export function createContainerScene(host, onUnavailable, initialModel, options = {}) {
   const canvas=document.createElement('canvas');
   const context=canvas.getContext('webgl2',{antialias:true,alpha:false});
   if(!context)throw new Error('WebGL unavailable');
   const renderer=new THREE.WebGLRenderer({canvas,context,antialias:true});
-  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.7));
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,options.pixelRatioLimit || 1.7));
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
   renderer.setClearColor(0xeaf0f3);canvas.setAttribute('aria-hidden','true');host.appendChild(canvas);
   const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(34,1,.1,160);
-  const direction=new THREE.Vector3(.85,.60,1.18).normalize();
+  const direction=new THREE.Vector3(...(options.viewDirection || [.85,.60,1.18])).normalize();
   const right=new THREE.Vector3().crossVectors(new THREE.Vector3(0,1,0),direction).normalize();
   const up=new THREE.Vector3().crossVectors(direction,right).normalize();
   const target=new THREE.Vector3();
@@ -46,12 +46,13 @@ export function createContainerScene(host, onUnavailable, initialModel) {
   function resize() {
     if(disposed||!model)return;
     const w=Math.max(host.clientWidth,1),h=Math.max(host.clientHeight,1);
-    renderer.setSize(w,h,false);camera.aspect=w/h;target.set(0,spec.height*.48,0);
+    const fit=options.fitModel || spec;
+    renderer.setSize(w,h,false);camera.aspect=w/h;target.set(0,fit.height*.48,0);
     const tanV=Math.tan(THREE.MathUtils.degToRad(camera.fov/2)),tanH=tanV*camera.aspect;
     let distance=0;
     // Fit every horizontal rotation, so long 40-foot containers remain inside the frame.
-    for(let angle=0;angle<Math.PI*2;angle+=Math.PI/12)for(const x of[-spec.length/2,spec.length/2])
-      for(const z of[-spec.width/2,spec.width/2])for(const y of[0,spec.height]){
+    for(let angle=0;angle<Math.PI*2;angle+=Math.PI/12)for(const x of[-fit.length/2,fit.length/2])
+      for(const z of[-fit.width/2,fit.width/2])for(const y of[0,fit.height]){
         const p=new THREE.Vector3(x*Math.cos(angle)+z*Math.sin(angle),y-target.y,-x*Math.sin(angle)+z*Math.cos(angle));
         distance=Math.max(distance,Math.abs(p.dot(right))/tanH+p.dot(direction),Math.abs(p.dot(up))/tanV+p.dot(direction));
       }

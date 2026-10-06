@@ -31,3 +31,19 @@ A geometria e o acabamento foram criados por código para este visualizador. Cor
 ## Verificações desta alteração
 
 Sete variantes conferidas visualmente e em telas de 320, 390, 768, 1440 e 1920 px. Verificados seleção, descrição, medidas, WhatsApp com modelo e contato corretos, teclado, arraste, zoom, fechamento/reabertura, falha de rede e WebGL. A contagem de buffers, texturas e contextos retorna ao valor inicial ao percorrer os modelos. Um teste de interseção confirma a abertura real até o piso do Open Top.
+
+## Comparador integrado — 6 de outubro de 2026
+
+O destaque de venda oferece as ações **Explorar 3D** e **Comparar**. Ambas abrem o mesmo catálogo, também disponível na página do serviço de contêineres. As abas permitem alternar entre um modelo individual e dois modelos para comparação.
+
+- Os dois seletores usam os mesmos sete registros do catálogo. Um modelo já selecionado não pode ser repetido no outro lado. Ao entrar na comparação a partir da exploração, o modelo atual ocupa a primeira posição.
+- Comprimento, largura, altura externa, tipo de teto, refrigeração e uso comum aparecem em cada cartão. Diferenças são destacadas e descritas em um resumo acessível. As características por família ficam junto ao catálogo, em `js/container-viewer.js`, com base nas referências acima.
+- As câmeras da comparação compartilham a referência de enquadramento (12,192 × 2,438 × 2,896 m) e a direção inicial. Isso evita que o ajuste automático de cada modelo faça um contêiner de 20 pés parecer tão longo quanto um de 40 pés. Giro e zoom continuam independentes; a indicação de escala refere-se à vista inicial.
+- Cada cartão tem um link próprio de consulta, derivado do contato de venda do destaque e preenchido com o nome e o tamanho escolhidos. Nenhuma mensagem é enviada automaticamente.
+- Em telas de até 640 px, os cartões aparecem em sequência; acima disso, ficam lado a lado. As abas têm navegação por setas, Home e End, e o fechamento devolve o foco ao botão de origem.
+- Somente o modo visível mantém renderizadores: um na exploração ou dois na comparação. A troca de modelo reutiliza o renderizador; a troca de modo e o fechamento encerram os contextos anteriores. O carregamento 3D permanece sob demanda, com renderização apenas ao interagir ou redimensionar.
+- Se uma visualização falhar, as medidas, a seleção e o contato desse cartão continuam funcionando. A perda de um contexto não interrompe o outro modelo.
+
+### Validação do comparador
+
+Verificados os sete modelos, as diferenças exibidas, os dois contatos específicos, o impedimento de seleções repetidas, a integração com a página de contêineres, os layouts em 320, 390, 768, 1440 e 1920 px, o teclado, os controles independentes, o fechamento durante carregamento, as falhas de importação/WebGL e a perda isolada de um contexto. Buffers e texturas retornam ao patamar inicial ao percorrer os modelos. No fechamento, os contextos ficam perdidos e todos os buffers são descartados; texturas internas do renderizador também são invalidadas pela perda do contexto, mesmo quando não há chamada explícita a deleteTexture.
