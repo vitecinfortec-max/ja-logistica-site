@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="css/experience.css?v=20261004-2">
 <link rel="stylesheet" href="css/features.css?v=20261006-compare1">
 <link rel="stylesheet" href="css/explore.css?v=20261005-1">
+<link rel="stylesheet" href="css/navigation.css?v=20261006-menu1">
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -48,7 +49,22 @@
     <nav id="mainNav" class="main-nav" aria-label="Navegação principal">
       <a href="#diferenciais">Diferenciais</a>
       <a href="#sobre">Sobre</a>
-      <a href="#servicos">Serviços</a>
+      <!-- SERVICES_MENU_START -->
+      <div class="services-nav">
+        <a href="#servicos" class="services-nav-fallback">Serviços</a>
+        <button type="button" id="servicesNavToggle" class="services-nav-toggle" aria-expanded="false" aria-controls="servicesMenu" hidden>Serviços<svg aria-hidden="true" focusable="false" viewBox="0 0 20 20"><path d="m5 7.5 5 5 5-5"/></svg></button>
+        <div id="servicesMenu" class="services-menu" aria-labelledby="servicesMenuTitle" hidden>
+          <div class="services-menu-heading"><div><p class="eyebrow">Soluções para sua operação</p><h2 id="servicesMenuTitle">Como podemos ajudar?</h2></div><button class="services-menu-close" type="button" aria-label="Fechar menu de serviços"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+          <ul class="services-menu-grid">
+            <li class="services-menu-card"><a class="services-menu-link" href="/servicos/cargas-especiais"><img src="/assets/img/carregamento-caminhao-640.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div class="services-menu-copy"><h3>Cargas especiais</h3><p>Transporte para cargas com peso e dimensões especiais.</p><span class="services-menu-discover">Conhecer serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></a><a class="services-menu-quote" href="/?servico=cargas-especiais#cotacao" data-nav-service="Cargas especiais" aria-label="Solicitar cotação: Cargas especiais">Solicitar cotação <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></li>
+            <li class="services-menu-card"><a class="services-menu-link" href="/servicos/conteineres"><img src="/assets/img/bobinas-aco-640.webp" alt="" width="640" height="333" loading="lazy" decoding="async"><div class="services-menu-copy"><h3>Contêineres e carga geral</h3><p>Frota própria para contêineres e carga geral em lotação completa.</p><span class="services-menu-discover">Conhecer serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></a><a class="services-menu-quote" href="/?servico=conteineres#cotacao" data-nav-service="Contêineres e carga geral" aria-label="Solicitar cotação: Contêineres e carga geral">Solicitar cotação <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></li>
+            <li class="services-menu-card"><a class="services-menu-link" href="/servicos/armazenagem"><img src="/assets/img/armazem-paletes-640.webp" alt="" width="640" height="480" loading="lazy" decoding="async"><div class="services-menu-copy"><h3>Armazenagem</h3><p>Armazém coberto e espaço para depot de contêineres vazios.</p><span class="services-menu-discover">Conhecer serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></a><a class="services-menu-quote" href="/?servico=armazenagem#cotacao" data-nav-service="Armazenagem" aria-label="Solicitar cotação: Armazenagem">Solicitar cotação <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></li>
+            <li class="services-menu-card"><a class="services-menu-link" href="/servicos/movimentacao-de-cargas"><img src="/assets/img/container-carga-640.webp" alt="" width="640" height="392" loading="lazy" decoding="async"><div class="services-menu-copy"><h3>Movimentação de cargas</h3><p>Carregamento, descarregamento e apoio com empilhadeiras próprias.</p><span class="services-menu-discover">Conhecer serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></a><a class="services-menu-quote" href="/?servico=movimentacao-de-cargas#cotacao" data-nav-service="Movimentação de cargas" aria-label="Solicitar cotação: Movimentação de cargas">Solicitar cotação <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></li>
+          </ul>
+          <div class="services-menu-footer"><p>Transporte, armazenagem e apoio no terminal em Caucaia–CE.</p><a class="services-menu-overview" href="#servicos">Ver todos os serviços <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
+        </div>
+      </div>
+      <!-- SERVICES_MENU_END -->
       <a href="#clientes">Clientes</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -594,7 +610,7 @@
   <div id="galleryThumbnails" class="gallery-thumbnails" role="group" aria-label="Escolher foto"></div>
   <div class="gallery-dialog-bottom"><div class="gallery-description"><h2 id="galleryTitle"></h2><p id="galleryDescription"></p><a id="galleryOriginal" target="_blank" rel="noopener">Abrir imagem original ↗</a></div><div class="gallery-navigation"><button id="galleryPrev" class="gallery-control" type="button" aria-label="Foto anterior">←</button><span id="galleryCounter" aria-live="polite" aria-atomic="true"></span><button id="galleryNext" class="gallery-control" type="button" aria-label="Próxima foto">→</button></div></div>
 </dialog>
-<script src="js/main.js?v=20261005-3"></script>
+<script src="js/main.js?v=20261006-menu1"></script>
 <script src="js/interactions.js?v=20261005-3"></script>
   <script src="js/explore.js?v=20261005-1" defer></script>
 <script src="js/cities.js?v=20260926-1"></script>

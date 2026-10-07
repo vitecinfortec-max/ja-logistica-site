@@ -7,6 +7,10 @@
   var backToTop = document.getElementById('backToTop');
   var motion = new Set();
   var finishAccordions = new Set();
+  var servicesToggle = document.getElementById('servicesNavToggle');
+  var servicesPanel = document.getElementById('servicesMenu');
+  var servicesAnimation = null;
+  var compactNav = window.matchMedia('(max-width: 760px)');
 
   // The document is always visible. Animations enhance it only when supported.
   function animate(el, frames, options) {
@@ -28,23 +32,24 @@
   progress.className = 'reading-progress';
   progress.setAttribute('aria-hidden', 'true');
   header.appendChild(progress);
-  var navItems = Array.from(nav.querySelectorAll('a')).map(function (link) {
+  var navItems = Array.from(nav.querySelectorAll(':scope > a, .services-nav-fallback')).map(function (link) {
     var url = new URL(link.href);
     var section = url.pathname === location.pathname && url.hash ? document.getElementById(url.hash.slice(1)) : null;
-    return { link: link, section: section };
+    return { link: link.classList.contains('services-nav-fallback') && servicesToggle ? servicesToggle : link, section: section, url: url };
   });
   var servicePage = document.body.classList.contains('service-page');
   var scrollFrame = 0;
   function updateScroll() {
     scrollFrame = 0;
     header.classList.toggle('scrolled', window.scrollY > 12);
+    updateMenuHeight();
     backToTop.classList.toggle('visible', window.scrollY > 500);
     var distance = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = 'scaleX(' + (distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0) + ')';
     var line = header.getBoundingClientRect().bottom + Math.min(180, window.innerHeight * .2);
     navItems.forEach(function (item) {
       var rect = item.section && item.section.getBoundingClientRect();
-      var current = servicePage ? new URL(item.link.href).hash === '#servicos' : Boolean(rect && rect.top <= line && rect.bottom > line);
+      var current = servicePage ? item.url.hash === '#servicos' : Boolean(rect && rect.top <= line && rect.bottom > line);
       item.link.classList.toggle('is-current', current);
       if (current) item.link.setAttribute('aria-current', servicePage ? 'true' : 'location');
       else item.link.removeAttribute('aria-current');
@@ -55,16 +60,97 @@
   window.addEventListener('resize', scheduleScroll);
   if ('ResizeObserver' in window) new ResizeObserver(scheduleScroll).observe(document.body);
   updateScroll();
+  function updateMenuHeight() {
+    var height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    header.style.setProperty('--nav-available-height', Math.max(140, height - header.getBoundingClientRect().bottom - 12) + 'px');
+  }
+  function setServicesMenu(open, restoreFocus) {
+    if (!servicesPanel || !servicesToggle) return;
+    if (servicesAnimation) { servicesAnimation.cancel(); servicesAnimation = null; }
+    if (!open && (restoreFocus || servicesPanel.contains(document.activeElement))) servicesToggle.focus({ preventScroll: true });
+    servicesPanel.hidden = !open;
+    servicesToggle.setAttribute('aria-expanded', String(open));
+    if (open) {
+      updateMenuHeight();
+      servicesPanel.scrollTop = 0;
+      if (!servicesPanel.contains(document.activeElement)) {
+        servicesAnimation = animate(servicesPanel, [{ opacity: .35, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'translateY(0)' }],
+          { duration: 200, easing: 'cubic-bezier(.22,1,.36,1)' });
+      }
+    }
+  }
   function setMenu(open) {
+    if (!open) setServicesMenu(false, false);
     nav.classList.toggle('open', open);
     navToggle.setAttribute('aria-expanded', String(open));
     navToggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    if (open) updateMenuHeight();
   }
   navToggle.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
-  nav.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); navToggle.focus(); }
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      var field = document.getElementById('quoteService');
+      var target = document.getElementById('cotacao');
+      var name = link.dataset.navService;
+      if (name && field && target && Array.from(field.options).some(function (option) { return option.value === name; })) {
+        event.preventDefault();
+        setMenu(false);
+        field.value = name;
+        field.dispatchEvent(new Event('change', { bubbles: true }));
+        var url = new URL(location.href);
+        url.searchParams.set('servico', new URL(link.href).searchParams.get('servico'));
+        url.hash = 'cotacao';
+        history.pushState(null, '', url);
+        target.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+        field.focus({ preventScroll: true });
+        return;
+      }
+      setMenu(false);
+    });
   });
+  if (servicesToggle && servicesPanel) {
+    servicesToggle.addEventListener('click', function () { setServicesMenu(servicesPanel.hidden, false); });
+    servicesToggle.addEventListener('keydown', function (event) {
+      if (event.key !== 'ArrowDown') return;
+      event.preventDefault();
+      setServicesMenu(true, false);
+      if (servicesAnimation) { servicesAnimation.cancel(); servicesAnimation = null; }
+      servicesPanel.querySelector('.services-menu-link').focus({ preventScroll: true });
+    });
+    servicesPanel.querySelector('.services-menu-close').addEventListener('click', function () { setServicesMenu(false, true); });
+    servicesPanel.querySelectorAll('.services-menu-link').forEach(function (link) {
+      if (new URL(link.href).pathname.replace(/\/$/, '') === location.pathname.replace(/\.html$|\/$/g, '')) {
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+    servicesToggle.hidden = false;
+    nav.querySelector('.services-nav-fallback').hidden = true;
+  }
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    if (servicesPanel && !servicesPanel.hidden) {
+      event.preventDefault(); setServicesMenu(false, true); return;
+    }
+    if (nav.classList.contains('open')) { setMenu(false); navToggle.focus(); }
+  });
+  document.addEventListener('pointerdown', function (event) {
+    if (servicesPanel && !servicesPanel.hidden && !servicesToggle.closest('.services-nav').contains(event.target)) setServicesMenu(false, false);
+    if (nav.classList.contains('open') && !header.contains(event.target)) setMenu(false);
+  });
+  document.addEventListener('focusin', function (event) {
+    if (servicesPanel && !servicesPanel.hidden && !servicesToggle.closest('.services-nav').contains(event.target)) setServicesMenu(false, false);
+    if (compactNav.matches && nav.classList.contains('open') && !header.contains(event.target)) setMenu(false);
+    // Interactive links should never remain faded while receiving keyboard focus.
+    if (servicesAnimation && servicesPanel.contains(event.target)) { servicesAnimation.cancel(); servicesAnimation = null; }
+  });
+  compactNav.addEventListener('change', function () {
+    var hadFocus = nav.contains(document.activeElement);
+    setMenu(false);
+    if (hadFocus) (compactNav.matches ? navToggle : servicesToggle || nav.querySelector('a')).focus({ preventScroll: true });
+    updateMenuHeight();
+  });
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', updateMenuHeight);
   backToTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' }); });
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();

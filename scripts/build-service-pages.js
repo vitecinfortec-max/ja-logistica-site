@@ -5,6 +5,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n/g, '\n');
 const write = (file, content) => fs.writeFileSync(path.join(root, file), content);
+require('./build-services-menu.js')();
 const home = read('index.html');
 const services = JSON.parse(read('data/services.json'));
 const origin = 'https://www.jalogisticas.com';

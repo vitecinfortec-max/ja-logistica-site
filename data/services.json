@@ -2,6 +2,7 @@
   {
     "slug": "cargas-especiais",
     "name": "Cargas especiais",
+    "navigationSummary": "Transporte para cargas com peso e dimensões especiais.",
     "title": "Transporte de cargas especiais",
     "category": "Transporte rodoviário",
     "metaTitle": "Transporte de cargas especiais | J.A Logística",
@@ -85,6 +86,7 @@
   {
     "slug": "conteineres",
     "name": "Contêineres e carga geral",
+    "navigationSummary": "Frota própria para contêineres e carga geral em lotação completa.",
     "title": "Transporte de contêineres e carga geral",
     "category": "Transporte rodoviário",
     "metaTitle": "Transporte de contêineres e carga geral | J.A Logística",
@@ -177,6 +179,7 @@
   {
     "slug": "armazenagem",
     "name": "Armazenagem",
+    "navigationSummary": "Armazém coberto e espaço para depot de contêineres vazios.",
     "title": "Armazenagem em Caucaia–CE",
     "category": "Estrutura de terminal",
     "metaTitle": "Armazenagem e depot em Caucaia–CE | J.A Logística",
@@ -269,6 +272,7 @@
   {
     "slug": "movimentacao-de-cargas",
     "name": "Movimentação de cargas",
+    "navigationSummary": "Carregamento, descarregamento e apoio com empilhadeiras próprias.",
     "title": "Movimentação de cargas no terminal",
     "category": "Operações no terminal",
     "metaTitle": "Movimentação de cargas em Caucaia–CE | J.A Logística",
