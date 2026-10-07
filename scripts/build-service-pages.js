@@ -6,6 +6,7 @@ const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8').replace(/\r\n/g, '\n');
 const write = (file, content) => fs.writeFileSync(path.join(root, file), content);
 require('./build-services-menu.js')();
+require('./build-operations.js')();
 const home = read('index.html');
 const services = JSON.parse(read('data/services.json'));
 const origin = 'https://www.jalogisticas.com';
@@ -59,7 +60,7 @@ for (const service of services) {
     'Olá, Luiz Antonio! Vim pelo site da J.A Logística e gostaria de uma cotação.\n\nServiço: ' + service.name + '\n');
   let head = home.slice(home.indexOf('<head>'), home.indexOf('</head>') + 7);
   // Coverage map and gallery filters are only present on the home page.
-  head = head.replace(/\s*<link rel="stylesheet" href="css\/explore\.css[^"]*">/, '');
+  head = head.replace(/\s*<link rel="stylesheet" href="css\/(?:explore|operations)\.css[^"]*">/g, '');
   head = head.replace(/<title>[\s\S]*?<\/title>/, '<title>' + escape(service.metaTitle) + '</title>')
     .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="' + escape(service.description) + '">')
     .replace(/<link rel="canonical"[^>]*>/, '<link rel="canonical" href="' + url + '">')

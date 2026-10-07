@@ -1,0 +1,92 @@
+[
+  {
+    "id": "transporte-bobinas",
+    "service": "cargas-especiais",
+    "facts": [
+      [
+        "Carga",
+        "Bobinas de aço."
+      ],
+      [
+        "Serviço",
+        "Transporte rodoviário em carretas adequadas à carga."
+      ]
+    ],
+    "planning": "Informe quantidade, peso e dimensões das bobinas, as cidades de coleta e entrega e a data desejada."
+  },
+  {
+    "id": "container-carga",
+    "service": "movimentacao-de-cargas",
+    "facts": [
+      [
+        "Operação",
+        "Preparação e carregamento de cargas em contêineres."
+      ],
+      [
+        "Atendimento",
+        "Movimentação de cargas no terminal."
+      ]
+    ],
+    "planning": "Informe o material, a quantidade e as dimensões dos volumes, além das instruções de preparação e da data desejada."
+  },
+  {
+    "id": "armazem-granel",
+    "service": "armazenagem",
+    "facts": [
+      [
+        "Carga",
+        "Material a granel."
+      ],
+      [
+        "Estrutura",
+        "Armazenagem em área coberta do terminal."
+      ]
+    ],
+    "planning": "Descreva o material, informe a quantidade e o período de armazenagem. O comercial avalia as condições de recebimento."
+  },
+  {
+    "id": "armazem-noturno",
+    "service": "armazenagem",
+    "facts": [
+      [
+        "Estrutura",
+        "Armazém fechado e coberto."
+      ],
+      [
+        "Localização",
+        "Terminal no Distrito Industrial de Caucaia–CE."
+      ]
+    ],
+    "planning": "Informe o tipo de carga, a embalagem, a quantidade e as datas previstas de entrada e retirada para consultar disponibilidade."
+  },
+  {
+    "id": "hero-containers",
+    "service": "armazenagem",
+    "facts": [
+      [
+        "Estrutura",
+        "Área para depot de contêineres vazios."
+      ],
+      [
+        "Atendimento",
+        "Armazenagem e posicionamento de contêineres no terminal."
+      ]
+    ],
+    "planning": "Informe a quantidade e o tamanho dos contêineres vazios, o período desejado e se precisará de movimentação."
+  },
+  {
+    "id": "carregamento-portuario",
+    "service": "conteineres",
+    "facts": [
+      [
+        "Carga",
+        "Volumes acondicionados sobre carreta."
+      ],
+      [
+        "Operação",
+        "Carregamentos ligados ao transporte portuário."
+      ]
+    ],
+    "planning": "Envie os dados da carga, os locais de coleta e entrega e a programação prevista, incluindo agendamentos, se houver."
+  }
+]

@@ -107,11 +107,19 @@
   if (!dialog || typeof dialog.showModal !== 'function' || !links.length) return;
   var current = 0;
   var opener;
+  var quoteDestination = null;
   var request = 0;
+  var photoAnimation = null;
   var image = document.getElementById('galleryImage');
   var status = document.getElementById('galleryLoadStatus');
   var thumbnailStrip = document.getElementById('galleryThumbnails');
+  var operationDetails = document.getElementById('galleryOperationDetails');
+  var category = document.getElementById('galleryCategory');
   var thumbnails = [];
+  function stopPhotoAnimation() {
+    if (photoAnimation) { photoAnimation.cancel(); photoAnimation = null; }
+  }
+  reducedMotion.addEventListener('change', function () { if (reducedMotion.matches) stopPhotoAnimation(); });
   function prepareThumbnails() {
     if (!thumbnailStrip) return;
     thumbnailStrip.replaceChildren();
@@ -146,15 +154,22 @@
   }
   function showPhoto(index) {
     current = (index + links.length) % links.length;
+    stopPhotoAnimation();
     updateThumbnails();
     var link = links[current];
     var figure = link.closest('figure');
     var title = figure.querySelector('figcaption strong').textContent;
     var serial = ++request;
     document.getElementById('galleryTitle').textContent = title;
-    document.getElementById('galleryDescription').textContent = figure.querySelector('figcaption p').textContent;
+    document.getElementById('galleryDescription').textContent = figure.querySelector('figcaption > p').textContent;
     document.getElementById('galleryCounter').textContent = (current + 1) + ' de ' + links.length;
     document.getElementById('galleryOriginal').href = link.href;
+    if (category) category.textContent = figure.querySelector('.gallery-category').textContent;
+    if (operationDetails) {
+      var content = figure.querySelector('.operation-story-content');
+      operationDetails.replaceChildren();
+      if (content) operationDetails.appendChild(content.cloneNode(true));
+    }
     image.hidden = true;
     image.removeAttribute('src');
     image.alt = link.querySelector('img').alt;
@@ -166,7 +181,7 @@
       image.src = loader.src;
       image.hidden = false;
       status.hidden = true;
-      if (!reducedMotion.matches && image.animate) image.animate([{ opacity: .35 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+      if (!reducedMotion.matches && image.animate) photoAnimation = image.animate([{ opacity: .35 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
     };
     loader.onerror = function () {
       if (serial !== request || !dialog.open) return;
@@ -174,26 +189,57 @@
     };
     loader.src = link.href;
   }
+  function openOperation(link, trigger) {
+    links = allLinks.filter(function (item) { return !item.closest('figure').hidden; });
+    var index = links.indexOf(link);
+    if (index < 0) return;
+    opener = trigger;
+    quoteDestination = null;
+    prepareThumbnails();
+    dialog.showModal();
+    dialog.scrollTop = 0;
+    document.documentElement.classList.add('gallery-modal-open');
+    document.dispatchEvent(new Event('gallery:visibility'));
+    showPhoto(index);
+  }
   allLinks.forEach(function (link) {
     link.setAttribute('aria-haspopup', 'dialog');
     link.addEventListener('click', function (event) {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
-      links = allLinks.filter(function (item) { return !item.closest('figure').hidden; });
-      var index = links.indexOf(link);
-      if (index < 0) return;
-      opener = link;
-      prepareThumbnails();
-      dialog.showModal();
-      document.documentElement.classList.add('gallery-modal-open');
-      document.dispatchEvent(new Event('gallery:visibility'));
-      showPhoto(index);
+      openOperation(link, link);
     });
+    var summary = link.closest('figure').querySelector('.operation-story > summary');
+    if (!summary) return;
+    summary.setAttribute('aria-haspopup', 'dialog');
+    summary.setAttribute('aria-label', 'Ver detalhes da operação: ' + link.closest('figure').querySelector('figcaption strong').textContent);
+    summary.addEventListener('click', function (event) {
+      event.preventDefault();
+      openOperation(link, summary);
+    });
+  });
+  if (operationDetails) operationDetails.addEventListener('click', function (event) {
+    var link = event.target.closest('.operation-quote');
+    if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    var field = document.getElementById('quoteService');
+    var target = document.getElementById('cotacao');
+    var name = link.dataset.operationService;
+    if (!field || !target || !Array.from(field.options).some(function (option) { return option.value === name; })) return;
+    event.preventDefault();
+    field.value = name;
+    field.dispatchEvent(new Event('change', { bubbles: true }));
+    var url = new URL(location.href);
+    url.searchParams.set('servico', new URL(link.href).searchParams.get('servico'));
+    url.hash = 'cotacao';
+    history.pushState(null, '', url);
+    quoteDestination = { field: field, section: target };
+    dialog.close();
   });
   document.getElementById('galleryClose').addEventListener('click', function () { dialog.close(); });
   document.getElementById('galleryPrev').addEventListener('click', function () { showPhoto(current - 1); });
   document.getElementById('galleryNext').addEventListener('click', function () { showPhoto(current + 1); });
   dialog.addEventListener('keydown', function (event) {
+    if (event.ctrlKey || event.metaKey || event.altKey || (operationDetails && operationDetails.contains(event.target))) return;
     var next;
     if (event.key === 'ArrowLeft') next = current - 1;
     if (event.key === 'ArrowRight') next = current + 1;
@@ -212,9 +258,16 @@
   });
   dialog.addEventListener('close', function () {
     request++;
+    stopPhotoAnimation();
+    image.hidden = true;
     image.removeAttribute('src');
     document.documentElement.classList.remove('gallery-modal-open');
     document.dispatchEvent(new Event('gallery:visibility'));
-    if (opener) opener.focus({ preventScroll: true });
+    if (quoteDestination) {
+      var destination = quoteDestination;
+      quoteDestination = null;
+      destination.section.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+      destination.field.focus({ preventScroll: true });
+    } else if (opener) opener.focus({ preventScroll: true });
   });
 })();
