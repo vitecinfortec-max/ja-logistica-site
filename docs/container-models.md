@@ -24,7 +24,7 @@ A geometria e o acabamento foram criados por código para este visualizador. Cor
 - O catálogo de nomes, descrições, medidas e identificadores fica em `js/container-viewer.js`. Ele também sincroniza a seleção por botões no computador e por lista no celular, as medidas exibidas e a mensagem específica de WhatsApp.
 - `js/container-geometry.js` constrói as chapas, portas, travas, cantos e diferenças de cada tipo. O Open Top tem interior vazio, piso, arcos e lona recolhida. O Reefer tem paredes isoladas e uma unidade de refrigeração oposta às portas.
 - `js/container-scene.js` controla iluminação, câmera, rotação, zoom e recursos gráficos. A troca de modelo reutiliza o renderizador e libera os recursos do modelo anterior. O enquadramento inicial considera uma volta completa, inclusive para os modelos longos.
-- Three.js e a geometria só são importados após abrir o visualizador. Não há animação contínua quando o visitante está parado. Fechar libera o contexto gráfico.
+- Three.js e a geometria são importados sob demanda: ao abrir o visualizador ou quando a vitrine integrada entra na tela. Não há animação contínua quando o visitante está parado. Fechar o visualizador ou ocultar a vitrine libera seu contexto gráfico. Veja `docs/container-showcase.md`.
 - A consulta usa o contato de vendas do destaque e inclui o nome e o tamanho selecionados. Mesmo sem WebGL ou com falha no carregamento 3D, a seleção, as informações e o link de WhatsApp continuam disponíveis.
 - Ao alterar arquivos importados, atualize as versões em seus importadores. Alterações nos scripts e CSS de entrada exigem atualizar `index.html` e executar `node scripts/build-service-pages.js`.
 

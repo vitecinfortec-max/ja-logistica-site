@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="css/desktop.css?v=20260927-10">
 <link rel="stylesheet" href="css/experience.css?v=20261004-2">
 <link rel="stylesheet" href="css/features.css?v=20261006-compare1">
+<link rel="stylesheet" href="css/showcase.css?v=20261008-1">
 <link rel="stylesheet" href="css/explore.css?v=20261005-1">
 <link rel="stylesheet" href="css/navigation.css?v=20261006-menu1">
 <link rel="stylesheet" href="css/operations.css?v=20261007-operations1">
@@ -263,14 +264,16 @@
             <a class="service-page-link" href="/servicos/movimentacao-de-cargas" aria-label="Conhecer o serviço: Movimentação de cargas"><span>Conhecer o serviço</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a>
             <a class="service-quote" href="#cotacao" data-quote-service="Movimentação de cargas" aria-label="Solicitar cotação: Movimentação de cargas"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div></article>
       </div>
-      <aside id="venda-conteineres" class="container-sales" aria-labelledby="containerSalesTitle">
-        <div class="container-sales-icon" aria-hidden="true"><svg viewBox="0 0 64 48" focusable="false"><rect x="5" y="8" width="54" height="33" rx="3"/><path d="M14 14v21m9-21v21m9-21v21m9-21v21m9-21v21M9 8V4h46v4M12 41v3m40-3v3"/></svg></div>
-        <div class="container-sales-copy">
+      <aside id="venda-conteineres" class="container-sales container-sales-showcase" aria-labelledby="containerSalesTitle">
+        <div class="container-sales-content">
+          <div class="container-sales-icon" aria-hidden="true"><svg viewBox="0 0 64 48" focusable="false"><rect x="5" y="8" width="54" height="33" rx="3"/><path d="M14 14v21m9-21v21m9-21v21m9-21v21m9-21v21M9 8V4h46v4M12 41v3m40-3v3"/></svg></div>
+          <div class="container-sales-copy">
           <p class="container-sales-eyebrow">Terminal em Caucaia–CE</p>
           <h3 id="containerSalesTitle">Venda de contêineres no terminal</h3>
           <p class="container-sales-description">Procurando um contêiner? Consulte a disponibilidade e as condições de venda diretamente com nosso atendimento.</p>
         </div>
-        <div class="container-sales-actions">
+          <ul class="container-sales-families" aria-label="Famílias de contêineres"><li>Dry Box</li><li>High Cube</li><li>Open Top</li><li>Reefer</li></ul>
+          <div class="container-sales-actions">
           <a class="container-sales-whatsapp" href="https://wa.me/5585991751472?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20J.A%20Log%C3%ADstica%20e%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20compra%20de%20um%20cont%C3%AAiner%20no%20terminal." target="_blank" rel="noopener" aria-label="Consultar venda de contêineres pelo WhatsApp: (85) 9 9175-1472">
             <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.4 1.2-2 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.9.1.2.1.4 0 .6-.1.2-.2.3-.4.5l-.5.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.5.3.1.2.1.9-.1 1.5z"/></svg>
             <span>Consultar pelo WhatsApp</span>
@@ -278,6 +281,16 @@
           <div class="container-catalog-actions"><button type="button" class="container-preview-trigger" data-container-preview hidden aria-haspopup="dialog" aria-label="Explorar modelos de contêineres em 3D"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10v10M3 7l9 5 9-5M7 5l9 5v7"/></svg>Explorar 3D</button><button type="button" class="container-preview-trigger" data-container-compare hidden aria-haspopup="dialog" aria-label="Comparar modelos de contêineres"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/><path d="M6 9h1m10 0h1M6 13h1m10 0h1"/></svg>Comparar</button></div>
           <p class="container-sales-phone">(85) 9 9175-1472</p>
         </div>
+        </div>
+        <figure class="container-showcase" data-container-showcase data-ready="false">
+          <div class="showcase-heading"><div><small>Conheça o formato</small><strong data-showcase-name>Dry Box · 20 pés</strong></div><span class="showcase-badge">Modelo 3D</span></div>
+          <div class="showcase-stage">
+            <img class="showcase-poster" src="assets/img/container-showcase.svg" alt="Ilustração de um contêiner Dry Box" width="800" height="430" loading="lazy">
+            <div class="showcase-viewport" tabindex="-1" role="group" aria-label="Visualização do contêiner"></div>
+          </div>
+          <div class="showcase-toolbar"><p data-showcase-hint>Visualização ilustrativa do modelo.</p><button type="button" data-showcase-replay hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg><span>Rever animação</span></button></div>
+          <figcaption>Modelo ilustrativo. Características e disponibilidade variam conforme a unidade.</figcaption>
+        </figure>
       </aside>
       <article class="coverage-explorer" aria-labelledby="coverageTitle">
         <div class="coverage-copy">
@@ -650,6 +663,6 @@
   <script src="js/explore.js?v=20261005-1" defer></script>
 <script src="js/cities.js?v=20260926-1"></script>
 <script src="js/clients.js?v=20260923-clients2"></script>
-<script src="js/container-viewer.js?v=20261006-compare1" defer></script>
+<script src="js/container-viewer.js?v=20261008-1" defer></script>
 </body>
 </html>

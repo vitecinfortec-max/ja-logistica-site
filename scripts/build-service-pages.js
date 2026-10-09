@@ -61,6 +61,7 @@ for (const service of services) {
   let head = home.slice(home.indexOf('<head>'), home.indexOf('</head>') + 7);
   // Coverage map and gallery filters are only present on the home page.
   head = head.replace(/\s*<link rel="stylesheet" href="css\/(?:explore|operations)\.css[^"]*">/g, '');
+  if(service.slug!=="conteineres")head=head.replace(/\s*<link rel="stylesheet" href="css\/showcase\.css[^"]*">/, "");
   head = head.replace(/<title>[\s\S]*?<\/title>/, '<title>' + escape(service.metaTitle) + '</title>')
     .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="' + escape(service.description) + '">')
     .replace(/<link rel="canonical"[^>]*>/, '<link rel="canonical" href="' + url + '">')

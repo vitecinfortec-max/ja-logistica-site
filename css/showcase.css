@@ -1,0 +1,62 @@
+/* Inline 3D product showcase; shared with the container service page. */
+.container-sales.container-sales-showcase{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4vw,64px);padding:clamp(24px,3.4vw,52px);background:radial-gradient(ellipse at 0 0,#1b4854 0,transparent 65%),#0b262e;overflow:hidden}
+.container-sales-content{min-width:0}
+.container-sales-showcase .container-sales-icon{width:46px;height:46px;margin:0 0 24px;border-radius:12px}
+.container-sales-showcase .container-sales-icon svg{width:30px;height:28px}
+.container-sales-showcase h3{max-width:18ch;font-size:clamp(28px,2.5vw,40px);line-height:1.25}
+.container-sales-showcase .container-sales-description{max-width:44ch;font-size:17px;line-height:1.75}
+.container-sales-families{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px;padding:0;list-style:none}
+.container-sales-families li{padding:6px 10px;border:1px solid #4a6974;border-radius:6px;color:#d1e3e8;font-size:11px;line-height:1.5}
+.container-sales-showcase .container-sales-actions{grid-column:auto;max-width:370px;margin:0}
+.container-sales-showcase .container-sales-whatsapp{min-height:52px;font-size:16px}
+.container-sales-showcase .container-sales-phone{font-size:15px}
+.container-showcase{min-width:0;margin:0;padding:20px;border:1px solid #74959c;border-radius:20px;background:#eaf0f3;color:#123842;box-shadow:0 24px 50px -24px #0005}
+.showcase-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.showcase-heading>div{display:grid;gap:4px}
+.showcase-heading small{color:#59747e;font-size:11px}
+.showcase-heading strong{font-size:17px}
+.showcase-badge{padding:5px 8px;border:1px solid #b8ced6;border-radius:6px;color:#456571;font-size:10px;white-space:nowrap}
+.showcase-stage{position:relative;height:clamp(270px,25vw,390px);margin-top:10px;isolation:isolate}
+.showcase-poster,.showcase-viewport{position:absolute;inset:0;width:100%;height:100%;border-radius:12px}
+.showcase-poster{object-fit:contain}
+.showcase-viewport{opacity:0;pointer-events:none;touch-action:pan-y pinch-zoom;cursor:grab}
+.showcase-viewport:active{cursor:grabbing}
+.showcase-viewport canvas{display:block;width:100%;height:100%;border-radius:12px}
+.showcase-viewport:focus-visible{outline:3px solid #277386;outline-offset:3px}
+.container-showcase[data-ready="true"] .showcase-viewport{opacity:1;pointer-events:auto}
+.container-showcase[data-ready="true"] .showcase-poster{visibility:hidden}
+.showcase-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;border-block:1px solid #cbdce2}
+.showcase-toolbar p{margin:0;color:#4f6d79;font-size:12px;line-height:1.5}
+.showcase-toolbar button{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;min-height:40px;padding:8px 10px;border:1px solid #b4cbd5;border-radius:8px;background:#f8fafb;color:#244e5e;font:inherit;font-size:12px;font-weight:600;cursor:pointer}
+.showcase-toolbar button[hidden]{display:none}
+.showcase-toolbar button:hover{background:#fff;border-color:#6197a8}
+.showcase-toolbar button:focus-visible{outline:3px solid #277386;outline-offset:3px}
+.showcase-toolbar svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.container-showcase>figcaption{margin-top:13px;color:#5b727d;font-size:11px;line-height:1.6}
+@media(min-width:1200px) and (hover:hover) and (pointer:fine){
+ .container-sales-showcase .container-sales-description{font-size:19px}
+ .container-sales-families li{font-size:12px}
+ .showcase-heading strong{font-size:20px}.showcase-toolbar p,.showcase-toolbar button{font-size:13px}
+}
+@media(max-width:1000px){
+ .container-sales.container-sales-showcase{grid-template-columns:minmax(0,1fr);gap:30px}
+ .container-sales-showcase h3{max-width:none}
+ .container-sales-showcase .container-sales-description{max-width:60ch}
+ .container-sales-showcase .container-sales-actions{max-width:420px}
+ .container-showcase{width:100%}.showcase-stage{height:340px}
+}
+@media(max-width:600px){
+ .container-sales.container-sales-showcase{display:grid;padding:24px 18px;gap:26px}
+ .container-sales-showcase h3{font-size:28px}.container-sales-showcase .container-sales-description{font-size:16px}
+ .container-sales-showcase .container-sales-icon{margin-bottom:20px}
+ .container-sales-showcase .container-sales-actions{max-width:none}
+ .container-sales-families{gap:6px;margin:20px 0 24px}
+ .container-sales-families li{padding:5px 8px;font-size:10px}
+ .container-showcase{padding:15px 12px;border-radius:14px}.showcase-heading{gap:8px}
+ .showcase-heading strong{font-size:15px}.showcase-heading small{font-size:10px}
+ .showcase-badge{font-size:9px;padding:4px 6px}
+ .showcase-stage{height:250px;margin-top:4px}
+ .showcase-toolbar{flex-wrap:wrap;padding:12px 0;gap:8px}
+ .showcase-toolbar p{font-size:11px}.showcase-toolbar button{font-size:11px}
+ .container-showcase>figcaption{font-size:10px}
+}
