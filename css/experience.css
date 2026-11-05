@@ -50,9 +50,7 @@
 }
 @media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
   .service-page .service-photo-hero { box-shadow: 0 24px 48px -32px var(--black-a45); }
-  .advantages-heading, .services-heading, .operations-heading, .partners-heading { position: relative; }
-  .advantages-heading::before, .services-heading::before, .operations-heading::before, .partners-heading::before { content: ""; display: block; width: 42px; height: 3px; margin-bottom: 20px; border-radius: 3px; background: linear-gradient(90deg, var(--orange) 0 65%, var(--c-c5dce2) 65%); }
-}
+  .advantages-heading, .services-heading, .operations-heading, .partners-heading { position: relative; }}
 @media (prefers-reduced-motion: reduce) {
   .service-card:hover, .gallery-grid figure:hover, .service-page .service-related-link:hover,
   .service-page .service-primary:hover, .resource-download:hover, .quote-submit:hover, .container-sales-whatsapp:hover,

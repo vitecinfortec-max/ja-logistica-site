@@ -415,7 +415,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .gallery-open:focus-visible { outline-offset: 4px; }
 .gallery-grid figcaption { display: flex; flex-direction: column; flex: 1; padding: 24px 26px 28px; color: var(--navy); }
 .gallery-category { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: var(--c-965000); font-size: 13px; font-weight: 600; line-height: 1.5; }
-.gallery-category::before { content: ""; width: 18px; height: 2px; background: var(--orange); }
 .gallery-grid figcaption strong { display: block; font-family: var(--font-display); font-size: 21px; font-weight: 700; line-height: 1.4; }
 .gallery-grid figcaption p { margin: 10px 0 0; color: var(--c-5f717a); font-size: 16px; line-height: 1.75; }
 @media (max-width: 980px) {
@@ -743,7 +742,6 @@ main:focus { outline: none; }
 .service-card > picture img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .service-card-copy { display: flex; flex-direction: column; flex: 1; padding: 26px; }
 .service-category { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: var(--c-965000); font-size: 13px; line-height: 1.5; font-weight: 600; }
-.service-category::before { content: ""; width: 18px; height: 2px; background: var(--orange); }
 .service-card h3 { margin: 0; color: var(--navy); font-size: 24px; line-height: 1.35; }
 .service-card-copy > p { margin: 12px 0 24px; color: var(--c-5f717a); font-size: 16px; line-height: 1.75; }
 .service-page-link { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; min-height: 54px; padding: 14px 16px; border: 1px solid var(--c-e3ebef); border-radius: 12px; background: var(--c-f7fafb); color: var(--navy); font-size: 14px; font-weight: 600; line-height: 1.5; }
@@ -1080,3 +1078,17 @@ html.gallery-modal-open { overflow: clip; }
   .container-sales-whatsapp { padding-right: 12px; padding-left: 12px; font-size: 16px; }
   .service-sales-section { padding-bottom: 52px; }
 }
+
+/* ---------- Header quote action and footer contact (design batch 2) ---------- */
+.header-actions { display: flex; align-items: center; gap: 16px; }
+.header-quote { display: none; min-height: 44px; padding: 10px 20px; border-radius: 12px; font-size: 15px; white-space: nowrap; }
+@media (min-width: 1024px) { .header-quote { display: inline-flex; margin-left: clamp(24px, 2.4vw, 48px); } }
+.footer-inner { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(260px, 340px); align-items: start; }
+.footer-contact { min-width: 0; }
+.footer-contact h2 { margin: 0 0 20px; color: var(--white); font-size: 16px; line-height: 1.5; }
+.footer-contact address { margin: 0 0 12px; color: var(--c-c7d9df); font-size: 14px; font-style: normal; line-height: 1.7; }
+.footer-contact p { margin: 0 0 6px; color: var(--c-b3c8cf); font-size: 14px; line-height: 1.7; }
+.footer-contact a { display: inline-flex; align-items: center; min-height: 32px; color: var(--white); text-decoration: underline; text-decoration-color: var(--c-66838d); text-underline-offset: 4px; overflow-wrap: anywhere; }
+.footer-contact a:hover { text-decoration-color: currentColor; }
+@media (max-width: 980px) { .footer-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .footer-brand { grid-column: 1 / -1; } }
+@media (max-width: 600px) { .footer-inner { grid-template-columns: minmax(0, 1fr); } }
