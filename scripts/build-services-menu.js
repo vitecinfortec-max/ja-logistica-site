@@ -17,7 +17,7 @@ function buildServicesMenu(){
     '        <div id="servicesMenu" class="services-menu" aria-labelledby="servicesMenuTitle" hidden>\n'+
     '          <div class="services-menu-heading"><div><p class="eyebrow">Soluções para sua operação</p><h2 id="servicesMenuTitle">Como podemos ajudar?</h2></div><button class="services-menu-close" type="button" aria-label="Fechar menu de serviços"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>\n'+
     '          <ul class="services-menu-grid">\n            '+cards+'\n          </ul>\n'+
-    '          <div class="services-menu-footer"><p>Transporte, armazenagem e apoio no terminal em Caucaia–CE.</p><a class="services-menu-overview" href="#servicos">Ver todos os serviços '+arrow+'</a></div>\n'+
+    '          <div class="services-menu-footer"><p>Transporte, armazenagem e apoio no terminal em Caucaia (CE).</p><a class="services-menu-overview" href="#servicos">Ver todos os serviços '+arrow+'</a></div>\n'+
     '        </div>\n      </div>';
   const file=path.join(root,'index.html');
   let home=fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n');

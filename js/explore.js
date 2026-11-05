@@ -8,7 +8,7 @@
         label: 'Nossa área de atendimento',
         title: 'Atendimento no Nordeste',
         text: 'Atendemos a região Nordeste. Informe a origem, o destino e o serviço para consultar a disponibilidade da sua operação.',
-        note: 'AL · BA · CE · MA · PB · PE · PI · RN · SE'
+        note: 'AL, BA, CE, MA, PB, PE, PI, RN e SE'
       },
       norte: {
         label: 'Disponibilidade por rota',
@@ -18,7 +18,7 @@
       },
       terminal: {
         label: 'Nossa base de operação',
-        title: 'Terminal em Caucaia–CE',
+        title: 'Terminal em Caucaia (CE)',
         text: 'Rodovia CE 155, 16.226 · Distrito Industrial. Estrutura para armazenagem e movimentação de cargas, com apoio às operações de transporte.',
         note: 'Em frente à fábrica do Cimento Apodi.'
       }
