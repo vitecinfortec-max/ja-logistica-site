@@ -30,10 +30,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/tokens.css?v=20261105-polish1">
-<link rel="stylesheet" href="/css/style.css?v=20261105-acabamento1">
+<link rel="stylesheet" href="/css/style.css?v=20261105-lote2">
 <link rel="stylesheet" href="/css/cities.css?v=20261105-polish1">
 <link rel="stylesheet" href="/css/desktop.css?v=20261105-polish1">
-<link rel="stylesheet" href="/css/experience.css?v=20261105-polish1">
+<link rel="stylesheet" href="/css/experience.css?v=20261105-lote2">
 <link rel="stylesheet" href="/css/features.css?v=20261105-polish1">
 <link rel="stylesheet" href="/css/navigation.css?v=20261105-polish1">
 <link rel="stylesheet" href="/css/services.css?v=20261105-polish1">
@@ -57,7 +57,7 @@
         <a href="/#servicos" class="services-nav-fallback">Serviços</a>
         <button type="button" id="servicesNavToggle" class="services-nav-toggle" aria-expanded="false" aria-controls="servicesMenu" hidden>Serviços<svg aria-hidden="true" focusable="false" viewBox="0 0 20 20"><path d="m5 7.5 5 5 5-5"/></svg></button>
         <div id="servicesMenu" class="services-menu" aria-labelledby="servicesMenuTitle" hidden>
-          <div class="services-menu-heading"><div><p class="eyebrow">Soluções para sua operação</p><h2 id="servicesMenuTitle">Como podemos ajudar?</h2></div><button class="services-menu-close" type="button" aria-label="Fechar menu de serviços"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+          <div class="services-menu-heading"><div><h2 id="servicesMenuTitle">Como podemos ajudar?</h2></div><button class="services-menu-close" type="button" aria-label="Fechar menu de serviços"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
           <ul class="services-menu-grid">
             <li class="services-menu-card"><a class="services-menu-link" href="/servicos/cargas-especiais"><img src="/assets/img/carregamento-caminhao-640.webp" alt="" width="640" height="360" loading="lazy" decoding="async"><div class="services-menu-copy"><h3>Cargas especiais</h3><p>Transporte para cargas com peso e dimensões especiais.</p><span class="services-menu-discover">Conhecer serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></a><a class="services-menu-quote" href="/?servico=cargas-especiais#cotacao" data-nav-service="Cargas especiais" aria-label="Solicitar cotação: Cargas especiais">Solicitar cotação <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></li>
             <li class="services-menu-card"><a class="services-menu-link" href="/servicos/conteineres"><img src="/assets/img/bobinas-aco-640.webp" alt="" width="640" height="333" loading="lazy" decoding="async"><div class="services-menu-copy"><h3>Contêineres e carga geral</h3><p>Frota própria para contêineres e carga geral em lotação completa.</p><span class="services-menu-discover">Conhecer serviço <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span></div></a><a class="services-menu-quote" href="/?servico=conteineres#cotacao" data-nav-service="Contêineres e carga geral" aria-label="Solicitar cotação: Contêineres e carga geral">Solicitar cotação <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></li>
@@ -73,6 +73,7 @@
     </nav>
 
     <div class="header-actions">
+      <a href="/#cotacao" class="btn btn-primary header-quote">Solicitar cotação</a>
       <button id="navToggle" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
         <span></span><span></span><span></span>
       </button>
@@ -83,14 +84,14 @@
   <section class="service-intro" aria-labelledby="serviceTitle"><div class="container">
     <nav class="service-breadcrumb" aria-label="Caminho de navegação"><ol><li><a href="/">Início</a></li><li><a href="/#servicos">Serviços</a></li><li aria-current="page">Cargas especiais</li></ol></nav>
     <div class="service-intro-grid"><div class="service-intro-copy">
-      <p class="eyebrow">Transporte rodoviário</p><h1 id="serviceTitle">Transporte de cargas especiais</h1>
+      <h1 id="serviceTitle">Transporte de cargas especiais</h1>
       <p class="service-lead">Cargas com peso e dimensões especiais exigem atenção ao veículo, ao percurso e à preparação da operação. Conte com nossa estrutura para planejar o transporte junto ao comercial.</p>
       <div class="service-page-actions"><a class="service-primary" href="/?servico=cargas-especiais#cotacao" aria-label="Solicitar cotação: Cargas especiais"><span>Solicitar cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-text-link" href="#detalhes">Conhecer o serviço <span aria-hidden="true">↓</span></a></div>
       <p class="service-location"><span aria-hidden="true"></span>Nordeste e parte da região Norte</p></div>
       <figure class="service-photo service-photo-hero"><picture><source type="image/webp" srcset="/assets/img/carregamento-caminhao-640.webp 640w, /assets/img/carregamento-caminhao-950.webp 950w" sizes="(min-width: 1200px) and (hover: hover) and (pointer: fine) min(50vw, 1000px), (max-width: 800px) calc(100vw - 64px), 560px"><img src="/assets/img/carregamento-caminhao.jpg" alt="Carreta da J.A Logística transportando uma estrutura metálica" width="950" height="534" decoding="async" fetchpriority="high"></picture><figcaption>Transporte de carga especial com equipamentos da nossa frota.</figcaption></figure>
     </div></div></section>
   <section id="detalhes" class="service-content-section" aria-labelledby="includesTitle"><div class="container">
-    <div class="service-section-heading"><p class="eyebrow">Como podemos ajudar</p><h2 id="includesTitle">Estrutura para cargas que exigem atenção especial</h2><p>A preparação considera as características da carga e as necessidades do trajeto. Estes são os serviços que podemos reunir na sua operação:</p></div>
+    <div class="service-section-heading"><h2 id="includesTitle">Estrutura para cargas que exigem atenção especial</h2><p>A preparação considera as características da carga e as necessidades do trajeto. Estes são os serviços que podemos reunir na sua operação:</p></div>
     <div class="service-capabilities">
       <article class="service-capability"><span class="service-capability-number" aria-hidden="true">01</span><h3>Cargas especiais</h3><p>Transporte de cargas com peso e dimensões especiais, com avaliação das informações da carga para definir a operação.</p></article>
       <article class="service-capability"><span class="service-capability-number" aria-hidden="true">02</span><h3>Produtos siderúrgicos</h3><p>Transporte de bobinas e outros produtos siderúrgicos em carretas adequadas às características da carga.</p></article>
@@ -100,20 +101,20 @@
   <section class="service-planning service-content-section" aria-labelledby="planningTitle"><div class="container service-planning-grid">
     <div class="service-planning-visual"><figure class="service-photo"><picture><source type="image/webp" srcset="/assets/img/transporte-bobinas-640.webp 640w, /assets/img/transporte-bobinas-1280.webp 1280w, /assets/img/transporte-bobinas-1600.webp 1600w" sizes="(min-width: 1200px) and (hover: hover) and (pointer: fine) min(50vw, 1000px), (max-width: 800px) calc(100vw - 64px), 560px"><img src="/assets/img/transporte-bobinas.jpg" alt="Bobinas de aço sobre carreta durante operação de carregamento" width="1600" height="900" decoding="async" loading="lazy"></picture><figcaption>Transporte de bobinas em carretas adequadas à carga.</figcaption></figure>
       <div class="service-location-note"><strong>Nosso terminal</strong><p>Rodovia CE 155, 16.226 · Distrito Industrial<br>Caucaia (CE), em frente à fábrica do Cimento Apodi.</p><a href="/#contato">Ver localização e contatos <span aria-hidden="true">↗</span></a></div></div>
-    <div class="service-planning-copy"><p class="eyebrow">Prepare sua cotação</p><h2 id="planningTitle">Uma boa cotação começa pelos dados da carga</h2><p>Envie o que já tiver disponível. O comercial avalia a rota e orienta sobre as informações necessárias para preparar a proposta.</p>
+    <div class="service-planning-copy"><h2 id="planningTitle">Uma boa cotação começa pelos dados da carga</h2><p>Envie o que já tiver disponível. O comercial avalia a rota e orienta sobre as informações necessárias para preparar a proposta.</p>
       <ul class="service-checklist"><li><span aria-hidden="true">✓</span><div><strong>Carga e quantidade</strong><p>Descreva o material ou equipamento e informe o número de volumes.</p></div></li><li><span aria-hidden="true">✓</span><div><strong>Peso e dimensões</strong><p>Informe peso, comprimento, largura e altura, incluindo a embalagem, se houver.</p></div></li><li><span aria-hidden="true">✓</span><div><strong>Origem e destino</strong><p>Indique as cidades e os locais de coleta e entrega.</p></div></li><li><span aria-hidden="true">✓</span><div><strong>Data e condições de acesso</strong><p>Informe a data desejada e particularidades dos locais de carregamento e descarga.</p></div></li></ul>
       <a class="service-primary" href="/?servico=cargas-especiais#cotacao" aria-label="Preencher cotação: Cargas especiais"><span>Preparar minha cotação</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><p class="service-quote-note">Você revisa a mensagem e conclui o envio pelo WhatsApp.</p>
     </div></div></section>
   <section class="section faq-section" aria-labelledby="serviceFaqTitle"><div class="container faq-layout">
-    <div class="faq-intro"><p class="eyebrow">Antes de contratar</p><h2 id="serviceFaqTitle" class="section-title">Dúvidas sobre o serviço</h2><p>Informações para planejar sua operação com mais clareza.</p>
-      <div class="faq-help"><h3>Fale com Luiz Antonio</h3><p>Comercial · (85) 9 9175-3831</p><a class="faq-help-link" href="https://wa.me/5585991753831?text=Ol%C3%A1%2C%20Luiz%20Antonio!%20Vim%20pelo%20site%20da%20J.A%20Log%C3%ADstica%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.%0A%0AServi%C3%A7o%3A%20Cargas%20especiais%0A" target="_blank" rel="noopener">Conversar pelo WhatsApp <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-email" href="mailto:luis.antonio@jalogisticas.com">luis.antonio@jalogisticas.com</a></div></div>
+    <div class="faq-intro"><h2 id="serviceFaqTitle" class="section-title">Dúvidas sobre o serviço</h2><p>Informações para planejar sua operação com mais clareza.</p>
+      <div class="faq-help"><h3>Fale com Luis Antonio</h3><p>Comercial · (85) 9 9175-3831</p><a class="faq-help-link" href="https://wa.me/5585991753831?text=Ol%C3%A1%2C%20Luis%20Antonio!%20Vim%20pelo%20site%20da%20J.A%20Log%C3%ADstica%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.%0A%0AServi%C3%A7o%3A%20Cargas%20especiais%0A" target="_blank" rel="noopener">Conversar pelo WhatsApp <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-email" href="mailto:luis.antonio@jalogisticas.com">luis.antonio@jalogisticas.com</a></div></div>
     <div class="faq-list">
       <details><summary><span>Vocês transportam bobinas?</span><span class="faq-indicator" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary><p>Sim. Realizamos transporte de bobinas em carretas adequadas à carga. Informe quantidade, peso, dimensões e trajeto para avaliarmos a operação.</p></details>
       <details><summary><span>O serviço pode incluir AET e escolta?</span><span class="faq-indicator" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary><p>Oferecemos requisição de AET e escolta rodoviária para cargas especiais. As necessidades da operação e o escopo da contratação são alinhados com o comercial.</p></details>
-      <details><summary><span>Quais regiões são atendidas?</span><span class="faq-indicator" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary><p>Atendemos o Nordeste e parte da região Norte. Envie origem e destino para consultar a disponibilidade da sua rota com Luiz Antonio.</p></details>
+      <details><summary><span>Quais regiões são atendidas?</span><span class="faq-indicator" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary><p>Atendemos o Nordeste e parte da região Norte. Envie origem e destino para consultar a disponibilidade da sua rota com Luis Antonio.</p></details>
     </div></div></section>
   <section class="service-related service-content-section" aria-labelledby="relatedTitle"><div class="container">
-    <div class="service-section-heading"><p class="eyebrow">Conheça também</p><h2 id="relatedTitle">Outros serviços para sua operação</h2></div>
+    <div class="service-section-heading"><h2 id="relatedTitle">Outros serviços para sua operação</h2></div>
     <div class="service-related-grid"><a class="service-related-link" href="/servicos/conteineres"><div><span>Transporte rodoviário</span><h3>Contêineres e carga geral</h3></div><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-related-link" href="/servicos/armazenagem"><div><span>Estrutura de terminal</span><h3>Armazenagem</h3></div><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="service-related-link" href="/servicos/movimentacao-de-cargas"><div><span>Operações no terminal</span><h3>Movimentação de cargas</h3></div><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></div>
   </div></section>
 </main>
@@ -122,6 +123,12 @@
     <div class="footer-brand">
       <img src="/assets/logos/logo-jalogistica.png" alt="J.A Logística" width="431" height="349" decoding="async" loading="lazy">
       <div><p class="footer-company">J.A LOGISTICA LTDA</p><p>CNPJ 58.180.321/0001-03</p></div>
+    </div>
+    <div class="footer-contact" aria-labelledby="footerContactTitle">
+      <h2 id="footerContactTitle">Terminal e contato</h2>
+      <address>Rodovia CE 155, 16.226<br>Distrito Industrial, Caucaia (CE)</address>
+      <p><a href="tel:+5585991753831">(85) 9 9175-3831</a> <span>comercial</span></p>
+      <p><a href="mailto:luis.antonio@jalogisticas.com">luis.antonio@jalogisticas.com</a></p>
     </div>
     <div class="footer-hours" aria-labelledby="footerHoursTitle">
       <h2 id="footerHoursTitle">Horário de funcionamento</h2>
@@ -132,12 +139,12 @@
     </div>
   </div>
   <div class="container footer-bottom">
-    <nav class="footer-nav" aria-label="Navegação do rodapé">
-      <a href="/#diferenciais">Diferenciais</a>
-      <a href="/#sobre">Sobre</a>
-      <a href="/#servicos">Serviços</a>
-      <a href="/#clientes">Clientes</a>
-      <a href="/#contato">Contato</a>
+    <nav class="footer-nav" aria-label="Serviços">
+      <a href="/servicos/cargas-especiais">Cargas especiais</a>
+      <a href="/servicos/conteineres">Contêineres e carga geral</a>
+      <a href="/servicos/armazenagem">Armazenagem</a>
+      <a href="/servicos/movimentacao-de-cargas">Movimentação de cargas</a>
+      <a href="/#cotacao">Solicitar cotação</a>
     </nav>
     <p>&copy; <span id="year"></span> J.A Logística, logística e armazenagem.<br>Todos os direitos reservados.</p>
   </div>
@@ -148,16 +155,16 @@
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 4l8 8h-5v8h-6v-8H4z"/></svg>
 </button>
 
-<a href="https://wa.me/5585991753831?text=Ol%C3%A1%2C%20Luiz%20Antonio!%20Vim%20pelo%20site%20da%20J.A%20Log%C3%ADstica%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.%0A%0AServi%C3%A7o%3A%20Cargas%20especiais%0A" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Solicitar cotação com o Comercial pelo WhatsApp">
+<a href="https://wa.me/5585991753831?text=Ol%C3%A1%2C%20Luis%20Antonio!%20Vim%20pelo%20site%20da%20J.A%20Log%C3%ADstica%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.%0A%0AServi%C3%A7o%3A%20Cargas%20especiais%0A" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Solicitar cotação com o Comercial pelo WhatsApp">
   <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.4 1.2-2 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.9.1.2.1.4 0 .6-.1.2-.2.3-.4.5l-.5.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.5.3.1.2.1.9-.1 1.5z"/></svg>
 </a>
 
 <nav class="mobile-actionbar" aria-label="Ações rápidas">
-  <a href="tel:+5585991753831" class="mobile-action" aria-label="Ligar para Luiz Antonio, Comercial">
+  <a href="tel:+5585991753831" class="mobile-action" aria-label="Ligar para Luis Antonio, Comercial">
     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M6.6 10.8a15.9 15.9 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
     <span>Ligar</span>
   </a>
-  <a href="/?servico=cargas-especiais#cotacao" class="mobile-action mobile-action-whatsapp" aria-label="Preencher solicitação de cotação">
+  <a href="/#cotacao" class="mobile-action mobile-action-whatsapp" aria-label="Preencher solicitação de cotação">
     <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.6 14.3c-.2.6-1.4 1.2-2 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.9.1.2.1.4 0 .6-.1.2-.2.3-.4.5l-.5.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.5.3.1.2.1.9-.1 1.5z"/></svg>
     <span>Cotação</span>
   </a>

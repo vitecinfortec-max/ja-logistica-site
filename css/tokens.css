@@ -9,6 +9,12 @@
  * waive 81 · .hero-overlay is the scrim over the hero photograph, not an empty picture
  * waive 71, 72 · card heads sit under a label inside their header row; figure overflow reads from the gallery's entry motion, unverified
  * finish-review: inline, not a fresh-context reviewer */
+/* Hallmark · batch 2 (2026-11-05) · fixed 54: eyebrows removed on the home, the services menu and the service pages
+ * reworded "Conheça nossa estrutura" to "Apresentação comercial" · 54 names the eyebrow it replaced
+ * reworded "Nordeste e parte da região Norte" to "Atendemos o Nordeste e parte do Norte" · 54, the label "Área de atuação" folded in
+ * reworded "Clientes que confiam na J.A Logística" to "Empresas que atendemos" · 54, the plain label became the heading
+ * changed the wa.me greeting from "Luiz Antonio" to "Luis Antonio" · the owner confirmed the spelling
+ * footer nav now lists the service pages; the section anchors stay in the header */
 /* Colour and type tokens for the whole site. Every colour the stylesheets use is named here;
  * the brand palette (--orange, --navy, --teal and friends) stays in css/style.css :root. */
 :root {

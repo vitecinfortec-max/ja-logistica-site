@@ -168,7 +168,7 @@ para('Informe o serviço, as características da carga, a origem e o destino. Pe
     M,151,CW,11.5,leading=16,max_height=48)
 rect(M,216,CW,184,DEEP,10)
 text('FALE COM O COMERCIAL',M+20,233,9,GOLD,True)
-text('Luiz Antonio',M+20,256,24,WHITE,True)
+text('Luis Antonio',M+20,256,24,WHITE,True)
 text('(85) 9 9175-3831',M+20,292,21,WHITE,True)
 button('Solicitar cotação pelo WhatsApp',WHATSAPP,M+20,340,258,37)
 rect(425,245,114,114,WHITE,6)
@@ -200,7 +200,7 @@ pdf=PdfReader(str(OUT))
 assert len(pdf.pages)==3
 alltext='\n'.join(p.extract_text() for p in pdf.pages)
 required=[
- 'Nordeste e parte da região Norte','Luiz Antonio','Larissa Gaspar',
+ 'Nordeste e parte da região Norte','Luis Antonio','Larissa Gaspar',
  '9 9985-0477','9 9944-3284','9 9175-3831','58.180.321/0001-03',
  'Cargas especiais','Contêineres e carga geral','Armazenagem',
  'Movimentação de cargas','2,5 e 7 toneladas','3.000+','20+','15+']

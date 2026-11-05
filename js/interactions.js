@@ -86,7 +86,7 @@
       cargo.setCustomValidity(cargo.value.trim() ? '' : 'Descreva a carga para preparar sua cotação.');
       if (!form.reportValidity()) return;
       var data = getQuoteData();
-      var lines = ['Olá, Luiz Antonio! Vim pelo site da J.A Logística e gostaria de uma cotação.', ''];
+      var lines = ['Olá, Luis Antonio! Vim pelo site da J.A Logística e gostaria de uma cotação.', ''];
       if (data.name) lines.push('Nome: ' + data.name);
       lines.push('Serviço: ' + data.service);
       if (data.origin) lines.push((data.local ? 'Local da operação: ' : 'Origem: ') + data.origin);

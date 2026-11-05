@@ -20,7 +20,7 @@ function extract(pattern, description) {
 }
 function rebase(html) {
   return html.replace(/(href|src)="(assets|css|js)\//g, '$1="/$2/')
-    .replace(/href="#(diferenciais|sobre|servicos|clientes|contato)"/g, 'href="/#$1"');
+    .replace(/href="#(diferenciais|sobre|servicos|clientes|contato|cotacao)"/g, 'href="/#$1"');
 }
 const sharedHeader = rebase(extract(/<a class="skip-link"[\s\S]*?<\/header>/, 'cabeçalho'))
   .replace('href="#topo" class="brand"', 'href="/" class="brand"');
@@ -57,7 +57,7 @@ for (const service of services) {
   const url = origin + servicePath(service);
   const quote = '/?servico=' + service.slug + '#cotacao';
   const whatsapp = 'https://wa.me/5585991753831?text=' + encodeURIComponent(
-    'Olá, Luiz Antonio! Vim pelo site da J.A Logística e gostaria de uma cotação.\n\nServiço: ' + service.name + '\n');
+    'Olá, Luis Antonio! Vim pelo site da J.A Logística e gostaria de uma cotação.\n\nServiço: ' + service.name + '\n');
   let head = home.slice(home.indexOf('<head>'), home.indexOf('</head>') + 7);
   // Coverage map and gallery filters are only present on the home page.
   head = head.replace(/\s*<link rel="stylesheet" href="css\/(?:explore|operations)\.css[^"]*">/g, '');
@@ -99,14 +99,14 @@ for (const service of services) {
     '  <section class="service-intro" aria-labelledby="serviceTitle"><div class="container">',
     '    <nav class="service-breadcrumb" aria-label="Caminho de navegação"><ol><li><a href="/">Início</a></li><li><a href="/#servicos">Serviços</a></li><li aria-current="page">' + escape(service.name) + '</li></ol></nav>',
     '    <div class="service-intro-grid"><div class="service-intro-copy">',
-    '      <p class="eyebrow">' + escape(service.category) + '</p><h1 id="serviceTitle">' + escape(service.title) + '</h1>',
+    '      <h1 id="serviceTitle">' + escape(service.title) + '</h1>',
     '      <p class="service-lead">' + escape(service.intro) + '</p>',
     '      <div class="service-page-actions"><a class="service-primary" href="' + quote + '" aria-label="Solicitar cotação: ' + escape(service.name) + '"><span>Solicitar cotação</span>' + arrow + '</a><a class="service-text-link" href="#detalhes">Conhecer o serviço <span aria-hidden="true">↓</span></a></div>',
     '      <p class="service-location"><span aria-hidden="true"></span>' + escape(service.tag) + '</p></div>',
     '      ' + heroMedia(service),
     '    </div></div></section>',
     '  <section id="detalhes" class="service-content-section" aria-labelledby="includesTitle"><div class="container">',
-    '    <div class="service-section-heading"><p class="eyebrow">Como podemos ajudar</p><h2 id="includesTitle">' + escape(service.includesTitle) + '</h2><p>' + escape(service.includesIntro) + '</p></div>',
+    '    <div class="service-section-heading"><h2 id="includesTitle">' + escape(service.includesTitle) + '</h2><p>' + escape(service.includesIntro) + '</p></div>',
     '    <div class="service-capabilities">',
     ...service.includes.map(([title, text], index) => '      <article class="service-capability"><span class="service-capability-number" aria-hidden="true">' + String(index + 1).padStart(2,'0') + '</span><h3>' + escape(title) + '</h3><p>' + escape(text) + '</p></article>'),
     '    </div></div></section>',
@@ -114,18 +114,18 @@ for (const service of services) {
     '  <section class="service-planning service-content-section" aria-labelledby="planningTitle"><div class="container service-planning-grid">',
     '    <div class="service-planning-visual"><figure class="service-photo">' + picture(service.detailPhoto) + '<figcaption>' + escape(service.detailPhoto.caption) + '</figcaption></figure>',
     '      <div class="service-location-note"><strong>Nosso terminal</strong><p>Rodovia CE 155, 16.226 · Distrito Industrial<br>Caucaia (CE), em frente à fábrica do Cimento Apodi.</p><a href="/#contato">Ver localização e contatos <span aria-hidden="true">↗</span></a></div></div>',
-    '    <div class="service-planning-copy"><p class="eyebrow">Prepare sua cotação</p><h2 id="planningTitle">' + escape(service.planningTitle) + '</h2><p>' + escape(service.planningIntro) + '</p>',
+    '    <div class="service-planning-copy"><h2 id="planningTitle">' + escape(service.planningTitle) + '</h2><p>' + escape(service.planningIntro) + '</p>',
     '      <ul class="service-checklist">' + service.checklist.map(([title, text]) => '<li><span aria-hidden="true">✓</span><div><strong>' + escape(title) + '</strong><p>' + escape(text) + '</p></div></li>').join('') + '</ul>',
     '      <a class="service-primary" href="' + quote + '" aria-label="Preencher cotação: ' + escape(service.name) + '"><span>Preparar minha cotação</span>' + arrow + '</a><p class="service-quote-note">Você revisa a mensagem e conclui o envio pelo WhatsApp.</p>',
     '    </div></div></section>',
     '  <section class="section faq-section" aria-labelledby="serviceFaqTitle"><div class="container faq-layout">',
-    '    <div class="faq-intro"><p class="eyebrow">Antes de contratar</p><h2 id="serviceFaqTitle" class="section-title">Dúvidas sobre o serviço</h2><p>Informações para planejar sua operação com mais clareza.</p>',
-    '      <div class="faq-help"><h3>Fale com Luiz Antonio</h3><p>Comercial · (85) 9 9175-3831</p><a class="faq-help-link" href="' + escape(whatsapp) + '" target="_blank" rel="noopener">Conversar pelo WhatsApp ' + arrow + '</a><a class="service-email" href="mailto:luis.antonio@jalogisticas.com">luis.antonio@jalogisticas.com</a></div></div>',
+    '    <div class="faq-intro"><h2 id="serviceFaqTitle" class="section-title">Dúvidas sobre o serviço</h2><p>Informações para planejar sua operação com mais clareza.</p>',
+    '      <div class="faq-help"><h3>Fale com Luis Antonio</h3><p>Comercial · (85) 9 9175-3831</p><a class="faq-help-link" href="' + escape(whatsapp) + '" target="_blank" rel="noopener">Conversar pelo WhatsApp ' + arrow + '</a><a class="service-email" href="mailto:luis.antonio@jalogisticas.com">luis.antonio@jalogisticas.com</a></div></div>',
     '    <div class="faq-list">',
     ...service.faqs.map(([question, answer]) => '      <details><summary><span>' + escape(question) + '</span>' + plus + '</summary><p>' + escape(answer) + '</p></details>'),
     '    </div></div></section>',
     '  <section class="service-related service-content-section" aria-labelledby="relatedTitle"><div class="container">',
-    '    <div class="service-section-heading"><p class="eyebrow">Conheça também</p><h2 id="relatedTitle">Outros serviços para sua operação</h2></div>',
+    '    <div class="service-section-heading"><h2 id="relatedTitle">Outros serviços para sua operação</h2></div>',
     '    <div class="service-related-grid">' + services.filter(other => other.slug !== service.slug).map(other => '<a class="service-related-link" href="' + servicePath(other) + '"><div><span>' + escape(other.category) + '</span><h3>' + escape(other.name) + '</h3></div>' + arrow + '</a>').join('') + '</div>',
     '  </div></section>', '</main>', sharedFooter, actions, sharedMainScript, ...(service.slug === 'conteineres' ? [sharedContainerViewer] : []), ...(service.heroGallery && service.heroGallery.length ? ['<script src="/js/service-carousel.js?v=20260927-1" defer></script>'] : []), '</body>', '</html>', ''
   ].join('\n');
