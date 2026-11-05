@@ -88,7 +88,7 @@ for (const service of services) {
   ]};
   head = rebase(head.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '</script>'))
-    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20260927-carousel1">\n</head>');
+    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20261105-polish1">\n</head>');
   const actions = sharedActions.replace('href="#cotacao"', 'href="' + quote + '"')
     .replace(/href="https:\/\/wa\.me\/5585991753831\?text=[^"]*"/g, 'href="' + escape(whatsapp) + '"');
   const html = [
@@ -113,7 +113,7 @@ for (const service of services) {
     ...(service.slug === 'conteineres' ? ['  <div class="container service-sales-section">' + sharedContainerSales + '</div>'] : []),
     '  <section class="service-planning service-content-section" aria-labelledby="planningTitle"><div class="container service-planning-grid">',
     '    <div class="service-planning-visual"><figure class="service-photo">' + picture(service.detailPhoto) + '<figcaption>' + escape(service.detailPhoto.caption) + '</figcaption></figure>',
-    '      <div class="service-location-note"><strong>Nosso terminal</strong><p>Rodovia CE 155, 16.226 · Distrito Industrial<br>Caucaia–CE, em frente à fábrica do Cimento Apodi.</p><a href="/#contato">Ver localização e contatos <span aria-hidden="true">↗</span></a></div></div>',
+    '      <div class="service-location-note"><strong>Nosso terminal</strong><p>Rodovia CE 155, 16.226 · Distrito Industrial<br>Caucaia (CE), em frente à fábrica do Cimento Apodi.</p><a href="/#contato">Ver localização e contatos <span aria-hidden="true">↗</span></a></div></div>',
     '    <div class="service-planning-copy"><p class="eyebrow">Prepare sua cotação</p><h2 id="planningTitle">' + escape(service.planningTitle) + '</h2><p>' + escape(service.planningIntro) + '</p>',
     '      <ul class="service-checklist">' + service.checklist.map(([title, text]) => '<li><span aria-hidden="true">✓</span><div><strong>' + escape(title) + '</strong><p>' + escape(text) + '</p></div></li>').join('') + '</ul>',
     '      <a class="service-primary" href="' + quote + '" aria-label="Preencher cotação: ' + escape(service.name) + '"><span>Preparar minha cotação</span>' + arrow + '</a><p class="service-quote-note">Você revisa a mensagem e conclui o envio pelo WhatsApp.</p>',

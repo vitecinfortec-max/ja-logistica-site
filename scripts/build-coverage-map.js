@@ -26,7 +26,7 @@ svg+='<g class="coverage-terminal" data-coverage-target="terminal" aria-label="T
 '<circle class="coverage-pin-halo" cx="'+x+'" cy="'+y+'" r="17"/><circle class="coverage-pin" cx="'+x+'" cy="'+y+'" r="7"/>'+
 '<path class="coverage-callout-line" d="M'+x+' '+y+'l20 -36h100"/>'+
 '<rect class="coverage-callout" x="'+fmt(x-8)+'" y="'+fmt(y-84)+'" width="154" height="45" rx="9"/>'+
-'<text class="coverage-callout-title" x="'+fmt(x+6)+'" y="'+fmt(y-64)+'">Caucaia–CE</text><text class="coverage-callout-sub" x="'+fmt(x+6)+'" y="'+fmt(y-48)+'">Nosso terminal</text></g></svg>';
+'<text class="coverage-callout-title" x="'+fmt(x+6)+'" y="'+fmt(y-64)+'">Caucaia (CE)</text><text class="coverage-callout-sub" x="'+fmt(x+6)+'" y="'+fmt(y-48)+'">Nosso terminal</text></g></svg>';
 const pattern=/<!-- COVERAGE_MAP_START -->[\s\S]*?<!-- COVERAGE_MAP_END -->/;
 if(!pattern.test(home))throw new Error('Coverage map insertion point missing');
 fs.writeFileSync(path.join(root,'index.html'),home.replace(pattern,'<!-- COVERAGE_MAP_START -->\n          '+svg+'\n          <!-- COVERAGE_MAP_END -->'));

@@ -1,12 +1,12 @@
 /* Desktop composition. Touch layouts keep the approved mobile/tablet rules. */
 @media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
-  :root { --container: min(92vw, 1920px); }
+  :root { --container: min(92vw, 1520px); }
   .container { width: var(--container); max-width: none; padding-left: 0; padding-right: 0; }
   .main-nav { gap: clamp(32px, 2.6vw, 60px); }
   .main-nav a { font-size: 20px; }
 
   /* Align the opening with the rest of the page, leaving the right side to the photos. */
-  .hero { min-height: clamp(580px, 68vh, 740px); }
+  .hero { min-height: clamp(580px, 68svh, 740px); }
   .hero-media { left: 38%; width: 62%; }
   .hero-content { padding-top: 64px; padding-bottom: 64px; }
   .hero-title { max-width: 49%; font-size: clamp(48px, 4vw, 76px); }

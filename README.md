@@ -30,7 +30,7 @@ A lista é carregada uma vez, ao usar um desses campos, pelo próprio site. Não
 
 ## Layout para computador
 
-`css/desktop.css` adapta a home e as páginas de serviços a partir de 1.200 px, com ponteiro preciso e suporte a hover. O conteúdo ocupa 92% da largura, limitado a 1.920 px; serviços e diferenciais passam a quatro colunas a partir de 1.360 px, a galeria usa três e o carrossel mostra seis logos a partir de 1.600 px. Os textos longos mantêm limites de leitura. As regras de celulares e tablets com tela sensível ao toque permanecem em `css/style.css` e `css/services.css`.
+`css/desktop.css` adapta a home e as páginas de serviços a partir de 1.200 px, com ponteiro preciso e suporte a hover. O conteúdo ocupa 92% da largura, limitado a 1.520 px e centralizado (em telas maiores, só as margens crescem); serviços e diferenciais passam a quatro colunas a partir de 1.360 px, a galeria usa três e o carrossel mostra seis logos a partir de 1.600 px. Os textos longos mantêm limites de leitura. As regras de celulares e tablets com tela sensível ao toque permanecem em `css/style.css` e `css/services.css`.
 
 Após alterações no link ou na versão desse CSS, execute `node scripts/build-service-pages.js`. Verifique as larguras de 1.280, 1.366, 1.440, 1.920 e 2.560 px, além de 390, 768 e 1.024 px e tablet em paisagem.
 
