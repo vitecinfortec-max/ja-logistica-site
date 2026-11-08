@@ -201,35 +201,6 @@
     syncCarousel();
   }
 
-  // Each row enters once, with a short capped stagger. No persistent hidden styles.
-  if ('IntersectionObserver' in window) {
-    var seen = new WeakSet();
-    var revealObserver = new IntersectionObserver(function (entries) {
-      var visible = entries.filter(function (entry) { return entry.isIntersecting; });
-      visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left; });
-      var previousTop = -Infinity, rowIndex = 0;
-      visible.forEach(function (entry) {
-        revealObserver.unobserve(entry.target);
-        if (seen.has(entry.target)) return;
-        seen.add(entry.target);
-        if (entry.target.matches('.gallery-grid > figure') && entry.target.parentElement.dataset.filtering === 'true') return;
-        var top = entry.boundingClientRect.top;
-        rowIndex = Math.abs(top - previousTop) < 24 ? rowIndex + 1 : 0;
-        previousTop = top;
-        if (reducedMotion.matches || entry.target.contains(document.activeElement) || top < 0) return;
-        animate(entry.target, [{ opacity: .3, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }],
-          { duration: 520, delay: Math.min(rowIndex * 65, 195), easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
-      });
-    }, { threshold: .08 });
-    var targets = '.advantages-heading, .about-copy, .about-photo,.services-heading, .operations-heading, .partners-heading, .clients-heading, .faq-intro, .contact-heading, .advantage-card,.resource-card, .service-card, .gallery-grid > figure, .partner-card, .container-sales, .contact-card, .contact-terminal, .service-section-heading, .service-capability, .service-planning-copy, .service-related-link';
-    document.querySelectorAll(targets).forEach(function (el) { revealObserver.observe(el); });
-    document.addEventListener('focusin', function (event) {
-      // Keyboard navigation must never land on a faded or moving control.
-      motion.forEach(function (animation) {
-        if (animation.effect && animation.effect.target.contains(event.target)) animation.cancel();
-      });
-    });
-  }
   if (!reducedMotion.matches) {
     document.querySelectorAll('.service-intro-copy .eyebrow, .service-lead, .service-page-actions').forEach(function (el, index) {
       animate(el, [{ opacity: .5, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
@@ -263,27 +234,4 @@
     window.addEventListener('resize', function () { if (animation) settle(); });
   });
 
-  function animateCount(el) {
-    var text = el.textContent.trim(), match = text.match(/([\d.,]*\d)/);
-    if (!match) return;
-    var target = parseInt(match[1].replace(/[.,]/g, ''), 10), start;
-    // Keep the accessible label stable while the visual number counts.
-    el.setAttribute('aria-label', text);
-    function step(timestamp) {
-      if (reducedMotion.matches || document.hidden) { el.textContent = text; return; }
-      if (start === undefined) start = timestamp;
-      var ratio = Math.min((timestamp - start) / 700, 1);
-      el.textContent = text.slice(0, match.index) + Math.round((1 - Math.pow(1 - ratio, 3)) * target).toLocaleString('pt-BR') + text.slice(match.index + match[1].length);
-      if (ratio < 1) window.requestAnimationFrame(step);
-    }
-    window.requestAnimationFrame(step);
-  }
-  if ('IntersectionObserver' in window && !reducedMotion.matches) {
-    var countObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) { animateCount(entry.target); countObserver.unobserve(entry.target); }
-      });
-    }, { threshold: .4 });
-    document.querySelectorAll('.stat-number').forEach(function (el) { countObserver.observe(el); });
-  }
 })();

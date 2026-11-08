@@ -88,7 +88,7 @@ for (const service of services) {
   ]};
   head = rebase(head.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '</script>'))
-    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20261108-grupo2">\n</head>');
+    .replace(/<link rel="stylesheet" href="\/css\/refresh\.css/, '<link rel="stylesheet" href="/css/services.css?v=20261108-grupo2">\n$&');
   const actions = sharedActions.replace('href="#cotacao"', 'href="' + quote + '"')
     .replace(/href="https:\/\/wa\.me\/5585991753831\?text=[^"]*"/g, 'href="' + escape(whatsapp) + '"');
   const html = [
