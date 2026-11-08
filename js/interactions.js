@@ -2,14 +2,6 @@
 (function () {
   'use strict';
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  document.querySelectorAll('.operation-journey').forEach(function (journey) {
-    if (!('IntersectionObserver' in window) || reducedMotion.matches) return;
-    journey.classList.add('journey-animated');
-    var observer = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) { journey.classList.add('journey-in-view'); observer.disconnect(); }
-    }, { threshold: .25 });
-    observer.observe(journey);
-  });
   var form = document.getElementById('quoteForm');
   if (form) {
     var service = document.getElementById('quoteService');

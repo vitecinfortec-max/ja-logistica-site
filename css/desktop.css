@@ -9,7 +9,7 @@
   .hero { min-height: clamp(580px, 68svh, 740px); }
   .hero-media { left: 38%; width: 62%; }
   .hero-content { padding-top: 64px; padding-bottom: 64px; }
-  .hero-title { max-width: 49%; font-size: clamp(48px, 4vw, 76px); }
+  .hero-title { max-width: 44%; font-size: clamp(44px, 3.3vw, 64px); }
   .hero-sub { max-width: min(43vw, 640px); }
   .hero-ctas { max-width: 720px; }
   .stats-grid { gap: clamp(20px, 1.8vw, 32px); }
@@ -27,14 +27,6 @@
 
   .about-summary { gap: clamp(40px, 5vw, 88px); }
   .about-summary p { max-width: 76ch; font-size: 20px; }
-  .about-principles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-  .principle-card-quality {
-    grid-column: 1 / -1; display: grid;
-    grid-template-columns: minmax(260px, .7fr) minmax(0, 1.3fr); gap: 32px; align-items: center;
-  }
-  .principle-card-quality .principle-header { margin-bottom: 0; }
-  .principle-card-quality > p { max-width: 90ch; }
-  .principle-card > p, .principle-values { font-size: 20px; }
 
   .resource-card {
     grid-template-columns: 140px minmax(0, .9fr) minmax(0, 1.1fr) 250px;

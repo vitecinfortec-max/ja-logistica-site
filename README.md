@@ -50,19 +50,17 @@ O destaque de venda fica em `index.html`, no bloco `#venda-conteineres`, e é re
 
 As entradas usam Web Animations e IntersectionObserver: o conteúdo permanece visível sem JavaScript, com falha de execução ou com redução de movimento. O título e a primeira foto da abertura ficam disponíveis imediatamente. As animações de entrada acontecem uma vez; a sequência de cada linha é limitada a 195 ms. Focar um controle encerra sua animação de entrada. Perguntas mantêm o elemento nativo `details` como alternativa sem animação.
 
-A abertura mantém a apresentação original, com as fotos integradas ao fundo, sem moldura nem indicadores e com troca a cada três segundos. A rotação pausa fora da tela, durante interação, com a aba oculta ou redução de movimento ativada. As animações de entrada e o acabamento das demais seções continuam ativos. As animações da interface usam CSS e APIs nativas. A visualização 3D opcional descrita abaixo carrega Three.js somente ao ser aberta.
+A abertura usa uma foto fixa da frota própria (`transporte-conteiner-carreta`), integrada ao fundo. Para voltar a girar fotos, acrescente outros `picture.hero-slide` no bloco da abertura: o script em `js/main.js` troca a cada três segundos e pausa fora da tela, durante interação, com a aba oculta ou redução de movimento ativada. As animações de entrada e o acabamento das demais seções continuam ativos. As animações da interface usam CSS e APIs nativas. A visualização 3D opcional descrita abaixo carrega Three.js somente ao ser aberta.
 
 Referências de direção visual: [Motion](https://motion.dev/) (transições e gestos), [Anime.js](https://animejs.com/) (sequências), [GSAP](https://gsap.com/) (ritmo durante a navegação) e [Three.js](https://threejs.org/) (profundidade visual). O refinamento usa CSS e APIs nativas, mantendo as fotografias reais e a identidade da empresa.
 
 
-## Galeria, resumo da cotação e etapas
+## Galeria e resumo da cotação
 
 Os estilos dessas interações ficam em `css/features.css`, com comportamento em `js/interactions.js`.
 
 - A galeria ampliada monta as miniaturas a partir das seis fotos existentes, somente na primeira abertura. A seleção funciona por clique e pelas teclas de direção, Home e End. Fechar devolve o foco à foto de origem; os links das imagens continuam disponíveis sem JavaScript.
 - O resumo da cotação acompanha os campos preenchidos e usa a mesma função de leitura de dados que prepara a mensagem do WhatsApp. Campos opcionais vazios são omitidos; armazenagem e movimentação mostram o local da operação e não incluem destino. Valores são inseridos como texto, sem HTML e sem armazenamento dos dados do visitante.
-- As quatro etapas da operação ficam no final da seção de serviços. O conteúdo permanece visível sem JavaScript; apenas a linha de conexão anima uma vez, respeitando a preferência por redução de movimento.
-
 ## Modelos de contêineres em 3D
 
 O botão “Explorar modelos em 3D” fica no destaque de venda da página inicial e da página de contêineres. O catálogo oferece Dry Box de 20 e 40 pés, High Cube de 40 pés, Open Top de 20 e 40 pés e Reefer HC de 20 e 40 pés. A seleção mostra nome, descrição, medidas externas de referência e prepara o link de WhatsApp com o modelo escolhido.

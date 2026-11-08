@@ -224,7 +224,7 @@
           { duration: 520, delay: Math.min(rowIndex * 65, 195), easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
       });
     }, { threshold: .08 });
-    var targets = '.advantages-heading, .about-heading, .services-heading, .operations-heading, .partners-heading, .clients-heading, .faq-intro, .contact-heading, .advantage-card, .principle-card, .resource-card, .service-card, .gallery-grid > figure, .partner-card, .container-sales, .contact-card, .contact-terminal, .service-section-heading, .service-capability, .service-planning-copy, .service-related-link';
+    var targets = '.advantages-heading, .about-copy, .about-photo,.services-heading, .operations-heading, .partners-heading, .clients-heading, .faq-intro, .contact-heading, .advantage-card,.resource-card, .service-card, .gallery-grid > figure, .partner-card, .container-sales, .contact-card, .contact-terminal, .service-section-heading, .service-capability, .service-planning-copy, .service-related-link';
     document.querySelectorAll(targets).forEach(function (el) { revealObserver.observe(el); });
     document.addEventListener('focusin', function (event) {
       // Keyboard navigation must never land on a faded or moving control.
