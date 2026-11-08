@@ -68,8 +68,10 @@ for (const service of services) {
     .replace(/(<meta (?:property|name)="(?:og|twitter):title" content=")[^"]*"/g, '$1' + escape(service.metaTitle) + '"')
     .replace(/(<meta (?:property|name)="(?:og|twitter):description" content=")[^"]*"/g, '$1' + escape(service.description) + '"')
     .replace(/(<meta property="og:url" content=")[^"]*"/, '$1' + url + '"');
-  const business = JSON.parse(extract(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, 'dados da empresa')
+  const homeSchema = JSON.parse(extract(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, 'dados da empresa')
     .replace(/^<script[^>]*>|<\/script>$/g, ''));
+  // The home page holds a @graph; the business node is the LocalBusiness entry.
+  const business = (homeSchema['@graph'] || [homeSchema]).find(node => node['@type'] === 'LocalBusiness');
   delete business['@context'];
   business['@id'] = origin + '/#empresa';
   const schema = {'@context':'https://schema.org', '@graph':[
@@ -84,7 +86,9 @@ for (const service of services) {
       {'@type':'ListItem',position:1,name:'Início',item:origin + '/'},
       {'@type':'ListItem',position:2,name:'Serviços',item:origin + '/#servicos'},
       {'@type':'ListItem',position:3,name:service.name,item:url}
-    ]}
+    ]},
+    {'@type':'FAQPage','@id':url + '#duvidas',mainEntity:service.faqs.map(([question, answer]) =>
+      ({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))}
   ]};
   head = rebase(head.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '</script>'))
@@ -107,9 +111,9 @@ for (const service of services) {
     '    </div></div></section>',
     '  <section id="detalhes" class="service-content-section" aria-labelledby="includesTitle"><div class="container">',
     '    <div class="service-section-heading"><h2 id="includesTitle">' + escape(service.includesTitle) + '</h2><p>' + escape(service.includesIntro) + '</p></div>',
-    '    <div class="service-capabilities">',
-    ...service.includes.map(([title, text], index) => '      <article class="service-capability"><span class="service-capability-number" aria-hidden="true">' + String(index + 1).padStart(2,'0') + '</span><h3>' + escape(title) + '</h3><p>' + escape(text) + '</p></article>'),
-    '    </div></div></section>',
+    '    <ul class="advantages-list service-capability-list">',
+    ...service.includes.map(([title, text]) => '      <li><h3>' + escape(title) + '</h3><p>' + escape(text) + '</p></li>'),
+    '    </ul></div></section>',
     ...(service.slug === 'conteineres' ? ['  <div class="container service-sales-section">' + sharedContainerSales + '</div>'] : []),
     '  <section class="service-planning service-content-section" aria-labelledby="planningTitle"><div class="container service-planning-grid">',
     '    <div class="service-planning-visual"><figure class="service-photo">' + picture(service.detailPhoto) + '<figcaption>' + escape(service.detailPhoto.caption) + '</figcaption></figure>',
@@ -132,5 +136,26 @@ for (const service of services) {
   write('servicos/' + service.slug + '.html', html);
   console.log('Gerado: ' + servicePath(service));
 }
+// Not-found page: same header and footer, kept out of the sitemap and of search results.
+const notFoundHead = rebase(home.slice(home.indexOf('<head>'), home.indexOf('</head>') + 7)
+  .replace(/\s*<link rel="stylesheet" href="css\/(?:explore|operations|showcase)\.css[^"]*">/g, '')
+  .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/, '')
+  .replace(/<link rel="canonical"[^>]*>\n?/, '')
+  .replace(/<title>[\s\S]*?<\/title>/, '<title>Página não encontrada | J.A Logística</title>')
+  .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Esta página não existe. Veja os serviços da J.A Logística ou solicite uma cotação.">\n<meta name="robots" content="noindex">'));
+write('404.html', [
+  '<!DOCTYPE html>',
+  '<!-- Gerado por scripts/build-service-pages.js. -->',
+  '<html lang="pt-BR">', notFoundHead, '<body class="service-page">', sharedHeader,
+  '<main id="topo" tabindex="-1">',
+  '  <section class="not-found"><div class="container">',
+  '    <h1>Página não encontrada</h1>',
+  '    <p>O endereço pode ter mudado. Escolha um serviço abaixo ou fale com o comercial pela cotação.</p>',
+  '    <a class="btn btn-primary" href="/#cotacao">Solicitar cotação</a>',
+  '    <ul class="not-found-links">' + services.map(service => '<li><a href="' + servicePath(service) + '">' + escape(service.name) + '</a></li>').join('') + '<li><a href="/">Página inicial</a></li></ul>',
+  '  </div></section>',
+  '</main>', sharedFooter, sharedActions, sharedMainScript, '</body>', '</html>', ''
+].join('\n'));
+console.log('Gerado: /404');
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   ['/', ...services.map(servicePath)].map(route => '  <url><loc>' + origin + route + '</loc><lastmod>' + new Date().toISOString().slice(0, 10) + '</lastmod></url>').join('\n') + '\n</urlset>\n');

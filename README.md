@@ -82,3 +82,21 @@ O PDF comercial é gerado por `scripts/build_presentation.py` (requer `reportlab
 ## Cache e cabeçalhos
 
 `vercel.json` guarda CSS, JS e dados por 7 dias e as imagens de `assets/` por 30 dias, além de cabeçalhos básicos de segurança. Por isso, toda alteração em CSS ou JS precisa trocar o `?v=` da referência, e uma imagem alterada deve ganhar um nome novo.
+
+## Sistema visual
+
+`css/refresh.css` é carregado por último, na home e nas páginas de serviço (o gerador coloca `services.css` antes dele), e concentra o visual atual: títulos em Archivo condensada, cantos de 6 a 10 px, superfícies sem sombra, laranja só nas ações, Diferenciais em lista, serviços em linhas alternadas, galeria em mosaico (descrição e detalhes ficam no visualizador) e logos de clientes em grade fixa. A fonte reserva `Archivo Fallback` usa a Arial com `size-adjust: 72%` para os títulos não mudarem de quebra de linha quando a Archivo carrega.
+
+O gerador também cria `404.html`, com o cabeçalho e o rodapé do site e `noindex`.
+
+## Medição de resultados
+
+- **Visitas:** `index.html` carrega o Vercel Web Analytics (sem cookies) apenas em `jalogisticas.com` e nas prévias `*.vercel.app`. Ele precisa estar ativado no painel da Vercel (projeto → Analytics).
+- **Contatos:** ao clicar em qualquer link de WhatsApp, `js/main.js` acrescenta à mensagem a linha "(Origem no site: página · bloco)"; o formulário de cotação acrescenta "(Origem no site: formulário de cotação)". O comercial conta as conversas buscando "Origem no site".
+- **Relatório:** o modelo para enviar ao cliente está em [docs/relatorio-mensal.md](docs/relatorio-mensal.md).
+
+## Busca no Google
+
+A home publica um `@graph` com `LocalBusiness` (endereço, coordenadas, horários, área atendida) e `FAQPage` montado a partir das perguntas da página. As páginas de serviço reaproveitam a empresa desse grafo e acrescentam `Service`, `BreadcrumbList` e `FAQPage` com as perguntas de `data/services.json`. Ao mudar horários ou perguntas, atualize o JSON-LD da home e execute o gerador.
+
+As informações a pedir ao cliente (frota, credenciais, rotas, depoimentos, Perfil da Empresa no Google, Search Console) estão em [docs/pedido-dados-cliente.md](docs/pedido-dados-cliente.md).

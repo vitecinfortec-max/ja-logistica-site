@@ -234,4 +234,18 @@
     window.addEventListener('resize', function () { if (animation) settle(); });
   });
 
+  // WhatsApp links name the page and block they were clicked from, so the team can count leads by page.
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href^="https://wa.me/"]');
+    if (!link || link.id === 'quoteFallback') return;
+    var url = new URL(link.dataset.waHref || (link.dataset.waHref = link.href));
+    var text = (url.searchParams.get('text') || 'Olá! Vim pelo site da J.A Logística.').replace(/s+$/, '');
+    var heading = document.querySelector('h1');
+    var page = document.body.classList.contains('service-page') && heading ? heading.textContent.trim() : 'Página inicial';
+    var block = link.closest('article, aside, section, nav');
+    var title = block && block.querySelector('h2, h3');
+    var where = title ? title.textContent.trim() : (block && block.getAttribute('aria-label')) || 'botão do WhatsApp';
+    url.searchParams.set('text', text + '\n\n(Origem no site: ' + page + ' · ' + where + ')');
+    link.href = url.toString();
+  }, true);
 })();

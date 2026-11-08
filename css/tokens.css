@@ -18,7 +18,7 @@
 /* Colour and type tokens for the whole site. Every colour the stylesheets use is named here;
  * the brand palette (--orange, --navy, --teal and friends) stays in css/style.css :root. */
 :root {
-  --font-display: 'Archivo', 'Inter', sans-serif;
+  --font-display: 'Archivo', 'Archivo Fallback', 'Inter', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --black: #000000;
   --black-a33: rgba(0, 0, 0, 0.333);

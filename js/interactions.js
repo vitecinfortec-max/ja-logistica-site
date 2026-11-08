@@ -84,6 +84,7 @@
       if (data.origin) lines.push((data.local ? 'Local da operação: ' : 'Origem: ') + data.origin);
       if (data.destination) lines.push('Destino: ' + data.destination);
       lines.push('Carga / detalhes: ' + data.cargo);
+      lines.push('', '(Origem no site: formulário de cotação)');
       var url = 'https://wa.me/5585991753831?text=' + encodeURIComponent(lines.join('\n'));
       document.getElementById('quoteFallback').href = url;
       result.hidden = false;

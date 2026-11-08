@@ -2,6 +2,8 @@
  * Loaded after every other stylesheet so the earlier files stay readable on their own. */
 
 /* ---------- Type ---------- */
+/* Fallback sized to the condensed Archivo width, so headings keep their line breaks while the web font loads. */
+@font-face { font-family: "Archivo Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"), local("Arial"), local("Helvetica"); size-adjust: 72%; }
 h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
 .section-title { letter-spacing: -.01em; }
 .hero-title { letter-spacing: -.02em; line-height: 1.02; }
@@ -97,3 +99,69 @@ h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
 @media (hover: none) {
   .client-logo img { filter: none; opacity: 1; }
 }
+
+/* ---------- Batch 2: hero, header, gallery, contact, quote ---------- */
+/* Hero fills most of the first screen; the headline carries more weight. */
+.reading-progress { height: 1px; opacity: .6; }
+@media (min-width: 1200px) {
+  .hero { min-height: min(84svh, 860px); }
+  .hero-title { font-size: clamp(52px, 4.6vw, 80px); max-width: 46%; }
+  .brand-logo { height: 92px; }
+}
+
+/* Gallery: a photo mosaic; description and details live in the viewer. */
+.gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 20px; }
+.gallery-grid figure { border: 0; background: none; }
+.gallery-grid picture { aspect-ratio: 4 / 3; border-radius: 6px; }
+.gallery-grid figcaption { padding: 14px 2px 0; }
+.gallery-category { margin-bottom: 4px; color: var(--muted); font-size: 12px; }
+.gallery-grid figcaption strong { font-size: 19px; line-height: 1.3; }
+.js .gallery-grid figcaption > p, .js .gallery-grid .operation-story { display: none; }
+.gallery-grid figure:hover { translate: none; box-shadow: none; }
+.gallery-grid figure:hover img { scale: 1.02; }
+.gallery-grid img { transition: scale .4s ease; }
+
+/* Contact: three cards in one style, phone first, no icon tiles. */
+.contact-card, .contact-commercial { grid-template-columns: minmax(0, 1fr); background: transparent; border-color: var(--c-3e5d66); }
+.contact-icon { display: none; }
+.contact-commercial h3, .contact-commercial .contact-phone-number { color: var(--white); }
+.contact-commercial p.contact-person, .contact-commercial .contact-email { color: var(--c-c7d9df); }
+.contact-commercial .contact-action { border-color: var(--c-3e5d66); color: var(--c-ffbf7b); }
+.contact-phone-number { font-size: 26px; font-stretch: 82%; font-family: var(--font-display); }
+
+/* Quote: no decorative icons. */
+.quote-person-icon, .quote-form-icon { display: none; }
+.quote-person-heading, .quote-form-heading { gap: 0; }
+
+/* Leftover orange labels in the services menu. */
+.services-menu-copy span, .services-menu-category { color: var(--muted); }
+
+@media (max-width: 980px) {
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: minmax(0, 1fr); }
+  .contact-phone-number { font-size: 23px; }
+}
+
+/* Service pages: capabilities as a plain list, related services as a link row. */
+.service-capability-list { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 8px; }
+.service-related-grid { display: flex; flex-wrap: wrap; gap: 0 32px; }
+.service-related-link { gap: 12px; padding: 16px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: none; }
+.service-related-link:hover { translate: none; box-shadow: none; border-color: var(--navy); }
+.service-related-link span { color: var(--muted); }
+@media (max-width: 980px) { .service-capability-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .service-capability-list { grid-template-columns: minmax(0, 1fr); } .service-related-grid { display: grid; } }
+
+/* 404 page. */
+.not-found { padding: 120px 0 140px; }
+.not-found h1 { margin: 0 0 18px; color: var(--navy); font-size: clamp(40px, 5vw, 72px); line-height: 1.02; }
+.not-found p { max-width: 52ch; margin: 0 0 32px; color: var(--c-5f717a); font-size: 18px; line-height: 1.7; }
+.not-found-links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 32px 0 0; padding: 0; list-style: none; }
+.not-found-links a { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Fixes after review: photos align with their captions; contact cards stack in one column. */
+.gallery-open { margin: 0; }
+.contact-channels { grid-column: 1 / -1; margin-top: 8px; }
+.service-planning-visual .service-photo { padding: 0; border: 0; background: none; }
+.service-planning-visual .service-photo figcaption { padding-left: 0; }
