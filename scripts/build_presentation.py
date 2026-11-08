@@ -120,14 +120,14 @@ logo(M,16,94)
 text('APRESENTAÇÃO',350,34,13,NAVY,True)
 text('COMERCIAL',350,54,20,NAVY,True)
 rect(M,140,32,3,ORANGE)
-text('Sua carga.',M,157,42,WHITE,True)
-text('Do jeito certo,',M,207,42,WHITE,True)
-text('do início ao fim.',M,257,42,GOLD,True)
-text('Transporte, armazenagem e movimentação de cargas.',M,319,11.5,'#cfdee2')
+text('Transporte de cargas',M,157,36,WHITE,True)
+text('especiais e contêineres',M,200,36,WHITE,True)
+text('no Nordeste.',M,243,36,GOLD,True)
+text('Sua carga do jeito certo, do início ao fim: frota própria e terminal em Caucaia (CE).',M,312,11.5,'#cfdee2')
 photo('transporte-bobinas.jpg',0,350,W,W*900/1600,DEEP)
 stats_y=350+W*900/1600
 rect(0,stats_y,W,101,WHITE)
-stats=[('20+','Equipamentos na frota'),('3.000+','Serviços realizados'),('15+','Clientes atendidos')]
+stats=[('20+','Equipamentos na frota'),('3.000+','Serviços realizados'),('9','Estados atendidos no Nordeste')]
 col=CW/3
 for i,(value,label) in enumerate(stats):
     x=M+i*col
@@ -203,7 +203,7 @@ required=[
  'Nordeste e parte da região Norte','Luis Antonio','Larissa Gaspar',
  '9 9985-0477','9 9944-3284','9 9175-3831','58.180.321/0001-03',
  'Cargas especiais','Contêineres e carga geral','Armazenagem',
- 'Movimentação de cargas','2,5 e 7 toneladas','3.000+','20+','15+']
+ 'Movimentação de cargas','2,5 e 7 toneladas','3.000+','20+','Estados atendidos no Nordeste','no Nordeste.']
 for phrase in required:
     assert phrase in alltext,phrase
 assert '9192-9356' not in alltext

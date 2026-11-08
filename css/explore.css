@@ -1,7 +1,7 @@
 /* Coverage explorer and progressive gallery filters. */
-.coverage-explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:center;margin-top:36px;padding:clamp(24px,3vw,48px);border:1px solid var(--c-d6e3e8);border-radius:22px;background:linear-gradient(115deg,var(--c-f7fafb),var(--white));overflow:hidden}
+.coverage-explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:center;margin-top:0;padding:clamp(24px,3vw,48px);border:1px solid var(--c-d6e3e8);border-radius:22px;background:linear-gradient(115deg,var(--c-f7fafb),var(--white));overflow:hidden}
 .coverage-copy{min-width:0}
-.coverage-copy h3{max-width:25ch;margin:0 0 18px;font-size:clamp(25px,2.2vw,34px);line-height:1.3}
+.coverage-copy h2{max-width:25ch;margin:0 0 18px;font-size:clamp(25px,2.2vw,34px);line-height:1.3}
 .coverage-intro{max-width:54ch;margin:0 0 24px;color:var(--c-536b77);font-size:16px;line-height:1.75}
 .coverage-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .coverage-controls[hidden],.gallery-toolbar[hidden]{display:none}
@@ -11,7 +11,7 @@
 .coverage-controls button:focus-visible,.gallery-filter:focus-visible{outline:3px solid var(--c-327f92);outline-offset:3px}
 .coverage-details{min-height:190px;padding:20px 22px;border-left:3px solid var(--orange);border-radius:0 12px 12px 0;background:var(--white);box-shadow:0 6px 24px -20px var(--c-123842-a47)}
 .coverage-details .coverage-detail-label{margin:0 0 8px;color:var(--c-965000);font-size:13px;font-weight:600}
-.coverage-details h4{margin:0 0 10px;font-size:20px}
+.coverage-details h3{margin:0 0 10px;font-size:20px}
 .coverage-details p{margin:0;color:var(--c-526873);font-size:15px;line-height:1.7}
 .coverage-details .coverage-detail-note{margin-top:12px;font-size:12px;font-weight:600;color:var(--c-315664)}
 .coverage-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 22px;margin-top:24px}
@@ -60,7 +60,7 @@
 .gallery-grid>figure[hidden]{display:none}
 @media(min-width:1200px) and (hover:hover) and (pointer:fine){
  .coverage-legend li{font-size:13px}.coverage-map figcaption>p{font-size:12px}
- .coverage-intro{font-size:18px}.coverage-details p{font-size:17px}.coverage-details h4{font-size:22px}
+ .coverage-intro{font-size:18px}.coverage-details p{font-size:17px}.coverage-details h3{font-size:22px}
  .coverage-details .coverage-detail-note{font-size:13px}.coverage-controls button{font-size:14px}
  .gallery-filter{font-size:16px}.gallery-grid[data-visible-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
@@ -71,7 +71,7 @@
 }
 @media(max-width:780px){
  .coverage-explorer{grid-template-columns:minmax(0,1fr);padding:24px;gap:24px}
- .coverage-copy h3{max-width:none;font-size:27px}
+ .coverage-copy h2{max-width:none;font-size:27px}
  .coverage-map{max-width:510px;width:100%;justify-self:center}
  .coverage-details{min-height:180px}.coverage-map figcaption{padding:0}
  .gallery-toolbar{align-items:flex-start;flex-direction:column;gap:14px}
@@ -79,7 +79,7 @@
 }
 @media(max-width:400px){
  .coverage-explorer{padding:20px}.coverage-controls{gap:6px}.coverage-controls button{padding:9px;font-size:11px}
- .coverage-copy h3{font-size:24px}.coverage-actions{align-items:stretch;flex-direction:column}
+ .coverage-copy h2{font-size:24px}.coverage-actions{align-items:stretch;flex-direction:column}
  .coverage-quote{justify-content:space-between}.gallery-filter{padding:9px 10px;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){.coverage-map-in-view .coverage-state{animation:none}.gallery-filter{transition:none}}

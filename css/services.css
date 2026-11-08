@@ -38,7 +38,7 @@
 .service-planning-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
 .service-planning-visual, .service-planning-copy { min-width: 0; }
 .service-planning-visual .service-photo picture { max-height: 430px; }
-.service-planning-visual .service-photo img { max-height: 430px; object-fit: contain; }
+.service-planning-visual .service-photo img { max-height: 430px; object-fit: cover; }
 .service-location-note { margin-top: 24px; padding-left: 20px; border-left: 3px solid var(--orange); color: var(--navy); }
 .service-location-note > strong { font-size: 15px; }
 .service-location-note p { margin: 6px 0 8px; color: var(--c-526875); font-size: 13px; line-height: 1.8; }
@@ -100,7 +100,7 @@
 .service-carousel-slide { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .8s ease; }
 .service-carousel-slide.is-active { opacity: 1; z-index: 1; }
 .service-page .service-photo-carousel .service-carousel-slide picture { width: 100%; height: 100%; aspect-ratio: auto; max-height: none; border-radius: 0; }
-.service-page .service-photo-carousel .service-carousel-slide img { width: 100%; height: 100%; object-fit: contain; object-position: center; user-select: none; }
+.service-page .service-photo-carousel .service-carousel-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; user-select: none; }
 .service-carousel-controls { position: absolute; right: 10px; bottom: 10px; z-index: 2; display: flex; padding: 0 2px; border: 1px solid var(--white-a25); border-radius: 28px; background: var(--c-0a252e-a88); }
 .service-carousel-controls[hidden] { display: none; }
 .service-carousel-dot { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }

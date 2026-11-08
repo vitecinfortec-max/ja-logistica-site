@@ -5,21 +5,24 @@ export function mountContainerShowcase(root, models, sceneURL) {
   const hint=root.querySelector('[data-showcase-hint]');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const model=models[0];
+  // Phones fetch Three.js only after the visitor asks for the 3D view.
+  const onTap=matchMedia('(pointer: coarse), (max-width: 760px)').matches;
+  let requested=!onTap;
   let scene=null,frame=0,ticket=0,visible=false,loading=false,failed=false,animated=false,disposed=false,rotation=0;
   let appearance=null;
   root.querySelector('[data-showcase-name]').textContent=model.name+' · '+model.feet+' pés';
   host.setAttribute('aria-label',model.name+' de '+model.feet+' pés. Arraste ou use as setas para girar. Home restaura a vista.');
-  function allowed(){return visible&&!document.hidden&&!document.querySelector('dialog[open]')&&!disposed;}
+  function allowed(){return requested&&visible&&!document.hidden&&!document.querySelector('dialog[open]')&&!disposed;}
   function stop(){cancelAnimationFrame(frame);frame=0;if(appearance){appearance.cancel();appearance=null;}root.dataset.animating='false';}
   function remember(){if(scene)rotation=Number(host.dataset.rotation)||0;}
   function release(){
     ++ticket;loading=false;stop();remember();
     if(scene){scene.dispose();scene=null;}
-    host.replaceChildren();host.tabIndex=-1;root.dataset.ready='false';replay.hidden=true;
-    hint.textContent='Visualização ilustrativa do modelo.';
+    host.replaceChildren();host.tabIndex=-1;root.dataset.ready='false';replay.hidden=!onTap||failed;buttonLabel();
+    hint.textContent=onTap?'Toque em Ver em 3D para girar o contêiner.':'Visualização ilustrativa do modelo.';
   }
   function unavailable(){failed=true;release();root.dataset.state='unavailable';}
-  function buttonLabel(){replay.querySelector('span').textContent=reduced.matches?'Restaurar vista':'Rever animação';}
+  function buttonLabel(){replay.querySelector('span').textContent=!scene?'Ver em 3D':reduced.matches?'Restaurar vista':'Rever animação';}
   function runIntro(){
     stop();if(!scene||!allowed())return;
     scene.reset();rotation=0;
@@ -58,9 +61,10 @@ export function mountContainerShowcase(root, models, sceneURL) {
   host.addEventListener('pointerdown',interaction);
   host.addEventListener('keydown',interaction);
   host.addEventListener('focusin',interaction);
-  replay.addEventListener('click',runIntro);
+  replay.addEventListener('click',()=>{if(scene)runIntro();else{requested=true;sync();}});
   reduced.addEventListener('change',()=>{buttonLabel();if(reduced.matches){stop();if(scene){scene.reset();rotation=0;}}});
   const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.15;sync();},{threshold:[0,.15]});
+  if(onTap)release();
   observer.observe(root);
   document.addEventListener('visibilitychange',onVisibility);
   document.addEventListener('gallery:visibility',onVisibility);

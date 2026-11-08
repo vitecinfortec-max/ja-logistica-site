@@ -231,7 +231,7 @@
   });
   var showcaseRoot=document.querySelector('[data-container-showcase]');
   if(showcaseRoot){
-    var showcaseURL=new URL('container-showcase.js?v=20261008-1',document.currentScript.src).href;
+    var showcaseURL=new URL('container-showcase.js?v=20261108-1',document.currentScript.src).href;
     import(showcaseURL).then(function(module){module.mountContainerShowcase(showcaseRoot,models,moduleURL);}).catch(function(){showcaseRoot.dataset.state="unavailable";/* The illustration and sales links remain available. */});
   }
 })();

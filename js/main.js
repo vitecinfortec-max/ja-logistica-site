@@ -4,7 +4,6 @@
   var header = document.getElementById('siteHeader');
   var nav = document.getElementById('mainNav');
   var navToggle = document.getElementById('navToggle');
-  var backToTop = document.getElementById('backToTop');
   var motion = new Set();
   var finishAccordions = new Set();
   var servicesToggle = document.getElementById('servicesNavToggle');
@@ -43,7 +42,6 @@
     scrollFrame = 0;
     header.classList.toggle('scrolled', window.scrollY > 12);
     updateMenuHeight();
-    backToTop.classList.toggle('visible', window.scrollY > 500);
     var distance = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = 'scaleX(' + (distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0) + ')';
     var line = header.getBoundingClientRect().bottom + Math.min(180, window.innerHeight * .2);
@@ -151,7 +149,6 @@
     updateMenuHeight();
   });
   if (window.visualViewport) window.visualViewport.addEventListener('resize', updateMenuHeight);
-  backToTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' }); });
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 

@@ -20,7 +20,6 @@
   .gallery-grid figcaption { padding: 24px; }
   .gallery-grid figcaption p { font-size: 20px; }
   .service-card-copy > p { font-size: 20px; }
-  .service-page-link { font-size: 17.5px; }
   .service-quote { font-size: 18.75px; }
   .partner-role { font-size: 17.5px; min-height: 85px; }
   .partner-role svg { flex-basis: 25px; width: 25px; height: 25px; }
@@ -54,7 +53,9 @@
   .quote-layout { gap: clamp(32px, 4vw, 72px); align-items: stretch; }
   .quote-intro { display: flex; flex-direction: column; padding: clamp(32px, 3vw, 48px); }
   .quote-lead { max-width: 60ch; }
-  .quote-steps { margin-top: auto; padding-top: 28px; }
+  .quote-steps { padding-top: 4px; }
+  .quote-photo { display: block; flex: 1 1 200px; min-height: 200px; margin-top: 28px; overflow: hidden; border-radius: 16px; }
+  .quote-photo img { width: 100%; height: 100%; object-fit: cover; }
   .quote-form { padding: clamp(32px, 3vw, 48px); }
   .contact-layout { grid-template-columns: minmax(400px, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 3vw, 56px); }
 
@@ -71,7 +72,7 @@
   .service-page .service-capability h3 { font-size: 22.5px; }
   .service-page .service-capability p { font-size: 17.5px; }
   .service-page .service-photo-hero picture { width: 100%; aspect-ratio: 16 / 10; max-height: 520px; }
-  .service-page .service-photo-hero img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+  .service-page .service-photo-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
   .service-page .service-planning-grid { gap: clamp(48px, 5vw, 96px); }
   .service-page .service-planning-copy > p { max-width: 72ch; }
   .service-page .service-planning-copy > p:not(.eyebrow) { font-size: 20px; }
@@ -90,7 +91,7 @@
   .service-card-copy { padding: 22px; }
   .service-card h3 { font-size: 22px; min-height: 2.7em; }
   .service-card-copy > p { font-size: 18.75px; }
-  .service-page-link, .service-quote { padding: 12px 14px; font-size: 17.5px; gap: 10px; }
+  .service-quote { padding: 12px 14px; font-size: 17.5px; gap: 10px; }
   .advantage-card { padding: 24px; }
   .advantage-header { gap: 14px; min-height: 116px; align-items: flex-start; margin-bottom: 16px; }
   .advantage-icon { flex-basis: 48px; width: 48px; height: 48px; border-radius: 13px; }

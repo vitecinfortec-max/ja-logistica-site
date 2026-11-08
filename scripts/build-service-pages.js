@@ -20,7 +20,7 @@ function extract(pattern, description) {
 }
 function rebase(html) {
   return html.replace(/(href|src)="(assets|css|js)\//g, '$1="/$2/')
-    .replace(/href="#(diferenciais|sobre|servicos|clientes|contato|cotacao)"/g, 'href="/#$1"');
+    .replace(/href="#(diferenciais|sobre|servicos|venda-conteineres|cobertura|clientes|contato|cotacao)"/g, 'href="/#$1"');
 }
 const sharedHeader = rebase(extract(/<a class="skip-link"[\s\S]*?<\/header>/, 'cabeçalho'))
   .replace('href="#topo" class="brand"', 'href="/" class="brand"');
@@ -28,7 +28,7 @@ const sharedFooter = rebase(extract(/<footer class="site-footer">[\s\S]*?<\/foot
 const sharedActions = rebase(home.slice(home.indexOf('</footer>') + 9, home.indexOf('<dialog id="galleryDialog"')));
 const sharedContainerSales = rebase(extract(/<aside id="venda-conteineres"[\s\S]*?<\/aside>/, 'venda de contêineres'));
 const sharedContainerViewer = rebase(extract(/<script src="js\/container-viewer\.js[^\"]*"[^>]*><\/script>/, 'visualização de contêiner'));
-const sharedMainScript = rebase(extract(/<script src="js\/main\.js[^"]*"><\/script>/, 'script principal'));
+const sharedMainScript = rebase(extract(/<script src="js\/main\.js[^"]*"[^>]*><\/script>/, 'script principal'));
 function picture(photo, eager = false) {
   const variants = photo.variants || [640, photo.width];
   for (const file of [photo.file + '.jpg', ...variants.map(width => photo.file + '-' + width + '.webp')]) {
@@ -88,7 +88,7 @@ for (const service of services) {
   ]};
   head = rebase(head.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/,
     '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '</script>'))
-    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20261105-polish1">\n</head>');
+    .replace('</head>', '<link rel="stylesheet" href="/css/services.css?v=20261108-grupo2">\n</head>');
   const actions = sharedActions.replace('href="#cotacao"', 'href="' + quote + '"')
     .replace(/href="https:\/\/wa\.me\/5585991753831\?text=[^"]*"/g, 'href="' + escape(whatsapp) + '"');
   const html = [
@@ -133,4 +133,4 @@ for (const service of services) {
   console.log('Gerado: ' + servicePath(service));
 }
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  ['/', ...services.map(servicePath)].map(route => '  <url><loc>' + origin + route + '</loc></url>').join('\n') + '\n</urlset>\n');
+  ['/', ...services.map(servicePath)].map(route => '  <url><loc>' + origin + route + '</loc><lastmod>' + new Date().toISOString().slice(0, 10) + '</lastmod></url>').join('\n') + '\n</urlset>\n');

@@ -29,10 +29,10 @@
 .service-card .service-quote:hover { background: var(--c-205362); }
 .partner-card { box-shadow: 0 12px 28px -25px var(--navy-a30); }
 .contact-card:focus-within { box-shadow: 0 0 0 1px var(--c-83a5b0); }
-.service-page .service-primary, .service-page-link, .service-quote, .resource-download, .quote-submit, .container-sales-whatsapp {
+.service-page .service-primary, .service-quote, .resource-download, .quote-submit, .container-sales-whatsapp {
   transition: background .2s ease, border-color .2s ease, box-shadow .3s ease, translate .3s var(--ease-out);
 }
-.service-page .service-primary svg, .service-page-link svg, .service-quote svg,
+.service-page .service-primary svg, .service-quote svg,
 .service-page .service-related-link > svg, .faq-help-link svg, .contact-link svg {
   transition: translate .3s var(--ease-out);
 }
@@ -45,7 +45,7 @@
   .service-card:hover, .gallery-grid figure:hover, .service-page .service-related-link:hover { translate: 0 -4px; border-color: var(--surface-edge); box-shadow: var(--surface-shadow); }
   .partner-card:hover { border-color: var(--c-b8d0d8); }
   .service-page .service-primary:hover, .resource-download:hover, .quote-submit:hover, .container-sales-whatsapp:hover { translate: 0 -2px; box-shadow: 0 12px 24px -18px var(--orange-a80); }
-  .service-page .service-primary:hover svg, .service-page-link:hover svg, .service-quote:hover svg, .service-page .service-related-link:hover > svg, .faq-help-link:hover svg { translate: 3px 0; }
+  .service-page .service-primary:hover svg, .service-quote:hover svg, .service-page .service-related-link:hover > svg, .faq-help-link:hover svg { translate: 3px 0; }
   .service-page .service-primary:active, .resource-download:active, .quote-submit:active, .container-sales-whatsapp:active { translate: 0 0; }
 }
 @media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
@@ -54,7 +54,7 @@
 @media (prefers-reduced-motion: reduce) {
   .service-card:hover, .gallery-grid figure:hover, .service-page .service-related-link:hover,
   .service-page .service-primary:hover, .resource-download:hover, .quote-submit:hover, .container-sales-whatsapp:hover,
-  .service-page .service-primary:hover svg, .service-page-link:hover svg, .service-quote:hover svg,
+  .service-page .service-primary:hover svg, .service-quote:hover svg,
   .service-page .service-related-link:hover > svg, .faq-help-link:hover svg { translate: none; }
 }
 @media print {

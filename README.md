@@ -42,7 +42,7 @@ O carrossel troca a foto a cada cinco segundos, permite escolher pelos indicador
 
 ## Venda de contêineres
 
-O destaque de venda fica em `index.html`, no bloco `#venda-conteineres`, e é reaproveitado pelo gerador na página de contêineres. O WhatsApp específico de vendas é `5585991751472`; o comercial dos serviços continua em `5585991753831`. Para alterar o destaque ou seu contato, edite esse bloco e execute `node scripts/build-service-pages.js`.
+O destaque de venda fica em `index.html`, no bloco `#venda-conteineres`, numa seção própria logo após os serviços e com item no menu principal; o mapa de atendimento vem em seguida, na seção `#cobertura`. O bloco é reaproveitado pelo gerador na página de contêineres. O WhatsApp específico de vendas é `5585991751472`; o comercial dos serviços continua em `5585991753831`. Para alterar o destaque ou seu contato, edite esse bloco e execute `node scripts/build-service-pages.js`.
 
 ## Acabamento visual e movimento
 
@@ -70,3 +70,15 @@ O visitante pode girar por arraste, botões ou teclado, aproximar e afastar e vo
 As referências técnicas, diferenças de geometria, arquivos responsáveis e orientações de atualização estão em [docs/container-models.md](docs/container-models.md). A licença MIT e a origem da biblioteca acompanham `js/vendor/three-0.180.0/`. Não há dependência de CDN durante o uso.
 
 O contato de venda de contêineres permanece no final 1472; a cotação dos serviços continua no final 3831. Nenhuma mensagem é enviada automaticamente.
+
+A prévia 3D do destaque de venda carrega sozinha quando aparece na tela em computadores. Em celulares e telas de toque, `js/container-showcase.js` mostra a ilustração e o botão “Ver em 3D”, e Three.js só é baixado depois desse toque.
+
+## Imagem de compartilhamento e apresentação
+
+A imagem usada por WhatsApp, LinkedIn e redes sociais (`og:image`) é gerada a partir de `scripts/share-image.html`: abra o arquivo a 1200 × 630 px, capture a tela e salve em `assets/social/` com a data no nome, atualizando as tags em `index.html` e executando o gerador das páginas de serviço.
+
+O PDF comercial é gerado por `scripts/build_presentation.py` (requer `reportlab` e `pypdf`). Depois de gerá-lo, atualize a miniatura da capa em `assets/img/apresentacao-capa-v3.webp` e a versão `?v=` dos links do PDF em `index.html`.
+
+## Cache e cabeçalhos
+
+`vercel.json` guarda CSS, JS e dados por 7 dias e as imagens de `assets/` por 30 dias, além de cabeçalhos básicos de segurança. Por isso, toda alteração em CSS ou JS precisa trocar o `?v=` da referência, e uma imagem alterada deve ganhar um nome novo.
