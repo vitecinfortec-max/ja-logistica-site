@@ -164,15 +164,7 @@ h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
 .service-planning-visual .service-photo { padding: 0; border: 0; background: none; }
 .service-planning-visual .service-photo figcaption { padding-left: 0; }
 
-/* ---------- Batch 3 (references): contact bar, sectors, closing band ---------- */
-/* Contact bar above the header, desktop only; it scrolls away and the header stays. */
-.contact-bar { display: none; background: var(--navy-deep); color: var(--c-c7d9df); font-size: 13px; }
-.contact-bar-inner { display: flex; justify-content: flex-end; align-items: center; gap: 28px; min-height: 36px; }
-.contact-bar-inner span { margin-right: auto; }
-.contact-bar a { color: var(--white); text-decoration: none; }
-.contact-bar a:hover { color: var(--c-ffbf7b); text-decoration: underline; text-underline-offset: 3px; }
-@media (min-width: 1024px) { .contact-bar { display: block; } }
-
+/* ---------- Batch 3 (references): sectors, closing band ---------- */
 /* Sectors: four photographs edge to edge, the label over the bottom of each. */
 .sectors-section { padding: 96px 0 0; }
 .sectors-section .section-title { margin-bottom: 36px; }
