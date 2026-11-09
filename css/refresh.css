@@ -65,12 +65,11 @@ h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
   .gallery-open:hover .gallery-open-label, .gallery-open:focus-visible .gallery-open-label { opacity: 1; }
 }
 
-/* ---------- Clients: a still grid, grey until the pointer reaches a logo ---------- */
+/* ---------- Clients: a still grid, each logo in its own colours ---------- */
 .clients-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
-.client-logo { height: 110px; padding: 16px; border: 1px solid var(--line); background: var(--white); }
-.client-logo img { max-height: 64px; filter: grayscale(1); opacity: .75; transition: filter .2s ease, opacity .2s ease; }
-.client-logo:hover { transform: none; box-shadow: none; }
-.client-logo:hover img { filter: none; opacity: 1; }
+.client-logo { height: 110px; padding: 16px; border: 1px solid var(--line); background: var(--white); transition: border-color .2s ease; }
+.client-logo img { max-height: 64px; }
+.client-logo:hover { transform: none; box-shadow: none; border-color: var(--c-bed0d8); }
 
 .section.clients-section { padding: 72px 0; }
 
@@ -97,9 +96,6 @@ h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
   .stat-item { padding-left: 14px; }
   .clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .client-logo { height: 92px; }
-}
-@media (hover: none) {
-  .client-logo img { filter: none; opacity: 1; }
 }
 
 /* ---------- Batch 2: hero, header, gallery, contact, quote ---------- */
