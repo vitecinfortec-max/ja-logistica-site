@@ -18,6 +18,15 @@ Para cada tipo de equipamento: **quantidade** e **capacidade**.
 - Área do armazém coberto: ______ m²
 - Área do pátio / depot de contêineres: ______ m² ou capacidade em contêineres
 - Seguro de carga (tipo de apólice, ex.: RCTR-C, RC-DC): ________
+- Certificações (ISO, SASSMAQ ou outras), se houver: ________
+- Toneladas transportadas por ano (aproximado, se medido): ______
+- Quilômetros rodados por ano (aproximado, se medido): ______
+
+## Setores atendidos
+O site mostra 4 setores a partir dos clientes atuais: portos e contêineres, siderurgia, fertilizantes e granéis, indústria e distribuição. Confirmar se estão certos e se falta algum (ex.: rochas ornamentais, construção).
+
+## Vídeo (opcional)
+Vídeo curto (30 a 90 s) do terminal, da frota ou de uma operação, gravado pela empresa. Entra no site como vídeo institucional.
 
 ## Rotas frequentes (3 a 5)
 Ex.: Caucaia (CE) → Teresina (PI)

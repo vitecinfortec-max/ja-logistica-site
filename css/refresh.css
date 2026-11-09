@@ -166,3 +166,63 @@ h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
 .contact-channels { grid-column: 1 / -1; margin-top: 8px; }
 .service-planning-visual .service-photo { padding: 0; border: 0; background: none; }
 .service-planning-visual .service-photo figcaption { padding-left: 0; }
+
+/* ---------- Batch 3 (references): contact bar, logo strip, sectors, closing band ---------- */
+/* Contact bar above the header, desktop only; it scrolls away and the header stays. */
+.contact-bar { display: none; background: var(--navy-deep); color: var(--c-c7d9df); font-size: 13px; }
+.contact-bar-inner { display: flex; justify-content: flex-end; align-items: center; gap: 28px; min-height: 36px; }
+.contact-bar-inner span { margin-right: auto; }
+.contact-bar a { color: var(--white); text-decoration: none; }
+.contact-bar a:hover { color: var(--c-ffbf7b); text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 1024px) { .contact-bar { display: block; } }
+
+/* Client logos right after the numbers. */
+.logo-strip { padding: 28px 0; border-bottom: 1px solid var(--line); background: var(--white); }
+.logo-strip-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 24px 40px; }
+.logo-strip h2 { margin: 0; color: var(--muted); font-family: var(--font-body); font-size: 14px; font-weight: 600; font-stretch: 100%; }
+.logo-strip ul { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-items: center; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.logo-strip img { display: block; width: auto; height: 40px; max-width: 100%; margin: 0 auto; object-fit: contain; filter: grayscale(1); opacity: .7; transition: filter .2s ease, opacity .2s ease; }
+.logo-strip li:hover img { filter: none; opacity: 1; }
+.logo-strip-inner > a { color: var(--navy); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; }
+
+/* Sectors: four photographs edge to edge, the label over the bottom of each. */
+.sectors-section { padding: 96px 0 0; }
+.sectors-section .section-title { margin-bottom: 36px; }
+.sectors-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+.sectors-grid li { position: relative; aspect-ratio: 3 / 4; max-height: 560px; overflow: hidden; background: var(--navy-deep); }
+.sectors-grid picture, .sectors-grid img { display: block; width: 100%; height: 100%; }
+.sectors-grid img { object-fit: cover; transition: scale .5s ease; }
+.sectors-grid li:hover img { scale: 1.03; }
+.sectors-grid li > div { position: absolute; inset: auto 0 0; padding: 72px 28px 28px; background: linear-gradient(transparent, rgba(7, 26, 32, .88)); color: var(--white); }
+.sectors-grid h3 { margin: 0 0 6px; color: var(--white); font-size: clamp(24px, 2vw, 30px); line-height: 1.15; }
+.sectors-grid p { margin: 0; color: var(--c-d1e0e5); font-size: 15px; line-height: 1.5; }
+
+/* Closing band: the fleet photograph, one line and the quote action. */
+.closing-band { position: relative; display: flex; align-items: center; min-height: 460px; padding: 96px 0; overflow: hidden; background: var(--navy-deep); isolation: isolate; }
+.closing-photo { position: absolute; inset: 0; z-index: -1; }
+.closing-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.closing-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(7, 26, 32, .92) 0%, rgba(7, 26, 32, .7) 50%, rgba(7, 26, 32, .3) 100%); }
+.closing-inner { color: var(--white); }
+.closing-band h2 { max-width: 16ch; margin: 0 0 18px; color: var(--white); font-size: clamp(36px, 4.2vw, 64px); line-height: 1.02; }
+.closing-band p { max-width: 46ch; margin: 0 0 32px; color: var(--c-d1e0e5); font-size: 18px; line-height: 1.6; }
+
+@media (max-width: 1100px) {
+  .logo-strip-inner { grid-template-columns: minmax(0, 1fr) auto; }
+  .logo-strip ul { grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 980px) {
+  .sectors-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sectors-grid li { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 640px) {
+  .logo-strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .logo-strip img { height: 34px; }
+  .sectors-section { padding-top: 64px; }
+  .sectors-grid { grid-template-columns: minmax(0, 1fr); }
+  .sectors-grid li { aspect-ratio: 16 / 10; }
+  .sectors-grid li > div { padding: 56px 20px 20px; }
+  .closing-band { min-height: 0; padding: 72px 0; }
+  .closing-band .btn { width: 100%; }
+}
+.sectors-grid p { min-height: 3em; }
+@media (max-width: 640px) { .sectors-grid p { min-height: 0; } }
