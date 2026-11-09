@@ -1,0 +1,9 @@
+# Files kept in the repository but left out of the published site.
+# The site only fetches data/cities.json at runtime (city suggestions in the quote form).
+README.md
+.gitattributes
+.gitignore
+docs/
+scripts/
+data/*
+!data/cities.json
