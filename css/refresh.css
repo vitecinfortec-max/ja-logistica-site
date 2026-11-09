@@ -38,11 +38,11 @@ h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
 .advantages-list li { padding: 22px 0 26px; border-top: 1px solid var(--line); }
 .advantages-list h3 { margin: 0 0 12px; color: var(--navy); font-size: clamp(24px, 2vw, 30px); line-height: 1.2; }
 .advantages-list p { margin: 0; color: var(--c-5f717a); font-size: clamp(17px, 1.35vw, 20px); line-height: 1.65; }
-.partners-strip { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px 64px; align-items: center; margin-top: 24px; padding-top: 28px; border-top: 1px solid var(--line); }
-.partners-strip h3 { margin: 0; color: var(--muted); font-size: 15px; font-weight: 600; font-stretch: 100%; }
-.partners-strip ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
-.partners-strip li { display: grid; justify-items: start; gap: 8px; color: var(--muted); font-size: 13px; }
-.partners-strip img { width: auto; height: 34px; max-width: 100%; object-fit: contain; object-position: left center; }
+.partners-strip { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px 64px; align-items: center; margin-top: 32px; padding-top: 40px; border-top: 1px solid var(--line); }
+.partners-strip h3 { margin: 0; color: var(--navy); font-size: clamp(19px, 1.6vw, 24px); font-weight: 700; }
+.partners-strip ul { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: 24px; margin: 0; padding: 0; list-style: none; }
+.partners-strip li { display: grid; justify-items: start; gap: 12px; color: var(--c-5f717a); font-size: 16px; }
+.partners-strip img { width: auto; height: 52px; max-width: 100%; object-fit: contain; object-position: left center; }
 
 /* ---------- Serviços: alternating photo and text rows ---------- */
 .services-overview { grid-template-columns: minmax(0, 1fr); gap: 0; }
@@ -91,7 +91,8 @@ h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: 82%; }
   .advantages-list { grid-template-columns: minmax(0, 1fr); }
   .advantages-list h3 { font-size: 22px; }
   .advantages-list p { font-size: 17px; }
-  .partners-strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partners-strip ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+  .partners-strip img { height: 44px; }
   .service-card .service-quote { width: 100%; min-width: 0; }
   .stat-item { padding-left: 14px; }
   .clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
