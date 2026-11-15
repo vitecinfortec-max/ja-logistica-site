@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquete · Mais 3 variações da galeria</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #10333d; --deep: #0b262e; --orange: #f0800f; --muted: #5f717a; --line: #e2e9ec; --bg: #f5f8f9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, sans-serif; color: var(--navy); background: #fff; }
+  .wrap { width: min(92vw, 1320px); margin: 0 auto; }
+  section { padding: 88px 0; }
+  h2 { margin: 0 0 10px; font-family: Archivo, sans-serif; font-stretch: 82%; font-weight: 800; font-size: clamp(34px, 3.2vw, 52px); line-height: 1.02; }
+  .intro { margin: 0 0 36px; color: var(--muted); font-size: 17px; }
+  .label { padding: 12px 4vw; background: var(--deep); color: #fff; font-size: 14px; font-weight: 700; }
+  .label span { color: #ffbf7b; }
+  img { display: block; }
+  .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 32px; }
+  .head .intro { margin: 0; }
+  .arrows { display: flex; gap: 10px; }
+  .arrows button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid #c7d6dc; background: #fff; color: var(--navy); font-size: 20px; cursor: pointer; transition: all .2s ease; }
+  .arrows button:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+  /* ===== D · Foto em destaque + miniaturas ===== */
+  .vd-stage { position: relative; aspect-ratio: 21 / 9; overflow: hidden; border-radius: 10px; background: var(--deep); }
+  .vd-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
+  .vd-stage img.on { opacity: 1; }
+  .vd-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 24px; padding: 90px 36px 30px; background: linear-gradient(transparent, rgba(7,26,32,.92)); color: #fff; }
+  .vd-cap small { color: #ffbf7b; font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+  .vd-cap b { display: block; margin: 4px 0 6px; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: clamp(28px, 3vw, 44px); line-height: 1.05; }
+  .vd-cap p { max-width: 52ch; margin: 0; color: #e1ebee; font-size: 16px; line-height: 1.5; }
+  .vd-count { font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 22px; color: #d1e0e5; white-space: nowrap; }
+  .vd-thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 12px; }
+  .vd-thumbs button { all: unset; position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 8px; cursor: pointer; outline: 3px solid transparent; outline-offset: -3px; transition: outline-color .25s ease; }
+  .vd-thumbs img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.6); transition: filter .25s ease; }
+  .vd-thumbs button:hover img, .vd-thumbs button.on img { filter: none; }
+  .vd-thumbs button.on { outline-color: var(--orange); }
+  .vd-thumbs button:focus-visible { outline-color: var(--navy); }
+
+  /* ===== E · Faixa de cartões deslizante ===== */
+  .ve-sec { background: var(--bg); }
+  .ve-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 12px; scrollbar-width: thin; }
+  .ve-card { flex: 0 0 min(440px, 80vw); scroll-snap-align: start; }
+  .ve-photo { aspect-ratio: 4 / 5; overflow: hidden; border-radius: 10px; background: var(--deep); }
+  .ve-photo img { width: 100%; height: 100%; object-fit: cover; transition: scale .5s ease; }
+  .ve-card:hover .ve-photo img { scale: 1.04; }
+  .ve-meta { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; padding: 18px 2px 0; }
+  .ve-n { grid-row: span 2; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 28px; font-weight: 800; color: var(--orange); line-height: 1; }
+  .ve-meta b { font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 24px; line-height: 1.1; }
+  .ve-meta p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+
+  /* ===== F · Faixas que se abrem na vertical ===== */
+  .vf { border-top: 1px solid var(--line); }
+  .vf-row { position: relative; display: block; height: 92px; overflow: hidden; border-bottom: 1px solid var(--line); cursor: pointer; transition: height .6s cubic-bezier(.22,1,.36,1); }
+  .vf-row img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s ease; }
+  .vf-row::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,26,32,.85), rgba(7,26,32,.25)); opacity: 0; transition: opacity .5s ease; }
+  .vf-in { position: relative; z-index: 1; display: grid; grid-template-columns: 70px 1fr auto; align-items: center; gap: 20px; height: 92px; padding: 0 8px; }
+  .vf-n { font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 20px; font-weight: 700; color: #9aaab1; transition: color .3s ease; }
+  .vf-in b { font-family: Archivo, sans-serif; font-stretch: 82%; font-size: clamp(26px, 2.6vw, 40px); line-height: 1; transition: color .3s ease; }
+  .vf-cat { color: var(--muted); font-size: 14px; transition: color .3s ease; }
+  .vf-desc { position: relative; z-index: 1; max-width: 46ch; margin: 0 0 0 98px; color: #e1ebee; font-size: 17px; line-height: 1.5; opacity: 0; transform: translateY(8px); transition: opacity .4s ease .15s, transform .4s ease .15s; }
+  .vf-row.on, .vf-row:hover, .vf-row:focus-within { height: 360px; }
+  .vf:hover .vf-row.on:not(:hover) { height: 92px; }
+  .vf-row.on img, .vf-row:hover img, .vf-row.on::after, .vf-row:hover::after { opacity: 1; }
+  .vf:hover .vf-row.on:not(:hover) img, .vf:hover .vf-row.on:not(:hover)::after { opacity: 0; }
+  .vf-row.on .vf-in *, .vf-row:hover .vf-in * { color: #fff; }
+  .vf-row.on .vf-n, .vf-row:hover .vf-n { color: var(--orange); }
+  .vf:hover .vf-row.on:not(:hover) .vf-in b { color: var(--navy); }
+  .vf:hover .vf-row.on:not(:hover) .vf-n { color: #9aaab1; }
+  .vf:hover .vf-row.on:not(:hover) .vf-cat { color: var(--muted); }
+  .vf-row.on .vf-desc, .vf-row:hover .vf-desc { opacity: 1; transform: none; }
+  .vf:hover .vf-row.on:not(:hover) .vf-desc { opacity: 0; }
+
+  @media (max-width: 900px) {
+    .vd-stage { aspect-ratio: 4 / 3; }
+    .vd-cap { padding: 60px 18px 18px; }
+    .vd-count { display: none; }
+    .vd-thumbs { grid-template-columns: repeat(3, 1fr); }
+    .head { flex-direction: column; align-items: start; }
+    .vf-in { grid-template-columns: 44px 1fr; }
+    .vf-cat { display: none; }
+    .vf-desc { margin-left: 72px; font-size: 15px; }
+    .vf-row.on, .vf-row:hover, .vf-row:focus-within { height: 300px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<div class="label">Variação D · <span>Foto em destaque + miniaturas</span>: clique numa miniatura para trocar a foto grande.</div>
+<section>
+  <div class="wrap">
+    <h2>A operação por dentro</h2>
+    <p class="intro">Seis momentos do dia a dia no terminal e na estrada.</p>
+    <div class="vd-stage" data-vd-stage><div class="vd-cap"><div><small data-vd-cat></small><b data-vd-title></b><p data-vd-desc></p></div><span class="vd-count" data-vd-count></span></div></div>
+    <div class="vd-thumbs" data-vd-thumbs></div>
+  </div>
+</section>
+
+<div class="label">Variação E · <span>Faixa de cartões deslizante</span>: arraste para o lado ou use as setas.</div>
+<section class="ve-sec">
+  <div class="wrap">
+    <div class="head"><div><h2>A operação por dentro</h2><p class="intro">Arraste para ver as seis operações.</p></div><div class="arrows"><button type="button" data-ve-prev aria-label="Anterior">←</button><button type="button" data-ve-next aria-label="Próxima">→</button></div></div>
+    <div class="ve-track" data-ve></div>
+  </div>
+</section>
+
+<div class="label">Variação F · <span>Faixas que se abrem na vertical</span>: passe o mouse sobre cada linha para abrir a foto.</div>
+<section>
+  <div class="wrap">
+    <h2>A operação por dentro</h2>
+    <p class="intro">Passe o mouse sobre cada operação.</p>
+    <div class="vf" data-vf></div>
+  </div>
+</section>
+
+<script>
+const ops = [
+  ['Transporte de bobinas', 'Transporte de cargas', 'Bobinas de aço em carretas adequadas à carga, com rastreamento e seguro.', 'transporte-bobinas-1280.webp'],
+  ['Depot de contêineres', 'Estrutura do terminal', 'Área para armazenagem e posicionamento de contêineres vazios no terminal.', 'depot-conteineres-1080.webp'],
+  ['Armazenagem de granéis', 'Armazenagem', 'Carga a granel em galpão coberto, como parte dos serviços do terminal.', 'armazem-granel-900.webp'],
+  ['Carregamento de contêiner', 'Movimentação no terminal', 'Preparação e carregamento de cargas paletizadas com empilhadeiras próprias.', 'container-carga-803.webp'],
+  ['Amplo armazém fechado', 'Estrutura do terminal', 'Espaço coberto para armazenagem e atendimento das cargas.', 'armazem-noturno-950.webp'],
+  ['Carregamentos portuários', 'Operações portuárias', 'Atendimento a operações de carregamento ligadas ao porto.', 'carregamento-portuario-950.webp']
+];
+const src = f => '/assets/img/' + f;
+const pad = i => String(i + 1).padStart(2, '0');
+
+// D
+const stage = document.querySelector('[data-vd-stage]'), thumbs = document.querySelector('[data-vd-thumbs]');
+const set = (sel, v) => { document.querySelector(sel).textContent = v; };
+ops.forEach(([t, c, d, f], i) => {
+  const img = new Image(); img.src = src(f); img.alt = t; stage.prepend(img);
+  const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Mostrar: ' + t);
+  b.innerHTML = `<img src="${src(f)}" alt="">`;
+  b.addEventListener('click', () => {
+    thumbs.querySelectorAll('button').forEach((x, j) => x.classList.toggle('on', j === i));
+    stage.querySelectorAll(':scope > img').forEach(im => im.classList.toggle('on', im.alt === t));
+    set('[data-vd-cat]', c); set('[data-vd-title]', t); set('[data-vd-desc]', d); set('[data-vd-count]', pad(i) + ' / 06');
+  });
+  thumbs.append(b);
+});
+thumbs.querySelector('button').click();
+
+// E
+const track = document.querySelector('[data-ve]');
+ops.forEach(([t, c, d, f], i) => track.insertAdjacentHTML('beforeend', `<article class="ve-card"><div class="ve-photo"><img src="${src(f)}" alt="${t}"></div><div class="ve-meta"><span class="ve-n">${pad(i)}</span><b>${t}</b><p>${d}</p></div></article>`));
+const step = () => track.querySelector('.ve-card').offsetWidth + 20;
+document.querySelector('[data-ve-prev]').onclick = () => track.scrollBy({ left: -step() });
+document.querySelector('[data-ve-next]').onclick = () => track.scrollBy({ left: step() });
+
+// F
+const vf = document.querySelector('[data-vf]');
+ops.forEach(([t, c, d, f], i) => vf.insertAdjacentHTML('beforeend', `<div class="vf-row${i === 0 ? ' on' : ''}" tabindex="0"><img src="${src(f)}" alt=""><div class="vf-in"><span class="vf-n">${pad(i)}</span><b>${t}</b><span class="vf-cat">${c}</span></div><p class="vf-desc">${d}</p></div>`));
+</script>
+</body>
+</html>
