@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquete · Hero com rota da carga</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #10333d; --deep: #0b262e; --orange: #f0800f; --ink: #e8f0f2; --muted: #b9cdd3; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, sans-serif; background: var(--deep); color: var(--ink); }
+  header { position: absolute; inset: 0 0 auto; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 18px 4vw; background: rgba(255,255,255,.96); }
+  header img { height: 64px; }
+  header nav { display: flex; gap: 32px; color: var(--navy); font-weight: 600; font-size: 16px; }
+  header a.cta { padding: 12px 20px; border-radius: 6px; background: var(--orange); color: var(--deep); font-weight: 700; text-decoration: none; }
+
+  .hero { position: relative; min-height: 100vh; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: center; gap: 48px; padding: 140px 4vw 72px; overflow: hidden; isolation: isolate; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: url(/assets/img/transporte-conteiner-carreta-1600.webp) center 55% / cover; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(7,26,32,.94) 0%, rgba(7,26,32,.78) 45%, rgba(7,26,32,.35) 100%); }
+
+  .pill { display: inline-flex; gap: 8px; align-items: center; padding: 6px 12px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; font-size: 13px; color: var(--muted); }
+  h1 { margin: 22px 0 20px; font-family: Archivo, sans-serif; font-stretch: 82%; font-weight: 800; font-size: clamp(48px, 5vw, 84px); line-height: 1; letter-spacing: -.02em; color: #fff; }
+  h1 span { color: var(--orange); }
+  .lead { max-width: 52ch; margin: 0 0 32px; font-size: 19px; line-height: 1.6; color: var(--muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn { padding: 15px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--orange); color: var(--deep); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,.45); color: #fff; }
+
+  /* Route card: the idea adapted from the 21st "roadmap" hero, drawn with the J.A route. */
+  .route { justify-self: end; width: min(100%, 440px); padding: 28px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: rgba(11,38,46,.72); backdrop-filter: blur(10px); }
+  .route small { display: block; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
+  .route h2 { margin: 6px 0 26px; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 28px; color: #fff; }
+  .track { position: relative; margin: 0; padding: 0 0 0 34px; list-style: none; }
+  .track::before { content: ""; position: absolute; left: 9px; top: 10px; bottom: 10px; width: 2px; background: repeating-linear-gradient(to bottom, rgba(255,255,255,.35) 0 6px, transparent 6px 12px); }
+  .track li { position: relative; padding: 0 0 26px; }
+  .track li:last-child { padding-bottom: 0; }
+  .track li::before { content: ""; position: absolute; left: -34px; top: 4px; width: 20px; height: 20px; border-radius: 50%; background: var(--deep); border: 2px solid rgba(255,255,255,.5); }
+  .track li.hub::before { border-color: var(--orange); background: var(--orange); box-shadow: 0 0 0 6px rgba(240,128,15,.18); }
+  .track strong { display: block; color: #fff; font-size: 17px; }
+  .track span { color: var(--muted); font-size: 14px; }
+  .truck { position: absolute; left: 3px; top: 6px; width: 14px; height: 14px; border-radius: 3px; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.8); animation: drive 3.6s ease-in-out infinite; }
+  @keyframes drive { 0% { top: 6px; } 40% { top: calc(50% - 7px); } 55% { top: calc(50% - 7px); } 100% { top: calc(100% - 20px); } }
+  .route-foot { display: flex; justify-content: space-between; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); font-size: 14px; color: var(--muted); }
+  .route-foot b { color: #fff; }
+  @media (prefers-reduced-motion: reduce) { .truck { animation: none; top: calc(50% - 7px); } }
+  @media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding-top: 120px; } .route { justify-self: stretch; } header nav { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <img src="/assets/logos/logo-jalogistica-240.png" alt="J.A Logística">
+  <nav><span>Diferenciais</span><span>Sobre</span><span>Serviços</span><span>Contêineres</span><span>Clientes</span><span>Contato</span></nav>
+  <a class="cta" href="#">Solicitar cotação</a>
+</header>
+<section class="hero">
+  <div>
+    <span class="pill">Caucaia (CE) · Nordeste</span>
+    <h1>Transporte de cargas especiais e contêineres <span>no Nordeste.</span></h1>
+    <p class="lead">Sua carga do jeito certo, do início ao fim: frota própria, armazenagem e movimentação no nosso terminal em Caucaia (CE).</p>
+    <div class="actions"><a class="btn btn-primary" href="#">Solicitar cotação</a><a class="btn btn-ghost" href="#">Conheça nossos serviços</a></div>
+  </div>
+  <aside class="route" aria-label="Rota da sua carga">
+    <small>Como sua carga anda com a J.A</small>
+    <h2>Rota da sua carga</h2>
+    <ol class="track">
+      <i class="truck" aria-hidden="true"></i>
+      <li><strong>Coleta</strong><span>Na origem, com frota própria rastreada</span></li>
+      <li class="hub"><strong>Terminal J.A · Caucaia (CE)</strong><span>Armazenagem e movimentação com empilhadeiras de 2,5 e 7 t</span></li>
+      <li><strong>Entrega</strong><span>Nos 9 estados do Nordeste</span></li>
+    </ol>
+    <div class="route-foot"><span><b>+20</b> equipamentos</span><span><b>100%</b> rastreado e segurado</span></div>
+  </aside>
+</section>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquete · Seções inspiradas no 21st</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #10333d; --deep: #0b262e; --orange: #f0800f; --muted: #5f717a; --line: #e2e9ec; --bg: #f5f8f9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, sans-serif; background: #fff; color: var(--navy); }
+  .wrap { width: min(92vw, 1320px); margin: 0 auto; }
+  .tag { display: inline-block; margin-bottom: 14px; padding: 5px 10px; border-radius: 999px; background: #fff3e6; color: #9c4a00; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+  h2 { margin: 0 0 14px; font-family: Archivo, sans-serif; font-stretch: 82%; font-weight: 800; font-size: clamp(36px, 3.4vw, 54px); line-height: 1.02; letter-spacing: -.01em; }
+  .intro { max-width: 56ch; margin: 0 0 36px; color: var(--muted); font-size: 18px; line-height: 1.6; }
+  section { padding: 96px 0; }
+  .btn { display: inline-block; padding: 15px 24px; border-radius: 6px; background: var(--orange); color: var(--deep); font-weight: 700; text-decoration: none; }
+
+  /* A · Hover-expand gallery (from 21st "Hover Expand Gallery"), with J.A operations. */
+  .expand { display: flex; gap: 10px; height: 520px; }
+  .panel { position: relative; flex: 1; min-width: 0; overflow: hidden; border-radius: 10px; background: var(--deep); cursor: pointer; transition: flex .55s cubic-bezier(.22,1,.36,1); }
+  .panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55); transition: filter .4s ease; }
+  .panel .v { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%) rotate(180deg); writing-mode: vertical-rl; color: #fff; font-weight: 700; font-size: 17px; white-space: nowrap; transition: opacity .3s ease; }
+  .panel .info { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px; color: #fff; opacity: 0; transform: translateY(10px); transition: opacity .35s ease .1s, transform .35s ease .1s; background: linear-gradient(transparent, rgba(7,26,32,.9)); }
+  .panel .info h3 { margin: 0 0 6px; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 30px; }
+  .panel .info p { margin: 0; max-width: 42ch; color: #d1e0e5; font-size: 15px; line-height: 1.5; }
+  .panel:hover, .panel:focus-within, .panel.open { flex: 5; }
+  .expand:hover .panel.open:not(:hover) { flex: 1; }
+  .panel:hover img, .panel.open img { filter: brightness(.85); }
+  .expand:hover .panel.open:not(:hover) img { filter: brightness(.55); }
+  .panel:hover .v, .panel.open .v { opacity: 0; }
+  .expand:hover .panel.open:not(:hover) .v { opacity: 1; }
+  .panel:hover .info, .panel.open .info { opacity: 1; transform: none; }
+  .expand:hover .panel.open:not(:hover) .info { opacity: 0; }
+
+  /* B · CTA with staggered photo collage (from 21st "CTA section with gallery"). */
+  .cta { background: var(--bg); }
+  .cta .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 64px; align-items: center; }
+  .collage { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; height: 520px; overflow: hidden; }
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  .col:nth-child(2) { margin-top: 64px; }
+  .col:nth-child(3) { margin-top: 24px; }
+  .col img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; }
+  .points { margin: 0 0 32px; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .points li { display: flex; gap: 10px; align-items: baseline; font-size: 16px; }
+  .points li::before { content: ""; width: 8px; height: 8px; flex: none; border-radius: 2px; background: var(--orange); transform: translateY(-1px); }
+
+  /* C · Centred testimonial (from 21st "Centered Testimonial"); quote is a placeholder until the client sends a real one. */
+  .quote { text-align: center; }
+  .logo-slot { display: inline-grid; place-items: center; width: 180px; height: 56px; margin-bottom: 28px; border: 1px dashed #b9cbd2; border-radius: 8px; color: var(--muted); font-size: 13px; }
+  blockquote { max-width: 30ch; margin: 0 auto 28px; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: clamp(30px, 3vw, 46px); line-height: 1.15; }
+  blockquote mark { background: #fff3e6; color: #9c4a00; padding: 0 6px; border-radius: 4px; }
+  .who { color: var(--muted); font-size: 15px; }
+  .who b { display: block; color: var(--navy); font-size: 17px; }
+  .note { display: inline-block; margin-top: 28px; padding: 8px 12px; border-radius: 6px; background: #fff3e6; color: #9c4a00; font-size: 13px; font-weight: 600; }
+
+  .label { padding: 10px 4vw; background: var(--deep); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .03em; }
+  @media (max-width: 900px) {
+    .expand { flex-direction: column; height: 760px; }
+    .panel .v { writing-mode: horizontal-tb; transform: translateX(-50%); bottom: 50%; }
+    .cta .wrap { grid-template-columns: 1fr; }
+    .collage { height: 380px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .panel, .panel img, .panel .info { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="label">A · Galeria que expande (21st "Hover Expand Gallery") · para "A operação por dentro" ou "Setores"</div>
+<section>
+  <div class="wrap">
+    <h2>A operação por dentro</h2>
+    <p class="intro">Passe o mouse sobre cada faixa para abrir a foto.</p>
+    <div class="expand">
+      <div class="panel open" tabindex="0"><img src="/assets/img/transporte-bobinas-1280.webp" alt=""><span class="v">Transporte de bobinas</span><div class="info"><h3>Transporte de bobinas</h3><p>Bobinas de aço em carretas adequadas à carga, com rastreamento e seguro.</p></div></div>
+      <div class="panel" tabindex="0"><img src="/assets/img/depot-conteineres-1080.webp" alt=""><span class="v">Depot de contêineres</span><div class="info"><h3>Depot de contêineres</h3><p>Área para armazenagem e posicionamento de contêineres vazios no terminal.</p></div></div>
+      <div class="panel" tabindex="0"><img src="/assets/img/armazem-granel-900.webp" alt=""><span class="v">Armazenagem de granéis</span><div class="info"><h3>Armazenagem de granéis</h3><p>Carga a granel em galpão coberto, como parte dos serviços do terminal.</p></div></div>
+      <div class="panel" tabindex="0"><img src="/assets/img/container-carga-803.webp" alt=""><span class="v">Carregamento de contêiner</span><div class="info"><h3>Carregamento de contêiner</h3><p>Preparação e carregamento de cargas paletizadas com empilhadeiras próprias.</p></div></div>
+      <div class="panel" tabindex="0"><img src="/assets/img/armazem-noturno-950.webp" alt=""><span class="v">Armazém fechado</span><div class="info"><h3>Amplo armazém fechado</h3><p>Espaço coberto para armazenagem e atendimento das cargas.</p></div></div>
+      <div class="panel" tabindex="0"><img src="/assets/img/carregamento-portuario-950.webp" alt=""><span class="v">Carregamentos portuários</span><div class="info"><h3>Carregamentos portuários</h3><p>Atendimento a operações de carregamento ligadas ao porto.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="label">B · Chamada com mosaico de fotos (21st "CTA section with gallery") · no lugar da faixa final de cotação</div>
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <span class="tag">Cotação pelo WhatsApp</span>
+      <h2>Tem uma carga para levar ou guardar?</h2>
+      <p class="intro">Conte o que precisa e o comercial responde pelo WhatsApp com a viabilidade e as condições.</p>
+      <ul class="points"><li>Frota própria rastreada e segurada</li><li>Terminal com armazém coberto e depot de contêineres</li><li>Atendimento nos 9 estados do Nordeste</li></ul>
+      <a class="btn" href="#">Solicitar cotação</a>
+    </div>
+    <div class="collage">
+      <div class="col"><img src="/assets/img/transporte-conteiner-carreta-1280.webp" alt=""><img src="/assets/img/armazenagem-big-bags-1280.webp" alt=""></div>
+      <div class="col"><img src="/assets/img/depot-conteineres-1080.webp" alt=""><img src="/assets/img/transporte-bobinas-1280.webp" alt=""></div>
+      <div class="col"><img src="/assets/img/container-carga-803.webp" alt=""><img src="/assets/img/carregamento-portuario-950.webp" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<div class="label">C · Depoimento em destaque (21st "Centered Testimonial") · entra quando o cliente enviar uma frase real</div>
+<section class="quote">
+  <div class="wrap">
+    <div class="logo-slot">Logo da empresa cliente</div>
+    <blockquote>"<mark>Aqui entra a frase real</mark> de um cliente da J.A, com autorização para publicar."</blockquote>
+    <div class="who"><b>Nome do contato</b>Cargo · Empresa</div>
+    <span class="note">Exemplo: nenhum depoimento foi inventado</span>
+  </div>
+</section>
+</body>
+</html>

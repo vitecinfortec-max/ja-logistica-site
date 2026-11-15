@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquete · Hero bento com fotos reais</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #10333d; --deep: #0b262e; --orange: #f0800f; --muted: #5f717a; --line: #e2e9ec; --bg: #f5f8f9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, sans-serif; background: var(--bg); color: var(--navy); }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 4vw; background: #fff; border-bottom: 1px solid var(--line); }
+  header img { height: 64px; }
+  header nav { display: flex; gap: 32px; font-weight: 600; font-size: 16px; }
+  .cta { padding: 12px 20px; border-radius: 6px; background: var(--orange); color: var(--deep); font-weight: 700; text-decoration: none; }
+
+  .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; min-height: calc(100vh - 101px); padding: 56px 4vw; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; font-weight: 600; }
+  .kicker i { width: 8px; height: 8px; border-radius: 50%; background: #1fa463; box-shadow: 0 0 0 4px rgba(31,164,99,.15); }
+  h1 { margin: 18px 0 20px; font-family: Archivo, sans-serif; font-stretch: 82%; font-weight: 800; font-size: clamp(46px, 4.6vw, 78px); line-height: 1; letter-spacing: -.02em; }
+  h1 span { color: var(--orange); }
+  .lead { max-width: 46ch; margin: 0 0 32px; font-size: 19px; line-height: 1.6; color: var(--muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn { padding: 15px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--orange); color: var(--deep); }
+  .btn-ghost { border: 1px solid #b9cbd2; color: var(--navy); }
+  .trust { display: flex; gap: 28px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  .trust b { display: block; color: var(--navy); font-size: 15px; }
+
+  /* Bento: idea adapted from the 21st "bento grid hero with metric cards", filled with J.A photographs. */
+  .bento { display: grid; grid-template-columns: 1.25fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; height: min(72vh, 640px); }
+  .tile { position: relative; margin: 0; overflow: hidden; border-radius: 10px; background: var(--deep); }
+  .tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: scale .5s ease; }
+  .tile:hover img { scale: 1.03; }
+  .tile figcaption { position: absolute; left: 14px; bottom: 14px; padding: 7px 11px; border-radius: 6px; background: rgba(255,255,255,.92); color: var(--navy); font-size: 13px; font-weight: 700; }
+  .t-fleet { grid-column: 1; grid-row: 1 / span 2; }
+  .t-depot { grid-column: 2 / span 2; grid-row: 1; }
+  .t-ware { grid-column: 2; grid-row: 2; }
+  .metric { grid-column: 3; grid-row: 2; display: flex; flex-direction: column; justify-content: space-between; padding: 22px; border-radius: 10px; background: var(--navy); color: #fff; }
+  .metric strong { font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 64px; line-height: .9; }
+  .metric span { color: #d1e0e5; font-size: 14px; line-height: 1.4; }
+  .live { display: inline-flex; align-items: center; gap: 6px; color: #8fe0b5 !important; font-size: 12px !important; font-weight: 600; }
+  .live i { width: 7px; height: 7px; border-radius: 50%; background: #2fd07f; animation: pulse 2.8s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+  @media (prefers-reduced-motion: reduce) { .live i { animation: none; } .tile img { transition: none; } }
+  @media (max-width: 980px) {
+    header nav { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: 0; }
+    .bento { height: auto; grid-template-columns: 1fr 1fr; grid-template-rows: 220px 160px 160px; }
+    .t-fleet { grid-column: 1 / span 2; grid-row: 1; }
+    .t-depot { grid-column: 1; grid-row: 2; }
+    .t-ware { grid-column: 2; grid-row: 2; }
+    .metric { grid-column: 1 / span 2; grid-row: 3; }
+    .metric strong { font-size: 48px; }
+    .trust { flex-wrap: wrap; gap: 16px 24px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <img src="/assets/logos/logo-jalogistica-240.png" alt="J.A Logística">
+  <nav><span>Diferenciais</span><span>Sobre</span><span>Serviços</span><span>Contêineres</span><span>Clientes</span><span>Contato</span></nav>
+  <a class="cta" href="#">Solicitar cotação</a>
+</header>
+<section class="hero">
+  <div>
+    <span class="kicker"><i></i>Terminal próprio em Caucaia (CE)</span>
+    <h1>Transporte de cargas especiais e contêineres <span>no Nordeste.</span></h1>
+    <p class="lead">Frota própria, armazenagem e movimentação de cargas com a mesma equipe, do pátio do terminal ao destino.</p>
+    <div class="actions"><a class="btn btn-primary" href="#">Solicitar cotação</a><a class="btn btn-ghost" href="#">Conheça nossos serviços</a></div>
+    <div class="trust"><span><b>+3.000</b>serviços realizados</span><span><b>100%</b>rastreado e segurado</span><span><b>2,5 e 7 t</b>empilhadeiras próprias</span></div>
+  </div>
+  <div class="bento">
+    <figure class="tile t-fleet"><img src="/assets/img/transporte-conteiner-carreta-1280.webp" alt="Carreta da J.A com contêiner"><figcaption>Frota própria</figcaption></figure>
+    <figure class="tile t-depot"><img src="/assets/img/depot-conteineres-1080.webp" alt="Contêineres empilhados no pátio"><figcaption>Depot de contêineres</figcaption></figure>
+    <figure class="tile t-ware"><img src="/assets/img/armazenagem-big-bags-1280.webp" alt="Armazém coberto com big bags"><figcaption>Armazém coberto</figcaption></figure>
+    <div class="metric"><span class="live"><i></i>Frota rastreada</span><strong>+20</strong><span>equipamentos na frota, entre cavalos, carretas e porta-contêineres</span></div>
+  </div>
+</section>
+</body>
+</html>
