@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maquete · 3 variações da galeria</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #10333d; --deep: #0b262e; --orange: #f0800f; --muted: #5f717a; --line: #e2e9ec; --bg: #f5f8f9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, sans-serif; color: var(--navy); background: #fff; }
+  .wrap { width: min(92vw, 1320px); margin: 0 auto; }
+  section { padding: 88px 0; }
+  h2 { margin: 0 0 10px; font-family: Archivo, sans-serif; font-stretch: 82%; font-weight: 800; font-size: clamp(34px, 3.2vw, 52px); line-height: 1.02; }
+  .intro { margin: 0 0 36px; color: var(--muted); font-size: 17px; }
+  .label { padding: 12px 4vw; background: var(--deep); color: #fff; font-size: 14px; font-weight: 700; }
+  .label span { color: #ffbf7b; }
+  img { display: block; }
+
+  /* ===== A · Lista + foto grande ===== */
+  .va { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: stretch; }
+  .va-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .va-list button { all: unset; box-sizing: border-box; display: grid; grid-template-columns: 48px 1fr auto; align-items: center; gap: 12px; width: 100%; padding: 20px 4px; border-bottom: 1px solid var(--line); cursor: pointer; transition: padding .3s ease, color .3s ease; }
+  .va-list .n { color: #9aaab1; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 18px; font-weight: 700; }
+  .va-list b { display: block; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 24px; line-height: 1.15; }
+  .va-list small { color: var(--muted); font-size: 13px; }
+  .va-list .arrow { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line); color: var(--muted); transition: all .3s ease; }
+  .va-list button.on, .va-list button:hover, .va-list button:focus-visible { padding-left: 14px; }
+  .va-list button.on .n { color: var(--orange); }
+  .va-list button.on .arrow { background: var(--orange); border-color: var(--orange); color: var(--deep); }
+  .va-list button:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+  .va-stage { position: relative; min-height: 560px; border-radius: 10px; overflow: hidden; background: var(--deep); }
+  .va-stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; scale: 1.04; transition: opacity .6s ease, scale 1.2s ease; }
+  .va-stage img.on { opacity: 1; scale: 1; }
+  .va-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 72px 32px 28px; background: linear-gradient(transparent, rgba(7,26,32,.92)); color: #fff; }
+  .va-cap small { color: #ffbf7b; font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+  .va-cap p { max-width: 46ch; margin: 6px 0 0; color: #e1ebee; font-size: 17px; line-height: 1.5; }
+
+  /* ===== B · Cartões que expandem (fundo escuro, texto na horizontal) ===== */
+  .vb-sec { background: var(--deep); color: #fff; }
+  .vb-sec h2 { color: #fff; }
+  .vb-sec .intro { color: #b9cdd3; }
+  .vb { display: flex; gap: 12px; height: 540px; }
+  .vb-card { position: relative; flex: 1; min-width: 0; overflow: hidden; border-radius: 10px; cursor: pointer; transition: flex .6s cubic-bezier(.22,1,.36,1); }
+  .vb-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) brightness(.6); transition: filter .5s ease; }
+  .vb-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(7,26,32,.92)); }
+  .vb-txt { position: absolute; z-index: 1; left: 20px; right: 20px; bottom: 22px; }
+  .vb-n { display: inline-grid; place-items: center; width: 34px; height: 34px; margin-bottom: 12px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); font-size: 13px; font-weight: 700; transition: all .4s ease; }
+  .vb-txt b { display: block; font-family: Archivo, sans-serif; font-stretch: 82%; font-size: 20px; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .vb-txt p { max-width: 44ch; max-height: 0; margin: 0; overflow: hidden; color: #d1e0e5; font-size: 15px; line-height: 1.5; opacity: 0; transition: max-height .5s ease, opacity .4s ease, margin .4s ease; }
+  .vb-card.on, .vb-card:hover, .vb-card:focus-within { flex: 4; }
+  .vb:hover .vb-card.on:not(:hover) { flex: 1; }
+  .vb-card.on img, .vb-card:hover img { filter: none; }
+  .vb:hover .vb-card.on:not(:hover) img { filter: saturate(.8) brightness(.6); }
+  .vb-card.on .vb-n, .vb-card:hover .vb-n { background: var(--orange); border-color: var(--orange); color: var(--deep); }
+  .vb:hover .vb-card.on:not(:hover) .vb-n { background: none; border-color: rgba(255,255,255,.5); color: #fff; }
+  .vb-txt b { opacity: 0; transition: opacity .3s ease; }
+  .vb-card.on .vb-txt b, .vb-card:hover .vb-txt b { opacity: 1; font-size: 30px; white-space: normal; }
+  .vb:hover .vb-card.on:not(:hover) .vb-txt b { opacity: 0; font-size: 20px; white-space: nowrap; }
+  .vb-card.on .vb-txt p, .vb-card:hover .vb-txt p { max-height: 120px; margin-top: 8px; opacity: 1; }
+  .vb:hover .vb-card.on:not(:hover) .vb-txt p { max-height: 0; margin-top: 0; opacity: 0; }
+
+  /* ===== C · Grade que se expande ===== */
+  .vc { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 12px; transition: grid-template-columns .6s cubic-bezier(.22,1,.36,1), grid-template-rows .6s cubic-bezier(.22,1,.36,1); }
+  .vc:has(.vc-t:nth-child(3n+1):hover) { grid-template-columns: 1.8fr 1fr 1fr; }
+  .vc:has(.vc-t:nth-child(3n+2):hover) { grid-template-columns: 1fr 1.8fr 1fr; }
+  .vc:has(.vc-t:nth-child(3n):hover) { grid-template-columns: 1fr 1fr 1.8fr; }
+  .vc:has(.vc-t:nth-child(-n+3):hover) { grid-template-rows: 380px 220px; }
+  .vc:has(.vc-t:nth-child(n+4):hover) { grid-template-rows: 220px 380px; }
+  .vc-t { position: relative; overflow: hidden; border-radius: 10px; background: var(--deep); }
+  .vc-t img { width: 100%; height: 100%; object-fit: cover; transition: scale .6s ease; }
+  .vc-t:hover img { scale: 1.04; }
+  .vc-t div { position: absolute; left: 14px; bottom: 14px; right: 14px; display: flex; justify-content: space-between; align-items: end; gap: 12px; }
+  .vc-t b { flex: none; padding: 8px 12px; border-radius: 6px; background: rgba(255,255,255,.94); font-size: 15px; white-space: nowrap; }
+  .vc-t p { max-width: 34ch; margin: 0; padding: 10px 12px; border-radius: 6px; background: rgba(11,38,46,.88); color: #e1ebee; font-size: 13px; line-height: 1.45; opacity: 0; transform: translateY(8px); transition: all .35s ease .1s; }
+  .vc-t:hover p { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .va { grid-template-columns: 1fr; }
+    .va-stage { min-height: 320px; order: -1; }
+    .vb { height: auto; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+    .vb-card, .vb-card.on, .vb-card:hover { flex: 0 0 82%; height: 420px; scroll-snap-align: start; }
+    .vb-card img { filter: none; }
+    .vb-card .vb-txt b { opacity: 1; font-size: 26px; white-space: normal; }
+    .vb-card .vb-txt p { max-height: 120px; margin-top: 8px; opacity: 1; }
+    .vc { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: 200px; }
+    .vc:has(.vc-t:hover) { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+    .vc-t p { display: none; }
+    .vc-t b { white-space: normal; font-size: 13px; padding: 6px 9px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="label">Variação A · <span>Lista + foto grande</span>: passe o mouse ou clique em cada operação; a foto troca à direita.</div>
+<section>
+  <div class="wrap">
+    <h2>A operação por dentro</h2>
+    <p class="intro">Seis momentos do dia a dia no terminal e na estrada.</p>
+    <div class="va">
+      <ul class="va-list" data-va-list></ul>
+      <div class="va-stage" data-va-stage><div class="va-cap"><small data-va-cat></small><p data-va-desc></p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="label">Variação B · <span>Cartões que expandem</span>: fundo escuro; as faixas fechadas mostram o número e a aberta mostra título e descrição. No celular vira carrossel de arrastar.</div>
+<section class="vb-sec">
+  <div class="wrap">
+    <h2>A operação por dentro</h2>
+    <p class="intro">Passe o mouse sobre cada cartão.</p>
+    <div class="vb" data-vb></div>
+  </div>
+</section>
+
+<div class="label">Variação C · <span>Grade que se expande</span>: todas as fotos visíveis; a que está sob o mouse cresce e mostra a descrição.</div>
+<section>
+  <div class="wrap">
+    <h2>A operação por dentro</h2>
+    <p class="intro">Passe o mouse sobre cada foto.</p>
+    <div class="vc" data-vc></div>
+  </div>
+</section>
+
+<script>
+const ops = [
+  ['Transporte de bobinas', 'Transporte de cargas', 'Bobinas de aço em carretas adequadas à carga, com rastreamento e seguro.', 'transporte-bobinas-1280.webp'],
+  ['Depot de contêineres', 'Estrutura do terminal', 'Área para armazenagem e posicionamento de contêineres vazios no terminal.', 'depot-conteineres-1080.webp'],
+  ['Armazenagem de granéis', 'Armazenagem', 'Carga a granel em galpão coberto, como parte dos serviços do terminal.', 'armazem-granel-900.webp'],
+  ['Carregamento de contêiner', 'Movimentação no terminal', 'Preparação e carregamento de cargas paletizadas com empilhadeiras próprias.', 'container-carga-803.webp'],
+  ['Amplo armazém fechado', 'Estrutura do terminal', 'Espaço coberto para armazenagem e atendimento das cargas.', 'armazem-noturno-950.webp'],
+  ['Carregamentos portuários', 'Operações portuárias', 'Atendimento a operações de carregamento ligadas ao porto.', 'carregamento-portuario-950.webp']
+];
+const src = f => '/assets/img/' + f;
+const pad = i => String(i + 1).padStart(2, '0');
+
+// A
+const list = document.querySelector('[data-va-list]'), stage = document.querySelector('[data-va-stage]');
+const cat = document.querySelector('[data-va-cat]'), desc = document.querySelector('[data-va-desc]');
+ops.forEach(([t, c, d, f], i) => {
+  const img = new Image(); img.src = src(f); img.alt = t; stage.prepend(img);
+  const li = document.createElement('li');
+  li.innerHTML = `<button type="button"><span class="n">${pad(i)}</span><span><b>${t}</b><small>${c}</small></span><span class="arrow" aria-hidden="true">→</span></button>`;
+  const show = () => {
+    list.querySelectorAll('button').forEach((b, j) => b.classList.toggle('on', j === i));
+    stage.querySelectorAll('img').forEach(im => im.classList.toggle('on', im.alt === t));
+    cat.textContent = c; desc.textContent = d;
+  };
+  li.firstChild.addEventListener('mouseenter', show); li.firstChild.addEventListener('focus', show); li.firstChild.addEventListener('click', show);
+  list.append(li);
+});
+list.querySelector('button').dispatchEvent(new Event('click'));
+
+// B
+const vb = document.querySelector('[data-vb]');
+ops.forEach(([t, c, d, f], i) => {
+  vb.insertAdjacentHTML('beforeend', `<div class="vb-card${i === 0 ? ' on' : ''}" tabindex="0"><img src="${src(f)}" alt=""><div class="vb-txt"><span class="vb-n">${pad(i)}</span><b>${t}</b><p>${d}</p></div></div>`);
+});
+
+// C
+const vc = document.querySelector('[data-vc]');
+ops.forEach(([t, c, d, f]) => {
+  vc.insertAdjacentHTML('beforeend', `<div class="vc-t"><img src="${src(f)}" alt="${t}"><div><b>${t}</b><p>${d}</p></div></div>`);
+});
+</script>
+</body>
+</html>
