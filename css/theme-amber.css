@@ -1,0 +1,43 @@
+/* Theme layer: "Amber Hearth" from 21st.dev (serafimcloud), adapted to the J.A site.
+ * Loaded after refresh.css. Remove its <link> in index.html (and run the page generator) to go back.
+ * Amber replaces the brand orange; the dark teal grounds stay, close to the theme's #527575 secondary. */
+
+/* Outfit is narrower than Arial; the fallback keeps heading line breaks while it loads. */
+@font-face { font-family: "Outfit Fallback"; src: local("Arial"), local("Helvetica"); size-adjust: 96%; }
+
+:root {
+  --font-display: 'Outfit', 'Outfit Fallback', sans-serif;
+  --font-body: 'Outfit', 'Outfit Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Amber family: strong, hover, mid, light, lighter. */
+  --orange: #d87943;
+  --orange-dark: #b9622f;
+  --orange-a55: rgba(216, 121, 67, 0.55);
+  --orange-a60: rgba(216, 121, 67, 0.6);
+  --orange-a65: rgba(216, 121, 67, 0.65);
+  --orange-a80: rgba(216, 121, 67, 0.8);
+  --c-cf780c: #d87943; --c-d77b0a: #d87943; --c-ed8916: #d87943; --c-f18a15: #d87943; --c-f78a0a: #d87943; --c-f88709: #d87943;
+  --c-ff9b2b: #e78a53; --c-ff9b38: #e78a53; --c-ff9c38: #e78a53; --c-ffa135: #e78a53; --c-ffa33f: #e78a53; --c-ffab55: #e78a53;
+  --c-ff9b2b-a19: rgba(231, 138, 83, 0.19);
+  --c-ffb256: #eda274; --c-ffb25d: #eda274; --c-ffb35d: #eda274;
+  --c-ffb25d-a12: rgba(237, 162, 116, 0.12); --c-ffb35d-a09: rgba(237, 162, 116, 0.09); --c-ffb35d-a25: rgba(237, 162, 116, 0.25);
+  --c-ffbf7b: #f2b993; --c-ffca90: #f5c7a8; --c-ffcb90: #f5c7a8;
+  --c-ffbf7b-a12: rgba(242, 185, 147, 0.12);
+
+  --ink: #111827;
+  --theme-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+body { color: var(--ink); }
+h1, h2, h3, h4, .section-title, .hero-title, .stat-number { font-stretch: normal; letter-spacing: -0.015em; }
+.hero-title { line-height: 1.04; }
+
+/* Theme radius: 12px cards, 10px buttons and photos, soft single shadow. */
+.service-card > picture, .gallery-grid picture, .gallery-grid .gallery-open, .about-photo, .quote-photo,
+.service-photo picture, .service-carousel-stage, .services-menu-card img, .sectors-grid li { border-radius: 10px; }
+.contact-card, .contact-terminal, .faq-list details, .quote-intro, .quote-form, .quote-preview, .quote-person,
+.container-sales, .coverage-explorer, .coverage-details, .resource-card, .client-logo, .service-photo,
+.service-capability, .container-showcase, .services-menu, .services-menu-card { border-radius: 12px; box-shadow: var(--theme-shadow); }
+.btn, .hero-ctas .btn, .service-quote, .service-primary, .container-sales-whatsapp, .container-preview-trigger,
+.coverage-quote, .quote-submit, .quote-direct, .directions-link, .resource-download, .header-quote,
+.gallery-filter, [data-coverage-select] { border-radius: 10px; }
