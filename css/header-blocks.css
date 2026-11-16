@@ -1,0 +1,48 @@
+/* Header look adapted from the 21st "header-03" component (React/shadcn), rebuilt in plain CSS:
+ * the logo in a bordered box, menu items as solid dark blocks, a tall quote button with an
+ * up-right arrow, and a full-height menu that slides in from the right on phones.
+ * Loaded after refresh.css and theme-amber.css; remove its <link> to go back. */
+
+/* ---------- Desktop: solid menu blocks ---------- */
+@media (min-width: 1200px) {
+  .site-header { background: rgba(255, 255, 255, .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 0; }
+  .header-inner { height: 92px; gap: 16px; }
+  .brand { height: 64px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); }
+  .brand-logo { height: 54px; }
+  .main-nav { gap: 6px; }
+  .main-nav > a, .main-nav .services-nav-toggle {
+    min-height: 0; height: 56px; padding: 0 22px; border-radius: 10px;
+    background: var(--navy); color: var(--white); font-size: 17px; font-weight: 600;
+    transition: background-color .2s ease, transform .15s ease;
+  }
+  .main-nav > a::after, .main-nav .services-nav-toggle::after { display: none; }
+  .main-nav > a:hover, .main-nav .services-nav-toggle:hover { background: #1d4c5a; }
+  .main-nav > a:active, .main-nav .services-nav-toggle:active { transform: translateY(1px); }
+  .main-nav > a.is-current, .main-nav .services-nav-toggle.is-current,
+  .main-nav .services-nav-toggle[aria-expanded="true"] { background: var(--orange); color: var(--navy-deep); }
+  .main-nav > a:focus-visible, .main-nav .services-nav-toggle:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+  .header-quote { height: 56px; min-height: 0; margin-left: 10px; padding: 0 22px; gap: 10px; border-radius: 10px; font-size: 17px; }
+  .header-quote svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+  .header-quote:hover svg { transform: translate(2px, -2px); }
+}
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .main-nav > a, .main-nav .services-nav-toggle { padding: 0 16px; font-size: 16px; }
+  .header-quote { padding: 0 18px; font-size: 16px; }
+}
+
+/* ---------- Phones: full-height sheet from the right ---------- */
+@media (max-width: 760px) {
+  .main-nav {
+    /* The header's backdrop-filter makes it the containing block, so the sheet takes the screen height explicitly. */
+    position: absolute; top: 100%; left: 0; right: 0; height: calc(100dvh - var(--header-h)); max-height: none;
+    padding: 12px 24px 32px; overflow-y: auto;
+    box-shadow: none; border-top: 1px solid var(--line);
+    transition: transform .35s cubic-bezier(.22, 1, .36, 1), opacity .25s ease, visibility .35s ease;
+  }
+  .js .main-nav:not(.open) { transform: translateX(100%); opacity: 1; }
+  .main-nav > a, .main-nav .services-nav-toggle { min-height: 60px; padding: 16px 0; font-size: 21px; font-weight: 600; }
+  .main-nav > a::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .main-nav, .main-nav > a, .header-quote svg { transition: none; }
+}
